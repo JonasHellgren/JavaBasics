@@ -1,6 +1,6 @@
 ctrl+shift+J    join lines
 ctrl x   cut line
-ctrl x   copy line without highligtning
+ctrl x   copy line without highlighting
 ctrl shift+{up,down}   move line
 ctrl shift+V    show copy history
 ctrl W   select word a caret

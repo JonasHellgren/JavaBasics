@@ -1,30 +1,24 @@
 package codinghomework.tortoise_vs_hare;
 
-public class Hare extends Runner {
+public class Hare extends RunnerAbstract {
 
     public Hare(String name, int posPres, int laneNumber) {
-        super();
-        this.posPres=posPres;
-        this.name=name;
-        this.laneNumber=laneNumber;
-        symbol="H";
-        this.moveDescription=name+"is ready!";
-        allRunners.add(this);
+        super(name,posPres,laneNumber);
+        this.getProps().symbol="H";
     }
 
     @Override
     public void move() {
-        int intForMoveType=getIntForMoveType();
+        int intForMoveType= getNumberForMoveType();
 
         if (intForMoveType >= 1 && intForMoveType <= 20)
-            updateStates(MoveType.SLEEP);
+            Track.updateStates(this,MoveType.SLEEP);
         else if (intForMoveType >= 51 && intForMoveType <= 70)
-            updateStates(MoveType.SLIP);
+            Track.updateStates(this,MoveType.SLIP);
         else if (intForMoveType >= 71 && intForMoveType <= 90)
-            updateStates(MoveType.SMALL_HOP);
+            Track.updateStates(this,MoveType.SMALL_HOP);
         else
-            updateStates(MoveType.BIG_HOP);
-
+            Track.updateStates(this,MoveType.BIG_HOP);
     }
 
 }

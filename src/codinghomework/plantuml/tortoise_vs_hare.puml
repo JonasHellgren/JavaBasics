@@ -1,0 +1,64 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+   class State {
+        public int posPrev;
+        public int posPres; //is in range [0,POS_MAX]
+    }
+
+     class Properties {
+            String name;
+            String symbol;
+            int laneNumber;
+        }
+
+abstract class RunnerAbstract {
+    State state;
+    Properties props;
+
+    void move();
+    int getNumberForMoveType()
+    boolean isWinner(RunnerAbstract runner)
+}
+
+RunnerAbstract +-u- State
+RunnerAbstract +-u- Properties
+
+class Track {
+String[][] tracks;
+
+displayTracks()
+setPresentPositionInTrack(RunnerAbstract runner)
+deletePreviousPositionInTrack(RunnerAbstract runner)
+updateStates(RunnerAbstract runner, int nofSteps)
+}
+
+class Race {
+    Track track;
+    List<RunnerAbstract> runners;
+    boolean isRaceOver;
+    Race();
+    run()
+    printWinner()
+}
+
+class RaceRunner {
+    Race race;
+    public static void main()
+}
+
+class MoveType {
+    SLEEP=0;
+    SLIP=-2;
+    :
+    :
+}
+
+
+RunnerAbstract <|-- Hare
+RunnerAbstract <|-- Turtle
+
+
+
+@enduml

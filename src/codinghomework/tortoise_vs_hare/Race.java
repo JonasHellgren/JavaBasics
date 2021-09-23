@@ -1,34 +1,38 @@
 package codinghomework.tortoise_vs_hare;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Race {
     private Track track;
+    public static List<RunnerAbstract> runners;
     private boolean isRaceOver;
 
     public Race() {
         track=new Track();
-        new Turtle("Turtle",0,0);
-        new Hare("Hare",0,1);
+        runners =new ArrayList<>();
+        runners.add(new Turtle("Turtle",0,0));
+        runners.add(new Hare("Hare",0,1));
         isRaceOver=false;
     }
 
     public void run() {
 
         Scanner scanner=new Scanner(System.in);
-        for (Runner runner:Runner.allRunners)
-            track.setPresentPositionInTrack(runner);
+        for (RunnerAbstract runnerAbstract : runners)
+            track.setPresentPositionInTrack(runnerAbstract);
         track.displayTracks();
 
         do {
             scanner.nextLine();
 
-            for (Runner runner:Runner.allRunners) {
-                runner.move();
-                track.deletePreviousPositionInTrack(runner);
-                track.setPresentPositionInTrack(runner);
+            for (RunnerAbstract runnerAbstract : runners) {
+                runnerAbstract.move();
+                track.deletePreviousPositionInTrack(runnerAbstract);
+                track.setPresentPositionInTrack(runnerAbstract);
 
-                if (runner.isWinner(runner))
+                if (runnerAbstract.isWinner(runnerAbstract))
                     isRaceOver=true;
             }
             track.displayTracks();
@@ -41,9 +45,9 @@ public class Race {
 
     public void printWinner() {
 
-        for (Runner runner : Runner.allRunners) {
-            if (runner.isWinner(runner))
-                System.out.println("The winner is " + runner.name);
+        for (RunnerAbstract runnerAbstract : runners) {
+            if (runnerAbstract.isWinner(runnerAbstract))
+                System.out.println("The winner is " + runnerAbstract.getProps().name);
 
         }
     }

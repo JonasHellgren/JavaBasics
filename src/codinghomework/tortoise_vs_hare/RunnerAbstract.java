@@ -5,26 +5,32 @@ import java.util.Random;
 
 public abstract class RunnerAbstract {
 
-    public class State {
+    /***
+     * A static nested class may be instantiated without instantiating its outer class.
+     * Inner classes can access both static and non-static members of the outer class.
+     * A static class can access only the static members of the outer class.
+     */
+
+    public static class State {
         public int posPrev;
         public int posPres; //is in range [0,POS_MAX]
     }
 
-    public class Properties {
+    public static class Properties {
         public String name;
         public String symbol;
         public int laneNumber;
     }
 
-    private static final int NOF_INTS_FOR_MOVE_TYPE = 100;
+
     private static Random rand;
-    private State state;
-    private Properties props;
+    private final State state;  //final <=> will always refer to the same object
+    private final Properties props;
 
     public RunnerAbstract(String name, int posPres, int laneNumber) {
         rand=new Random();
-        state=new State();
-        props =new Properties();
+        state= new State();
+        props = new Properties();
         this.state.posPres=posPres;
         this.props.name=name;
         this.props.laneNumber=laneNumber;
@@ -41,17 +47,13 @@ public abstract class RunnerAbstract {
     public abstract void move();
 
     public int getNumberForMoveType() {
-        return rand.nextInt(NOF_INTS_FOR_MOVE_TYPE)+1;
+        return rand.nextInt(Constants.NOF_INTS_FOR_MOVE_TYPE)+1;
     }
 
     public boolean isWinner(RunnerAbstract runner) {
-        return runner.state.posPres == Track.POS_MAX;
+        return runner.state.posPres == Tracks.POS_MAX;
     }
 
-    private int clip(int variable, int minValue, int maxValue) {
-        int lowerThanMax= Math.min(variable, maxValue);
-        return Math.max(lowerThanMax, minValue);
-    }
 
     @Override
     public String toString() {

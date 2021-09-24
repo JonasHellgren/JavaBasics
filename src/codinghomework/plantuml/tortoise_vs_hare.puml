@@ -1,17 +1,18 @@
 @startuml
 'https://plantuml.com/class-diagram
 
+'https://java-programming.mooc.fi/part-11/1-class-diagrams
 
-   class State {
-        public int posPrev;
-        public int posPres; //is in range [0,POS_MAX]
-    }
+class State {
+       public int posPrev;
+       public int posPres; //is in range [0,POS_MAX]
+}
 
-     class Properties {
-            String name;
-            String symbol;
-            int laneNumber;
-        }
+class Properties {
+        String name;
+        String symbol;
+        int laneNumber;
+}
 
 abstract class RunnerAbstract {
     State state;
@@ -22,32 +23,6 @@ abstract class RunnerAbstract {
     boolean isWinner(RunnerAbstract runner)
 }
 
-RunnerAbstract +-u- State
-RunnerAbstract +-u- Properties
-
-class Track {
-String[][] tracks;
-
-displayTracks()
-setPresentPositionInTrack(RunnerAbstract runner)
-deletePreviousPositionInTrack(RunnerAbstract runner)
-updateStates(RunnerAbstract runner, int nofSteps)
-}
-
-class Race {
-    Track track;
-    List<RunnerAbstract> runners;
-    boolean isRaceOver;
-    Race();
-    run()
-    printWinner()
-}
-
-class RaceRunner {
-    Race race;
-    public static void main()
-}
-
 class MoveType {
     SLEEP=0;
     SLIP=-2;
@@ -55,10 +30,40 @@ class MoveType {
     :
 }
 
-
+RunnerAbstract +-u- State
+RunnerAbstract +-u- Properties
 RunnerAbstract <|-- Hare
 RunnerAbstract <|-- Turtle
 
+MoveType <-d- Turtle
+MoveType <-d- Hare
 
+class RaceRunner {
+    public static void main()
+}
+
+class Race {
+    List<RunnerAbstract> runners;
+    boolean isRaceOver;
+    run()
+    printWinner()
+}
+
+class RaceEnvironment {
+    updateStates(RunnerAbstract runner, int nofSteps)
+ }
+
+class Track {
+String[][] tracks;
+
+displayTracks()
+setPresentPositionInTrack(RunnerAbstract runner)
+deletePreviousPositionInTrack(RunnerAbstract runner)
+
+}
+
+RaceRunner --> Race
+Race --> RaceEnvironment
+RaceEnvironment --> Track
 
 @enduml

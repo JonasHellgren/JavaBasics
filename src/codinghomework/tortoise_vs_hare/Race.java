@@ -5,37 +5,36 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Race {
-    private Track track;
+    private RaceEnvironment raceEnvironment;
     public static List<RunnerAbstract> runners;
     private boolean isRaceOver;
 
     public Race() {
-        track=new Track();
-        runners =new ArrayList<>();
-        runners.add(new Turtle("Turtle",0,0));
-        runners.add(new Hare("Hare",0,1));
-        isRaceOver=false;
+        raceEnvironment = new RaceEnvironment();
+        runners = new ArrayList<>();
+        runners.add(new Turtle("Turtle", 0, 0));
+        runners.add(new Hare("Hare", 0, 1));
+        isRaceOver = false;
     }
 
     public void run() {
 
-        Scanner scanner=new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         for (RunnerAbstract runnerAbstract : runners)
-            track.setPresentPositionInTrack(runnerAbstract);
-        track.displayTracks();
+            raceEnvironment.tracks.setPresentPositionInTrack(runnerAbstract);
+        raceEnvironment.tracks.displayTracks();
+        scanner.nextLine();
 
         do {
-            scanner.nextLine();
-
             for (RunnerAbstract runnerAbstract : runners) {
                 runnerAbstract.move();
-                track.deletePreviousPositionInTrack(runnerAbstract);
-                track.setPresentPositionInTrack(runnerAbstract);
+                raceEnvironment.tracks.deletePreviousPositionInTrack(runnerAbstract);
+                raceEnvironment.tracks.setPresentPositionInTrack(runnerAbstract);
 
                 if (runnerAbstract.isWinner(runnerAbstract))
-                    isRaceOver=true;
+                    isRaceOver = true;
             }
-            track.displayTracks();
+            raceEnvironment.tracks.displayTracks();
 
         } while (!isRaceOver);
 
@@ -48,7 +47,6 @@ public class Race {
         for (RunnerAbstract runnerAbstract : runners) {
             if (runnerAbstract.isWinner(runnerAbstract))
                 System.out.println("The winner is " + runnerAbstract.getProps().name);
-
         }
     }
 

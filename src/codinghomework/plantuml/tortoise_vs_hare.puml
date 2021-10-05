@@ -19,7 +19,6 @@ abstract class RunnerAbstract {
     Properties props;
 
     void move();
-    int getNumberForMoveType()
     boolean isWinner(RunnerAbstract runner)
 }
 

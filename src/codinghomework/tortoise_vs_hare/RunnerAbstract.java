@@ -45,13 +45,12 @@ public abstract class RunnerAbstract {
     }
 
     public abstract void move();
-
-    public int getNumberForMoveType() {
-        return rand.nextInt(Constants.NOF_INTS_FOR_MOVE_TYPE)+1;
-    }
-
     public boolean isWinner(RunnerAbstract runner) {
         return runner.state.posPres == Tracks.POS_MAX;
+    }
+
+    protected int getNumberForMoveType() {
+        return rand.nextInt(Constants.NOF_INTS_FOR_MOVE_TYPE)+1;
     }
 
 

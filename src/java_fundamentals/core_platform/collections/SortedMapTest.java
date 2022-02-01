@@ -21,12 +21,9 @@ public class SortedMapTest {
         System.out.println("hMap");
         hMap.forEach( (k, v) -> System.out.println(k + " | " + v));
 
-
         SortedMap<String, String> tMap = map.tailMap("3333");
         System.out.println("tMap");
         tMap.forEach( (k, v) -> System.out.println(k + " | " + v));
-
-
 
     }
 

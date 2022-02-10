@@ -2,6 +2,7 @@ package hellgren.lambda_examples;
 
 import java.util.function.Function;
 
+//http://tutorials.jenkov.com/java-functional-programming/functional-interfaces.html
 public class JenkovTutorialOnLambdas {
 
     @FunctionalInterface
@@ -9,7 +10,6 @@ public class JenkovTutorialOnLambdas {
         @Override
         Integer apply(Integer integer);
     }
-
 
     public static void main(String[] args) {
         OneIntParFcn addWith3=(n -> n+3);

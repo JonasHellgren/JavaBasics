@@ -1,4 +1,4 @@
-package hellgren.lambda_examples;
+package hellgren.stream_examples;
 
 import java.util.Arrays;
 import java.util.List;

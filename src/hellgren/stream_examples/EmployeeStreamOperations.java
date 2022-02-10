@@ -1,4 +1,4 @@
-package hellgren.lambda_examples;
+package hellgren.stream_examples;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +8,7 @@ import javax.swing.text.Position;
 import java.util.*;
 import java.util.stream.Collectors;
 
+//https://automationrhapsody.com/java-8-features-stream-api-advanced-examples/
 public class EmployeeStreamOperations {
 
     public enum Position {DEV, DEV_OPS, QA};

@@ -30,17 +30,12 @@ public class PersonSort {
         listOfPerson.add(new Person("pqr", 28));
         listOfPerson.add(new Person("xyz", 27));
 
-
         Comparator<Person> ageComparator1= (p1,p2) -> p1.getAge()-p2.getAge();  //a-b=neg <=> a<b
         Comparator<Person> ageComparator2= Comparator.comparingInt(Person::getAge);  //a-b=neg <=> a<b
         Collections.sort(listOfPerson,ageComparator1);
-
         System.out.println("listOfPerson = " + listOfPerson);
-
         List<Person> sortedListOfPerson=listOfPerson.stream().sorted(ageComparator2.reversed()).collect(Collectors.toList());
-
         System.out.println("sortedListOfPerson = " + sortedListOfPerson);
-
 
     }
 

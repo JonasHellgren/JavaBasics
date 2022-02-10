@@ -10,9 +10,7 @@ import java.util.stream.Collectors;
 
 public class EmployeeStreamOperations {
 
-    public enum Position {DEV, DEV_OPS, QA}
-
-    ;
+    public enum Position {DEV, DEV_OPS, QA};
 
     @Getter
     @Setter

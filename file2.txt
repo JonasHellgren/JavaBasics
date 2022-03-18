@@ -1,0 +1,8 @@
+Streams
+- Ordered sequence of data
+- Unidirectional
+- Binary or character based
+
+Try with-resources
+- Automates resource clean up
+- Implements AutoCloseable

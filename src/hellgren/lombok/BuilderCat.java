@@ -14,9 +14,9 @@ public class BuilderCat {
     public String name;
     public double weight;
     @Builder.Default
-    public int age= DEFAULT_AGE;
+    public int age = DEFAULT_AGE;
 
-    @Singular
+    @Singular   //build single or multiple child items
     public List<String> childs;
 }
 

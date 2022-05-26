@@ -1,7 +1,6 @@
 package hellgren.lambda_examples;
 
-import java_fundamentals.lambda_expressions_collections_streams.two_predicate.Predicate;
-import lombok.AllArgsConstructor;
+import pluralsight_courses.lambda_expressions_collections_streams.two_predicate.Predicate;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 

@@ -13,19 +13,17 @@ public class StreamExamples {
 
     @Data
     @AllArgsConstructor
-    class NumAndSquared {
+    static  class NumAndSquared {
         int num;
         int sqNum;
     }
 
     List<Integer> numberList= Arrays.asList(1,2,3,4);
 
-
-
     @Test
     public void replaceFor() {
         List<NumAndSquared> numAndSquaredList=numberList.stream()
-                .map(num -> new NumAndSquared(num,num*num))
+                .map(num -> new NumAndSquared(num, num * num))
                 .collect(Collectors.toList());
 
         Assert.assertEquals(4,numAndSquaredList.size());

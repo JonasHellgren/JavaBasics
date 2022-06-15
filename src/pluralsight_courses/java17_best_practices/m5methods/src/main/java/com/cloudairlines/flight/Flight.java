@@ -1,9 +1,9 @@
 package pluralsight_courses.java17_best_practices.m5methods.src.main.java.com.cloudairlines.flight;
 
 
-import com.cloudairlines.passenger.Passenger;
-import com.cloudairlines.airport.Airport;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
+import pluralsight_courses.java17_best_practices.m10tests.src.main.java.com.cloudairlines.airport.Airport;
+import pluralsight_courses.java17_best_practices.m3namingAfter.cloudairlines.Passenger;
 
 import java.util.List;
 
@@ -12,11 +12,11 @@ public class Flight {
     private Airport fromAirport;
     private Airport toAirport;
 
-    @JsonProperty("from")
+   // @JsonProperty("from")
     private String fromCity;
-    @JsonProperty("to")
+   // @JsonProperty("to")
     private String toCity;
-    @JsonProperty("date")
+    //@JsonProperty("date")
     private String date;
 
     private int seatCapacity;
@@ -32,10 +32,10 @@ public class Flight {
 
     public Flight(Airport fromAirport, Airport toAirport, String date, List<Passenger> passengerList) {
         this.fromAirport = fromAirport;
-        this.fromCity = fromAirport.city();
+        this.fromCity = fromAirport.getCity();
 
         this.toAirport = toAirport;
-        this.toCity = toAirport.city();
+        this.toCity = toAirport.getCity();
 
         this.date = date;
         this.passengerList = passengerList;

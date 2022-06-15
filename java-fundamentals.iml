@@ -4,6 +4,12 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/src/pluralsight_courses/java17_best_practices/m5methods" />
+      <excludeFolder url="file://$MODULE_DIR$/src/pluralsight_courses/java17_best_practices/m4objects" />
+      <excludeFolder url="file://$MODULE_DIR$/src/pluralsight_courses/java17_best_practices/m6stringsnumbers" />
+      <excludeFolder url="file://$MODULE_DIR$/src/pluralsight_courses/java17_best_practices/m7branchingiterating" />
+      <excludeFolder url="file://$MODULE_DIR$/src/pluralsight_courses/java17_best_practices/m10tests" />
+      <excludeFolder url="file://$MODULE_DIR$/src/pluralsight_courses/java17_best_practices/m3naming" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

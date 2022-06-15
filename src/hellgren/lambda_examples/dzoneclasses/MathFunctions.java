@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 
@@ -28,6 +29,6 @@ public class MathFunctions {
     public Function<Double, Double> square = (n) -> Math.pow(n, 2);
     public UnaryOperator<Double> cube = (n) -> Math.pow(n, 3);
     public Function<Double, Double> force = (a) -> par.mass * a;
-
+    public Supplier massTimesCda = () -> par.mass * par.CdA;
 
 }

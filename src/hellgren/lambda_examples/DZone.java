@@ -22,6 +22,7 @@ public class DZone {
         System.out.println("MathFunctions.square.apply(5) = " + mf.square.apply(5d));
         System.out.println("MathFunctions.cube.apply(3) = " + mf.cube.apply(3d));
         System.out.println("MathFunctions.force.apply(1d) = " + mf.force.apply(-1d));
+        System.out.println("mf.massTimesCda = " + mf.massTimesCda.get());
 
 
     }

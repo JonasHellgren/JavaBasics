@@ -5,7 +5,9 @@ import java.util.List;
 
 public class FLightSearch {  //changed from Search
 
-    public List<Flight> search(String fromDest, String toDest, String departDate){
+    public List<Flight> search(String fromDest,
+                               String toDest,
+                               String departDate){
         return null;
     }
 

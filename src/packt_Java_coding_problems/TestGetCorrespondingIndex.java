@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 
 
-public class TestBinaryFLightSearch {
+public class TestGetCorrespondingIndex {
 
     int[] array=new int[]{1,2,3,4,5,6};
 

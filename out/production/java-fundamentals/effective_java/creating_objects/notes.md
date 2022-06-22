@@ -7,6 +7,9 @@ parameters
 * Item 3: Enforce the singleton property with a private
 constructor or an enum type
 * Item 4: Enforce noninstantiability with a private constructor
-* Item  5:  Avoid creating unnecessary objects
+* Item  5: Avoid creating unnecessary objects
 * Item 6: Eliminate obsolete object references
 * Item 7: Avoid finalizers 
+
+
+https://www.oreilly.com/library/view/effective-java/9780134686097/

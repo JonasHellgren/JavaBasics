@@ -15,10 +15,11 @@ public class TestVending {
         drink.process();
     }
 
+    //avoid code duplication by defining common methods in AbstractVending, can still use interface for variable declaration
     @Test
     public void testVendingSkeleton() {
-        AbstractVending candy =  new CandyVendingFromAbstractVending();  //Ivending isf AbstractVending does not work
-        AbstractVending drink =  new DrinkVendingFromAbstractVending();
+        Ivending candy =  new CandyVendingFromAbstractVending();
+        Ivending drink =  new DrinkVendingFromAbstractVending();
         candy.process();
         System.out.println("*********************");
         drink.process();

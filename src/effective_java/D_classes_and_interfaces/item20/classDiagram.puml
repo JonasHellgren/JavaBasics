@@ -1,0 +1,35 @@
+@startuml
+class effective_java.D_classes_and_interfaces.item20.DrinkVendingFromAbstractVending {
++ void chooseProduct()
+}
+class effective_java.D_classes_and_interfaces.item20.DrinkVending {
++ void start()
++ void chooseProduct()
++ void stop()
++ void process()
+}
+class effective_java.D_classes_and_interfaces.item20.CandyVending {
++ void start()
++ void chooseProduct()
++ void stop()
++ void process()
+}
+abstract class effective_java.D_classes_and_interfaces.item20.AbstractVending {
++ void start()
++ {abstract}void chooseProduct()
++ void stop()
++ void process()
+}
+class effective_java.D_classes_and_interfaces.item20.CandyVendingFromAbstractVending {
++ void chooseProduct()
+}
+interface effective_java.D_classes_and_interfaces.item20.Ivending {
+}
+
+
+effective_java.D_classes_and_interfaces.item20.AbstractVending <|-- effective_java.D_classes_and_interfaces.item20.DrinkVendingFromAbstractVending
+effective_java.D_classes_and_interfaces.item20.Ivending <|.. effective_java.D_classes_and_interfaces.item20.DrinkVending
+effective_java.D_classes_and_interfaces.item20.Ivending <|.. effective_java.D_classes_and_interfaces.item20.CandyVending
+effective_java.D_classes_and_interfaces.item20.Ivending <|.. effective_java.D_classes_and_interfaces.item20.AbstractVending
+effective_java.D_classes_and_interfaces.item20.AbstractVending <|-- effective_java.D_classes_and_interfaces.item20.CandyVendingFromAbstractVending
+@enduml

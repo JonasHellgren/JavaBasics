@@ -1,7 +1,8 @@
 ctrl+shift+J    join lines
 ctrl x   cut line
 ctrl x   copy line without highlighting
-ctrl shift+{up,down}   move line
+ctrl shift+{up,down}   move line/statement
+alt shift+{up,down}   move line/statement regardless of context
 ctrl shift+V    show copy history
 ctrl W   select word a caret
 ctrl shift W   un select word a caret
@@ -13,3 +14,5 @@ ctrl alt M   create method par from selection
 mark text - alt enter  various changes for ex split into lines
 alt mark text - select rectangle
 shift arrow up/down - select range
+
+ctrl shift f12 - full editor window

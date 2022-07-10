@@ -27,7 +27,8 @@
 * Item 23: Prefer class hierarchies to tagged classes
 * Item 24: Favor static member classes over nonstatic
   
-
+  
+      A static inner class does not need any outer class reference to access the member variables
 
 * Item 25: Limit source files to a single top-level class
 

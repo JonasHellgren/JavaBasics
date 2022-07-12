@@ -19,3 +19,6 @@ shift arrow up/down - select range
 ctrl shift f12 - full editor window
 shift alt - multiple carets by mouse click
 ctrl shift alt J - select all occurrences of selection
+
+alt {left,right}   -  jump between methods
+alt P - next pane (own made)

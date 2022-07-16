@@ -32,7 +32,7 @@ public class Main {
                     System.out.print(buff[i]);
             }
         //following statements is to handle exceptions
-        } catch (IOException e) {   //probably due to file not found
+        } catch (IOException e) {   //probably due to file.txt not found
             System.out.print(e.getClass().getSimpleName() + " = " + e.getMessage());
         } finally {    //clean up statements
             try {

@@ -16,8 +16,14 @@ Item 37: Use EnumMap instead of ordinal indexing
 
 Item 38: Emulate extensible enums with interfaces
 Item 39: Prefer annotations to naming patterns
+
+            if (p.getClass().isAnnotationPresent(OnlyUpperCase.class)) {
+
 Item 40: Consistently use the Override annotation
 Item 41: Use marker interfaces to define types
+
+            Unlike annotations, interfaces allow us to take advantage of polymorphism. 
+            As a result, we can add additional restrictions to the marker interface.
 
 
 https://www.oreilly.com/library/view/effective-java/9780134686097/

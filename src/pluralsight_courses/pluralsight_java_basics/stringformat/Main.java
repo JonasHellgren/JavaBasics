@@ -35,10 +35,10 @@ public class Main {
         String strDouble = String.format("%.2f", fnum);  //will always print trailing zeros
         System.out.println(strDouble); // -> 2.00
 
-        //Following code creates file with two lines
-        Path filepath = Paths.get("C:\\Kurser\\Java Core Platform\\created.txt");  //define file for writing
+        //Following code creates file.txt with two lines
+        Path filepath = Paths.get("C:\\Kurser\\Java Core Platform\\created.txt");  //define file.txt for writing
         Integer alex=1, christofer=17;  //ages of sone
-        BufferedWriter writer = Files.newBufferedWriter(filepath);  //file writing object
+        BufferedWriter writer = Files.newBufferedWriter(filepath);  //file.txt writing object
         try (Formatter f = new Formatter(writer)) {  //wrap formatter clas on writer
             f.format("My sons are %d and %d years old%n", alex,christofer);
             Double avgage=(double)(alex+christofer)/2;

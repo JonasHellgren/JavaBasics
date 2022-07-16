@@ -22,7 +22,7 @@ public class IntListManager {
         return foundint;   }
 
     //Static initialization block. These lines are executed only the first time the class is used.
-    // For ex when method FindInt is called. Handy for file data reading.
+    // For ex when method FindInt is called. Handy for file.txt data reading.
     static  {
         intlist = new int[10];  //create int arrray with 10 elements
         Random r = new Random();

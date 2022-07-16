@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.concurrent.Callable;
 
 public class CallableAdder implements Callable<Integer> {  //this class can be used as thread thanks to interface Runnable
-    private String in, out;  //in file name
+    private String in, out;  //in file.txt name
     private Path filein;
     private static int totsum;   //sum of alla sums
     public CallableAdder(String in) { this.in=in; this.totsum=0;  //constructor

@@ -1,0 +1,21 @@
+@startuml
+interface java_design_patterns.A_adapter_pattern.ex_socket.GermanPlug {
++ String provideElectricity()
+}
+interface java_design_patterns.A_adapter_pattern.ex_socket.UKPlug {
++ String provideElectricity()
+}
+class java_design_patterns.A_adapter_pattern.ex_socket.UKElectricalSocket {
++ String plugIn(UKPlug)
+}
+class java_design_patterns.A_adapter_pattern.ex_socket.GermanPlugToUKPlugAdapter {
+- GermanPlug plug
++ String provideElectricity()
+}
+class java_design_patterns.A_adapter_pattern.ex_socket.GermanElectricalSocket {
++ void plugIn(GermanPlug)
+}
+
+
+java_design_patterns.A_adapter_pattern.ex_socket.UKPlug <|.. java_design_patterns.A_adapter_pattern.ex_socket.GermanPlugToUKPlugAdapter
+@enduml

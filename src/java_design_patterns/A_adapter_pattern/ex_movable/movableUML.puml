@@ -1,0 +1,21 @@
+@startuml
+class java_design_patterns.A_adapter_pattern.ex_movable.MovableAdapterImpl {
++ {static} double MPH_TO_KMH
+- Movable movable
++ double getTopSpeed()
+- double convertMPHtoKMPH(double)
+}
+interface java_design_patterns.A_adapter_pattern.ex_movable.Movable {
+~ double getTopSpeedInMph()
+}
+interface java_design_patterns.A_adapter_pattern.ex_movable.MovableAdapter {
+~ double getTopSpeed()
+}
+class java_design_patterns.A_adapter_pattern.ex_movable.BugattiVeyron {
++ double getTopSpeedInMph()
+}
+
+
+java_design_patterns.A_adapter_pattern.ex_movable.MovableAdapter <|.. java_design_patterns.A_adapter_pattern.ex_movable.MovableAdapterImpl
+java_design_patterns.A_adapter_pattern.ex_movable.Movable <|.. java_design_patterns.A_adapter_pattern.ex_movable.BugattiVeyron
+@enduml

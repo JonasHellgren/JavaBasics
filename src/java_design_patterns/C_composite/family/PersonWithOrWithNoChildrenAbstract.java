@@ -1,9 +1,12 @@
 package java_design_patterns.C_composite.family;
 
-import lombok.SneakyThrows;
+import lombok.Getter;
 
-import java.util.List;
+/***
+ * This abstract class mainly adds fields to the PersonInterface
+ */
 
+@Getter
 public abstract class PersonWithOrWithNoChildrenAbstract implements PersonInterface {
 
     Integer id;
@@ -15,45 +18,8 @@ public abstract class PersonWithOrWithNoChildrenAbstract implements PersonInterf
         this.name = name;
     }
 
-    @SneakyThrows
-    @Override
-    public void addChildren(PersonWithOrWithNoChildrenAbstract person) {
-    }
-
-    @Override
-    public Integer getIndex() {
-        return id;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public int nofChildren() {
-        return 0;
-    }
-
-    @Override
-    public int nofOffSprings() {
-        return 0;
-    }
+    //protected => in abstract class
+    protected abstract void nofOffSpringsRec(PersonInterface node, Counter counter);
 
 
-    @SneakyThrows
-    protected  List<PersonWithOrWithNoChildrenAbstract> getChildren() {
-        throw new NoSuchMethodException();  //ensure defined in sub-classes
-    }
-
-    @SneakyThrows
-    protected void nofOffSpringsRec(PersonWithOrWithNoChildrenAbstract node, Counter counter) {
-       throw new NoSuchMethodException();  //ensure defined in sub-classes
-    }
-
-    @SneakyThrows
-    @Override
-    public void printTree() {
-        throw new NoSuchMethodException(); //ensure defined in sub-classes
-    }
 }

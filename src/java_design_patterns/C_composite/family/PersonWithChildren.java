@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PersonWithChildren extends PersonWithOrWithNoChildrenAbstract {
 
-    List<PersonWithOrWithNoChildrenAbstract> children;
+    List<PersonInterface> children;
 
     public PersonWithChildren(Integer id, String name) {
         super(id,name);
@@ -13,7 +13,7 @@ public class PersonWithChildren extends PersonWithOrWithNoChildrenAbstract {
     }
 
     @Override
-    public void addChildren(PersonWithOrWithNoChildrenAbstract node) {
+    public void addChildren(PersonInterface node) {
         children.add(node);
     }
 
@@ -28,7 +28,7 @@ public class PersonWithChildren extends PersonWithOrWithNoChildrenAbstract {
     }
 
     @Override
-    protected   List<PersonWithOrWithNoChildrenAbstract> getChildren() {
+    public List<PersonInterface> getChildren() {
         return children;
     }
 
@@ -39,8 +39,8 @@ public class PersonWithChildren extends PersonWithOrWithNoChildrenAbstract {
 
     @Override
     public void printTree() {
-        System.out.println(super.getName());
-        children.forEach(PersonWithOrWithNoChildrenAbstract::printTree);
+        System.out.println("+"+super.getName());
+        children.forEach(PersonInterface::printTree);
     }
 
     @Override
@@ -50,12 +50,11 @@ public class PersonWithChildren extends PersonWithOrWithNoChildrenAbstract {
         return counter.value();
     }
 
-
-    protected void nofOffSpringsRec(PersonWithOrWithNoChildrenAbstract node, Counter counter) {
-        for (PersonWithOrWithNoChildrenAbstract child:node.getChildren()) {
-            System.out.println("child.name = " + child.name);
+    @Override
+    protected void nofOffSpringsRec(PersonInterface node, Counter counter) {
+        for (PersonInterface  child:node.getChildren()) {
             counter.increment();
-            child.nofOffSpringsRec(child,counter);
+            nofOffSpringsRec(child,counter);
         }
 
     }

@@ -13,7 +13,7 @@ public class PersonWithNoChildren extends PersonWithOrWithNoChildrenAbstract {
 
     @SneakyThrows
     @Override
-    public void addChildren(PersonWithOrWithNoChildrenAbstract person) {
+    public void addChildren(PersonInterface person) {
         throw new NoSuchMethodException("Can't add child to person without child");
     }
 
@@ -29,14 +29,26 @@ public class PersonWithNoChildren extends PersonWithOrWithNoChildrenAbstract {
 
     @Override
     public void printTree() {
-        System.out.println("*"+super.getName());
+        System.out.println(super.getName());
     }
 
-    protected List<PersonWithOrWithNoChildrenAbstract> getChildren() {
+    @Override
+    public List<PersonInterface> getChildren() {
         return Collections.emptyList();
     }
 
-    protected void nofOffSpringsRec(PersonWithOrWithNoChildrenAbstract node, Counter counter) {
+    @Override
+    public int nofChildren() {
+        return 0;
+    }
+
+    @Override
+    public int nofOffSprings() {
+        return 0;
+    }
+
+    @Override
+    protected void nofOffSpringsRec(PersonInterface node, Counter counter) {
     }
 
 }

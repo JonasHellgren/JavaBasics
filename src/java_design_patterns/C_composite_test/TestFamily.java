@@ -18,11 +18,11 @@ public class TestFamily {
 
     @Test
     public void testFatherThreeChildren() {
-        PersonWithOrWithNoChildrenAbstract parent=new PersonWithChildren(1,"Maria");
+        PersonInterface  parent=new PersonWithChildren(1,"Maria");
 
-        PersonWithOrWithNoChildrenAbstract child1=new PersonWithNoChildren(2,"Johannes");
-        PersonWithOrWithNoChildrenAbstract child2=new PersonWithNoChildren(3,"Hannah");
-        PersonWithOrWithNoChildrenAbstract child3=new PersonWithNoChildren(4,"Alexander");
+        PersonInterface child1=new PersonWithNoChildren(2,"Johannes");
+        PersonInterface child2=new PersonWithNoChildren(3,"Hannah");
+        PersonInterface child3=new PersonWithNoChildren(4,"Alexander");
 
         parent.addChildren(child1);
         parent.addChildren(child2);
@@ -32,28 +32,29 @@ public class TestFamily {
 
         Assert.assertEquals(3,parent.nofChildren());
         Assert.assertEquals(0,child1.nofChildren());
+
     }
 
     @Test
     public void testGrandFather() {
-        PersonWithOrWithNoChildrenAbstract grandFather=new PersonWithChildren(1,"Rune");
+        PersonInterface grandFather=new PersonWithChildren(1,"Rune");
 
-        PersonWithOrWithNoChildrenAbstract mother=new PersonWithChildren(2,"Maria");
+        PersonInterface mother=new PersonWithChildren(2,"Maria");
         grandFather.addChildren(mother);
 
-        PersonWithOrWithNoChildrenAbstract childMother1=new PersonWithNoChildren(3,"Johannes");
-        PersonWithOrWithNoChildrenAbstract childMother2=new PersonWithNoChildren(4,"Hannah");
-        PersonWithOrWithNoChildrenAbstract childMother3=new PersonWithNoChildren(5,"Alexander");
+        PersonInterface childMother1=new PersonWithNoChildren(3,"Johannes");
+        PersonInterface childMother2=new PersonWithNoChildren(4,"Hannah");
+        PersonInterface childMother3=new PersonWithNoChildren(5,"Alexander");
 
         mother.addChildren(childMother1);
         mother.addChildren(childMother2);
         mother.addChildren(childMother3);
 
         grandFather.printTree();
+        System.out.println("grandFather.nofOffSprings() = " + grandFather.nofOffSprings());
 
         Assert.assertEquals(0,childMother1.nofChildren());
-
-        System.out.println("grandFather.nofOffSprings() = " + grandFather.nofOffSprings());
+        Assert.assertEquals(4,grandFather.nofOffSprings());
     }
 
 }

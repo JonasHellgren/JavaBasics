@@ -3,10 +3,9 @@ package java_design_patterns.C_composite.family;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonWithChildren extends NodeAbstract {
+public class PersonWithChildren extends PersonWithOrWithNoChildrenAbstract {
 
-    List<NodeAbstract> children;
-
+    List<PersonWithOrWithNoChildrenAbstract> children;
 
     public PersonWithChildren(Integer id, String name) {
         super(id,name);
@@ -14,7 +13,7 @@ public class PersonWithChildren extends NodeAbstract {
     }
 
     @Override
-    public void addChildren(NodeAbstract node) {
+    public void addChildren(PersonWithOrWithNoChildrenAbstract node) {
         children.add(node);
     }
 
@@ -29,7 +28,7 @@ public class PersonWithChildren extends NodeAbstract {
     }
 
     @Override
-    public  List<NodeAbstract> getChildren() {
+    protected   List<PersonWithOrWithNoChildrenAbstract> getChildren() {
         return children;
     }
 
@@ -39,23 +38,24 @@ public class PersonWithChildren extends NodeAbstract {
     }
 
     @Override
-    public void printName() {
+    public void printTree() {
         System.out.println(super.getName());
-        children.forEach(NodeAbstract::printName);
-    }
-
-    public Integer nofOffSprings() {
-        nofOffSprings = 0;
-        nofOffSpringsRec(this,this);
-        return nofOffSprings;
+        children.forEach(PersonWithOrWithNoChildrenAbstract::printTree);
     }
 
     @Override
-    public void nofOffSpringsRec(NodeAbstract node,NodeAbstract nodeParent) {
-        for (NodeAbstract child:node.getChildren()) {
+    public int nofOffSprings() {
+        counter = new Counter();
+        nofOffSpringsRec(this,counter);
+        return counter.value();
+    }
+
+
+    protected void nofOffSpringsRec(PersonWithOrWithNoChildrenAbstract node, Counter counter) {
+        for (PersonWithOrWithNoChildrenAbstract child:node.getChildren()) {
             System.out.println("child.name = " + child.name);
-            nodeParent.nofOffSprings++;
-            child.nofOffSpringsRec(child,nodeParent);
+            counter.increment();
+            child.nofOffSpringsRec(child,counter);
         }
 
     }

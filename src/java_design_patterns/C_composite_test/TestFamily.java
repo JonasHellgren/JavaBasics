@@ -1,6 +1,7 @@
 package java_design_patterns.C_composite_test;
 
-import java_design_patterns.C_composite.family.NodeAbstract;
+import java_design_patterns.C_composite.family.PersonInterface;
+import java_design_patterns.C_composite.family.PersonWithOrWithNoChildrenAbstract;
 import java_design_patterns.C_composite.family.PersonWithChildren;
 import java_design_patterns.C_composite.family.PersonWithNoChildren;
 import org.junit.Assert;
@@ -10,24 +11,24 @@ public class TestFamily {
 
     @Test
     public void testOnePerson() {
-        NodeAbstract node=new PersonWithNoChildren(1,"Rune");
-        node.printName();
+        PersonInterface node=new PersonWithNoChildren(1,"Rune");
+        node.printTree();
         Assert.assertEquals(0,node.nofChildren());
     }
 
     @Test
     public void testFatherThreeChildren() {
-        NodeAbstract parent=new PersonWithChildren(1,"Maria");
+        PersonWithOrWithNoChildrenAbstract parent=new PersonWithChildren(1,"Maria");
 
-        NodeAbstract child1=new PersonWithNoChildren(2,"Johannes");
-        NodeAbstract child2=new PersonWithNoChildren(3,"Hannah");
-        NodeAbstract child3=new PersonWithNoChildren(4,"Alexander");
+        PersonWithOrWithNoChildrenAbstract child1=new PersonWithNoChildren(2,"Johannes");
+        PersonWithOrWithNoChildrenAbstract child2=new PersonWithNoChildren(3,"Hannah");
+        PersonWithOrWithNoChildrenAbstract child3=new PersonWithNoChildren(4,"Alexander");
 
         parent.addChildren(child1);
         parent.addChildren(child2);
         parent.addChildren(child3);
 
-        parent.printName();
+        parent.printTree();
 
         Assert.assertEquals(3,parent.nofChildren());
         Assert.assertEquals(0,child1.nofChildren());
@@ -35,20 +36,20 @@ public class TestFamily {
 
     @Test
     public void testGrandFather() {
-        NodeAbstract grandFather=new PersonWithChildren(1,"Rune");
+        PersonWithOrWithNoChildrenAbstract grandFather=new PersonWithChildren(1,"Rune");
 
-        NodeAbstract mother=new PersonWithChildren(2,"Maria");
+        PersonWithOrWithNoChildrenAbstract mother=new PersonWithChildren(2,"Maria");
         grandFather.addChildren(mother);
 
-        NodeAbstract childMother1=new PersonWithNoChildren(3,"Johannes");
-        NodeAbstract childMother2=new PersonWithNoChildren(4,"Hannah");
-        NodeAbstract childMother3=new PersonWithNoChildren(5,"Alexander");
+        PersonWithOrWithNoChildrenAbstract childMother1=new PersonWithNoChildren(3,"Johannes");
+        PersonWithOrWithNoChildrenAbstract childMother2=new PersonWithNoChildren(4,"Hannah");
+        PersonWithOrWithNoChildrenAbstract childMother3=new PersonWithNoChildren(5,"Alexander");
 
         mother.addChildren(childMother1);
         mother.addChildren(childMother2);
         mother.addChildren(childMother3);
 
-        grandFather.printName();
+        grandFather.printTree();
 
         Assert.assertEquals(0,childMother1.nofChildren());
 

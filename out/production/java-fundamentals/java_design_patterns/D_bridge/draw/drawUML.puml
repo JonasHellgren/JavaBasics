@@ -1,0 +1,28 @@
+@startuml
+interface java_design_patterns.D_bridge.draw.Drawer {
+~ void drawCircle(int,int,int)
+}
+class java_design_patterns.D_bridge.draw.DrawerGreenCircle {
++ {static} String COLOR
++ void drawCircle(int,int,int)
+}
+class java_design_patterns.D_bridge.draw.DrawerRedCircle {
++ {static} String COLOR
++ void drawCircle(int,int,int)
+}
+class java_design_patterns.D_bridge.draw.Circle {
+- int x
+- int y
+- int radius
++ void draw()
+}
+abstract class java_design_patterns.D_bridge.draw.Shape {
+# Drawer drawer
++ {abstract}void draw()
+}
+
+
+java_design_patterns.D_bridge.draw.Drawer <|.. java_design_patterns.D_bridge.draw.DrawerGreenCircle
+java_design_patterns.D_bridge.draw.Drawer <|.. java_design_patterns.D_bridge.draw.DrawerRedCircle
+java_design_patterns.D_bridge.draw.Shape <|-- java_design_patterns.D_bridge.draw.Circle
+@enduml

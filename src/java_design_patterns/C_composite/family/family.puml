@@ -1,0 +1,53 @@
+@startuml
+class java_design_patterns.C_composite.family.Counter {
+~ int myCount
++ void increment()
++ void reset()
++ int value()
+}
+class java_design_patterns.C_composite.family.PersonWithNoChildren {
++ void addChildren(PersonWithOrWithNoChildrenAbstract)
++ Integer getIndex()
++ String getName()
++ void printTree()
+# List<PersonWithOrWithNoChildrenAbstract> getChildren()
+# void nofOffSpringsRec(PersonWithOrWithNoChildrenAbstract,Counter)
+}
+abstract class java_design_patterns.C_composite.family.PersonWithOrWithNoChildrenAbstract {
+~ Integer id
+~ String name
+~ Counter counter
++ void addChildren(PersonWithOrWithNoChildrenAbstract)
++ Integer getIndex()
++ String getName()
++ int nofChildren()
++ int nofOffSprings()
+# List<PersonWithOrWithNoChildrenAbstract> getChildren()
+# void nofOffSpringsRec(PersonWithOrWithNoChildrenAbstract,Counter)
++ void printTree()
+}
+interface java_design_patterns.C_composite.family.PersonInterface {
+~ void addChildren(PersonWithOrWithNoChildrenAbstract)
+~ Integer getIndex()
+~ String getName()
+~ int nofChildren()
+~ int nofOffSprings()
+~ void printTree()
+}
+class java_design_patterns.C_composite.family.PersonWithChildren {
+~ List<PersonWithOrWithNoChildrenAbstract> children
++ void addChildren(PersonWithOrWithNoChildrenAbstract)
++ Integer getIndex()
++ String getName()
+# List<PersonWithOrWithNoChildrenAbstract> getChildren()
++ int nofChildren()
++ void printTree()
++ int nofOffSprings()
+# void nofOffSpringsRec(PersonWithOrWithNoChildrenAbstract,Counter)
+}
+
+
+java_design_patterns.C_composite.family.PersonWithOrWithNoChildrenAbstract <|-- java_design_patterns.C_composite.family.PersonWithNoChildren
+java_design_patterns.C_composite.family.PersonInterface <|.. java_design_patterns.C_composite.family.PersonWithOrWithNoChildrenAbstract
+java_design_patterns.C_composite.family.PersonWithOrWithNoChildrenAbstract <|-- java_design_patterns.C_composite.family.PersonWithChildren
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+abstract class java_design_patterns.D_bridge.vehicle_production.Vehicle {
+# List<WorkShop> workshops
++ boolean joinWorkshop(WorkShop)
++ {abstract}void manufacture()
++ {abstract}int minWorkTime()
+~ void processInWorkShops()
+}
+class java_design_patterns.D_bridge.vehicle_production.ProduceWorkShop {
++ void work(Vehicle)
+}
+class java_design_patterns.D_bridge.vehicle_production.Car {
++ void manufacture()
++ int minWorkTime()
+}
+class java_design_patterns.D_bridge.vehicle_production.TestWorkShop {
++ void work(Vehicle)
+}
+abstract class java_design_patterns.D_bridge.vehicle_production.WorkShop {
++ {abstract}void work(Vehicle)
+}
+class java_design_patterns.D_bridge.vehicle_production.AssembleWorkShop {
++ void work(Vehicle)
+}
+class java_design_patterns.D_bridge.vehicle_production.Bike {
++ void manufacture()
++ int minWorkTime()
+}
+
+
+java_design_patterns.D_bridge.vehicle_production.WorkShop <|-- java_design_patterns.D_bridge.vehicle_production.ProduceWorkShop
+java_design_patterns.D_bridge.vehicle_production.Vehicle <|-- java_design_patterns.D_bridge.vehicle_production.Car
+java_design_patterns.D_bridge.vehicle_production.WorkShop <|-- java_design_patterns.D_bridge.vehicle_production.TestWorkShop
+java_design_patterns.D_bridge.vehicle_production.WorkShop <|-- java_design_patterns.D_bridge.vehicle_production.AssembleWorkShop
+java_design_patterns.D_bridge.vehicle_production.Vehicle <|-- java_design_patterns.D_bridge.vehicle_production.Bike
+@enduml

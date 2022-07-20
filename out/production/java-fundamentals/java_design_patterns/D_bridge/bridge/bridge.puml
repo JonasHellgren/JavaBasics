@@ -1,0 +1,28 @@
+@startuml
+interface java_design_patterns.D_bridge.bridge.ImplementationInterface {
+~ void Function1()
+~ void Function2()
+}
+class java_design_patterns.D_bridge.bridge.Implementation2 {
++ void Function1()
++ void Function2()
+}
+class java_design_patterns.D_bridge.bridge.Implementation1 {
++ void Function1()
++ void Function2()
+}
+interface java_design_patterns.D_bridge.bridge.Abstraction {
+~ void CallMethod1()
+~ void CallMethod2()
+}
+class java_design_patterns.D_bridge.bridge.ConcreteAbstraction {
++ ImplementationInterface implementation
++ void CallMethod1()
++ void CallMethod2()
+}
+
+
+java_design_patterns.D_bridge.bridge.ImplementationInterface <|.. java_design_patterns.D_bridge.bridge.Implementation2
+java_design_patterns.D_bridge.bridge.ImplementationInterface <|.. java_design_patterns.D_bridge.bridge.Implementation1
+java_design_patterns.D_bridge.bridge.Abstraction <|.. java_design_patterns.D_bridge.bridge.ConcreteAbstraction
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+interface java_design_patterns.G_mediator.chat.ChatRoomInterface {
++ void showMsg(String,ParticipantInterface)
+}
+interface java_design_patterns.G_mediator.chat.ParticipantInterface {
+~ void sendMsg(String)
+~ String getName()
+}
+class java_design_patterns.G_mediator.chat.ParticipantName {
+- String name
+- ChatRoomInterface chat
++ void sendMsg(String)
++ String getName()
+}
+class java_design_patterns.G_mediator.chat.ChatRoom {
+~ DateFormat dateFormat
+~ Date date
++ void showMsg(String,ParticipantInterface)
+}
+class java_design_patterns.G_mediator.chat.ParticipantNameAndAge {
+- String name
+- ChatRoomInterface chat
+- int age
++ void sendMsg(String)
++ String getName()
+}
+
+
+java_design_patterns.G_mediator.chat.ParticipantInterface <|.. java_design_patterns.G_mediator.chat.ParticipantName
+java_design_patterns.G_mediator.chat.ChatRoomInterface <|.. java_design_patterns.G_mediator.chat.ChatRoom
+java_design_patterns.G_mediator.chat.ParticipantInterface <|.. java_design_patterns.G_mediator.chat.ParticipantNameAndAge
+@enduml

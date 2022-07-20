@@ -1,0 +1,18 @@
+@startuml
+class java_design_patterns.F_observer.news.NewsAgency {
+- String news
+- PropertyChangeSupport support
++ void addSubscriber(PropertyChangeListener)
++ void removeSubscriber(PropertyChangeListener)
++ void setNews(String)
++ int nofSubscribers()
+}
+class java_design_patterns.F_observer.news.Subscriber {
+- String name
+- String news
++ void propertyChange(PropertyChangeEvent)
+}
+
+
+java.beans.PropertyChangeListener <|.. java_design_patterns.F_observer.news.Subscriber
+@enduml

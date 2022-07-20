@@ -6,28 +6,24 @@ class java_design_patterns.C_composite.family.Counter {
 + int value()
 }
 class java_design_patterns.C_composite.family.PersonWithNoChildren {
-+ void addChildren(PersonWithOrWithNoChildrenAbstract)
++ void addChildren(PersonInterface)
 + Integer getIndex()
 + String getName()
 + void printTree()
-# List<PersonWithOrWithNoChildrenAbstract> getChildren()
-# void nofOffSpringsRec(PersonWithOrWithNoChildrenAbstract,Counter)
++ List<PersonInterface> getChildren()
++ int nofChildren()
++ int nofOffSprings()
+# void nofOffSpringsRec(PersonInterface,Counter)
 }
 abstract class java_design_patterns.C_composite.family.PersonWithOrWithNoChildrenAbstract {
 ~ Integer id
 ~ String name
 ~ Counter counter
-+ void addChildren(PersonWithOrWithNoChildrenAbstract)
-+ Integer getIndex()
-+ String getName()
-+ int nofChildren()
-+ int nofOffSprings()
-# List<PersonWithOrWithNoChildrenAbstract> getChildren()
-# void nofOffSpringsRec(PersonWithOrWithNoChildrenAbstract,Counter)
-+ void printTree()
+# {abstract}void nofOffSpringsRec(PersonInterface,Counter)
 }
 interface java_design_patterns.C_composite.family.PersonInterface {
-~ void addChildren(PersonWithOrWithNoChildrenAbstract)
+~ void addChildren(PersonInterface)
+~ List<PersonInterface> getChildren()
 ~ Integer getIndex()
 ~ String getName()
 ~ int nofChildren()
@@ -35,15 +31,15 @@ interface java_design_patterns.C_composite.family.PersonInterface {
 ~ void printTree()
 }
 class java_design_patterns.C_composite.family.PersonWithChildren {
-~ List<PersonWithOrWithNoChildrenAbstract> children
-+ void addChildren(PersonWithOrWithNoChildrenAbstract)
+~ List<PersonInterface> children
++ void addChildren(PersonInterface)
 + Integer getIndex()
 + String getName()
-# List<PersonWithOrWithNoChildrenAbstract> getChildren()
++ List<PersonInterface> getChildren()
 + int nofChildren()
 + void printTree()
 + int nofOffSprings()
-# void nofOffSpringsRec(PersonWithOrWithNoChildrenAbstract,Counter)
+# void nofOffSpringsRec(PersonInterface,Counter)
 }
 
 

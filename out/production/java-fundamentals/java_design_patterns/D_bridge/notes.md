@@ -7,6 +7,18 @@ You should use the Bridge Pattern when:
 * Both the abstractions and their implementations should be extensible by sub-classing. The Bridge pattern lets you combine the different abstractions and implementations and extend them independently.
 * Changes in the implementation of an abstraction should have no impact on clients; that is, their code should not have to be recompiled.
 
+![img_2.png](img_2.png)
+
+        ImplementationInterface imp1 =new Implementation1();
+        ImplementationInterface imp2 =new Implementation2();
+
+        Abstraction a1=new ConcreteAbstraction(imp1);
+        a1.CallMethod1();
+
+        Abstraction a2=new ConcreteAbstraction(imp2);
+        a2.CallMethod1();
+
+
 ![img.png](img.png)
 
         Shape redCircle = new Circle(100,100, 10, new DrawerRedCircle());
@@ -26,4 +38,6 @@ You should use the Bridge Pattern when:
         car.joinWorkshop(new AssembleWorkShop());
         car.joinWorkshop(new TestWorkShop());
         car.manufacture();
+
+
 

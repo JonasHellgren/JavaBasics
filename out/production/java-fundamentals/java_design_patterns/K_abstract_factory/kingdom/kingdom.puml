@@ -1,0 +1,67 @@
+@startuml
+class java_design_patterns.K_abstract_factory.kingdom.OrcKing {
+~ {static} String DESCRIPTION
++ String getDescription()
+}
+class java_design_patterns.K_abstract_factory.kingdom.ElfArmy {
+~ {static} String DESCRIPTION
++ String getDescription()
+}
+class java_design_patterns.K_abstract_factory.kingdom.ElfKing {
+~ {static} String DESCRIPTION
++ String getDescription()
+}
+class java_design_patterns.K_abstract_factory.kingdom.KingdomFactoryMaker {
++ {static} KingdomFactory makeFactory(KingdomType)
+}
+interface java_design_patterns.K_abstract_factory.kingdom.Army {
+~ String getDescription()
+}
+interface java_design_patterns.K_abstract_factory.kingdom.KingdomFactory {
+~ Castle createCastle()
+~ King createKing()
+~ Army createArmy()
+}
+interface java_design_patterns.K_abstract_factory.kingdom.Castle {
+~ String getDescription()
+}
+class java_design_patterns.K_abstract_factory.kingdom.OrcCastle {
+~ {static} String DESCRIPTION
++ String getDescription()
+}
+class java_design_patterns.K_abstract_factory.kingdom.ElfKingdomFactory {
++ Castle createCastle()
++ King createKing()
++ Army createArmy()
+}
+enum java_design_patterns.K_abstract_factory.kingdom.KingdomType {
++  ELF
++  ORC
+}
+class java_design_patterns.K_abstract_factory.kingdom.OrcArmy {
+~ {static} String DESCRIPTION
++ String getDescription()
+}
+class java_design_patterns.K_abstract_factory.kingdom.ElfCastle {
+~ {static} String DESCRIPTION
++ String getDescription()
+}
+interface java_design_patterns.K_abstract_factory.kingdom.King {
+~ String getDescription()
+}
+class java_design_patterns.K_abstract_factory.kingdom.OrcKingdomFactory {
++ Castle createCastle()
++ King createKing()
++ Army createArmy()
+}
+
+
+java_design_patterns.K_abstract_factory.kingdom.King <|.. java_design_patterns.K_abstract_factory.kingdom.OrcKing
+java_design_patterns.K_abstract_factory.kingdom.Army <|.. java_design_patterns.K_abstract_factory.kingdom.ElfArmy
+java_design_patterns.K_abstract_factory.kingdom.King <|.. java_design_patterns.K_abstract_factory.kingdom.ElfKing
+java_design_patterns.K_abstract_factory.kingdom.Castle <|.. java_design_patterns.K_abstract_factory.kingdom.OrcCastle
+java_design_patterns.K_abstract_factory.kingdom.KingdomFactory <|.. java_design_patterns.K_abstract_factory.kingdom.ElfKingdomFactory
+java_design_patterns.K_abstract_factory.kingdom.Army <|.. java_design_patterns.K_abstract_factory.kingdom.OrcArmy
+java_design_patterns.K_abstract_factory.kingdom.Castle <|.. java_design_patterns.K_abstract_factory.kingdom.ElfCastle
+java_design_patterns.K_abstract_factory.kingdom.KingdomFactory <|.. java_design_patterns.K_abstract_factory.kingdom.OrcKingdomFactory
+@enduml

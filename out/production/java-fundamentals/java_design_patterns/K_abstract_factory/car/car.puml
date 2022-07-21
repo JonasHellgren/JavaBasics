@@ -1,0 +1,35 @@
+@startuml
+class java_design_patterns.K_abstract_factory.car.SmallCar {
++ {static} CarType SMALL
+# void construct(CarType,Location)
+}
+abstract class java_design_patterns.K_abstract_factory.car.CarAbstractWithLocation {
+- CarType model
+- Location location
+# {abstract}void construct(CarType,Location)
++ String toString()
+}
+class java_design_patterns.K_abstract_factory.car.CarFactoryAsia {
++ {static} CarAbstractWithLocation buildCar(CarType)
+}
+class java_design_patterns.K_abstract_factory.car.CarFactoryUS {
++ {static} CarAbstractWithLocation buildCar(CarType)
+}
+enum java_design_patterns.K_abstract_factory.car.Location {
++  USA
++  ASIA
+}
+class java_design_patterns.K_abstract_factory.car.LuxuryCar {
++ {static} CarType LUXURY
+# void construct(CarType,Location)
+}
+class java_design_patterns.K_abstract_factory.car.SedanCar {
++ {static} CarType SEDAN
+# void construct(CarType,Location)
+}
+
+
+java_design_patterns.K_abstract_factory.car.CarAbstractWithLocation <|-- java_design_patterns.K_abstract_factory.car.SmallCar
+java_design_patterns.K_abstract_factory.car.CarAbstractWithLocation <|-- java_design_patterns.K_abstract_factory.car.LuxuryCar
+java_design_patterns.K_abstract_factory.car.CarAbstractWithLocation <|-- java_design_patterns.K_abstract_factory.car.SedanCar
+@enduml

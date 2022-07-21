@@ -1,0 +1,29 @@
+@startuml
+class java_design_patterns.J_factory.car.LuxuryCar {
+# void construct()
+}
+class java_design_patterns.J_factory.car.CarFactory {
++ {static} CarAbstract buildCar(CarType)
+}
+enum java_design_patterns.J_factory.car.CarType {
++  SMALL
++  SEDAN
++  LUXURY
+}
+class java_design_patterns.J_factory.car.SedanCar {
+# void construct()
+}
+class java_design_patterns.J_factory.car.SmallCar {
+# void construct()
+}
+abstract class java_design_patterns.J_factory.car.CarAbstract {
+- CarType model
+# {abstract}void construct()
+- void arrangeParts()
+}
+
+
+java_design_patterns.J_factory.car.CarAbstract <|-- java_design_patterns.J_factory.car.LuxuryCar
+java_design_patterns.J_factory.car.CarAbstract <|-- java_design_patterns.J_factory.car.SedanCar
+java_design_patterns.J_factory.car.CarAbstract <|-- java_design_patterns.J_factory.car.SmallCar
+@enduml

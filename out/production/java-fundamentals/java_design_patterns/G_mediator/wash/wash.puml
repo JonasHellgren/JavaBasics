@@ -1,0 +1,85 @@
+@startuml
+interface java_design_patterns.G_mediator.wash.MachineMediator {
+~ void start()
+~ void wash()
+~ void openWaterValve()
+~ void closeWaterValve()
+~ void on()
+~ void off()
+~ boolean checkTemperature(int)
+}
+class java_design_patterns.G_mediator.wash.PartAbstract {
+# MachineMediator mediator
++ void setMediator(MachineMediator)
+}
+class java_design_patterns.G_mediator.wash.Machine {
++ void start()
++ void wash()
+}
+class java_design_patterns.G_mediator.wash.CottonMediator {
+- Machine machine
+- Heater heater
+- Motor motor
+- Sensor sensor
+- SoilRemoval soilRemoval
+- Valve valve
++ void start()
++ void wash()
++ void openWaterValve()
++ void closeWaterValve()
++ void on()
++ void off()
++ boolean checkTemperature(int)
+}
+class java_design_patterns.G_mediator.wash.Motor {
++ void startMotor()
++ void rotateDrum(int)
+}
+class java_design_patterns.G_mediator.wash.help_classes.SoilRemoval {
++ void low()
++ void medium()
++ void high()
+}
+class java_design_patterns.G_mediator.wash.Valve {
++ void open()
++ void closed()
+}
+class java_design_patterns.G_mediator.wash.Button {
++ void press()
+}
+interface java_design_patterns.G_mediator.wash.PartInterface {
+~ void setMediator(MachineMediator)
+}
+class java_design_patterns.G_mediator.wash.DenimMediator {
+- Machine machine
+- Heater heater
+- Motor motor
+- Sensor sensor
+- SoilRemoval soilRemoval
+- Valve valve
++ void start()
++ void wash()
++ void openWaterValve()
++ void closeWaterValve()
++ void on()
++ void off()
++ boolean checkTemperature(int)
+}
+class java_design_patterns.G_mediator.wash.help_classes.Sensor {
++ boolean checkTemperature(int)
+}
+class java_design_patterns.G_mediator.wash.Heater {
++ void on(int)
++ void off()
+}
+
+
+java_design_patterns.G_mediator.wash.PartInterface <|.. java_design_patterns.G_mediator.wash.PartAbstract
+java_design_patterns.G_mediator.wash.PartAbstract <|-- java_design_patterns.G_mediator.wash.Machine
+java_design_patterns.G_mediator.wash.MachineMediator <|.. java_design_patterns.G_mediator.wash.CottonMediator
+java_design_patterns.G_mediator.wash.PartAbstract <|-- java_design_patterns.G_mediator.wash.Motor
+java_design_patterns.G_mediator.wash.PartAbstract <|-- java_design_patterns.G_mediator.wash.Valve
+java_design_patterns.G_mediator.wash.PartAbstract <|-- java_design_patterns.G_mediator.wash.Button
+java_design_patterns.G_mediator.wash.MachineMediator <|.. java_design_patterns.G_mediator.wash.DenimMediator
+java_design_patterns.G_mediator.wash.PartAbstract <|-- java_design_patterns.G_mediator.wash.Heater
+@enduml

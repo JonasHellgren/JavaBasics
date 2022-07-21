@@ -1,0 +1,29 @@
+@startuml
+abstract class java_design_patterns.I_chain_of_responsibility.Processor {
+- Processor nextProcessor
++ void process(NumberClass)
+}
+class java_design_patterns.I_chain_of_responsibility.Chain {
+~ Processor chain
+- void buildChain()
++ void process(NumberClass)
+}
+class java_design_patterns.I_chain_of_responsibility.NegativeProcessor {
++ void process(NumberClass)
+}
+class java_design_patterns.I_chain_of_responsibility.ZeroProcessor {
++ void process(NumberClass)
+}
+class java_design_patterns.I_chain_of_responsibility.PositiveProcessor {
++ void process(NumberClass)
+}
+class java_design_patterns.I_chain_of_responsibility.NumberClass {
+- int number
++ int getNumber()
+}
+
+
+java_design_patterns.I_chain_of_responsibility.Processor <|-- java_design_patterns.I_chain_of_responsibility.NegativeProcessor
+java_design_patterns.I_chain_of_responsibility.Processor <|-- java_design_patterns.I_chain_of_responsibility.ZeroProcessor
+java_design_patterns.I_chain_of_responsibility.Processor <|-- java_design_patterns.I_chain_of_responsibility.PositiveProcessor
+@enduml

@@ -5,3 +5,23 @@ Rather than interacting directly with each other, objects ask the Mediator to in
 Used when:
 * A set of objects communicate in well-defined but complex ways. The resulting interdependencies are unstructured and difficult to understand.
 * Reusing an object is difficult because it refers to and communicates with many other objects.
+
+
+![img_1.png](img_1.png)
+
+        Sensor sensor = new Sensor();
+        SoilRemoval soilRemoval = new SoilRemoval();
+        Motor motor = new Motor();
+        Machine machine = new Machine();
+        Heater heater = new Heater();
+        Valve valve = new Valve();
+        Button button = new Button();
+
+        MachineMediator mediator = new CottonMediator(machine, heater, motor, sensor, soilRemoval, valve);
+
+        button.setMediator(mediator);
+        machine.setMediator(mediator);
+        heater.setMediator(mediator);
+        valve.setMediator(mediator);
+
+        button.press();

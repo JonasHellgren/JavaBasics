@@ -1,0 +1,17 @@
+@startuml
+class java_design_patterns.H_proxy.ExpensiveObject {
++ void process()
+- void heavyInitialConfiguration()
+}
+class java_design_patterns.H_proxy.ExpensiveObjectProxy {
+- {static} ExpensiveObject object
++ void process()
+}
+interface java_design_patterns.H_proxy.ExpensiveObjectInterface {
+~ void process()
+}
+
+
+java_design_patterns.H_proxy.ExpensiveObjectInterface <|.. java_design_patterns.H_proxy.ExpensiveObject
+java_design_patterns.H_proxy.ExpensiveObjectInterface <|.. java_design_patterns.H_proxy.ExpensiveObjectProxy
+@enduml

@@ -58,3 +58,44 @@ Use the Command pattern when you want to:
         Stereo is on
         Stereo is set for Radio
         Stereo volume set to 11
+
+![img_3.png](img_3.png)
+
+        Light livingRoomLight = new Light(LIVING_ROOM);  //receiver 1
+        Fan livingRoomFan = new Fan(LIVING_ROOM);  //receiver 2
+        Light bedRoomLight = new Light(BED_ROOM); //receiver 3
+        Fan bedRoomFan = new Fan(BED_ROOM);   //receiver 4
+        RemoteController remote = new RemoteController(); //Invoker
+
+        remote.setCommand(new CommandTurnOnLight( livingRoomLight ));
+        remote.buttonPressed();
+
+        remote.setCommand(new CommandTurnOnLight( bedRoomLight ));
+        remote.buttonPressed();
+
+        remote.setCommand(new CommandStartFan( livingRoomFan ));
+        remote.buttonPressed();
+
+        remote.setCommand(new CommandStopFan( livingRoomFan ));
+        remote.buttonPressed();
+
+        remote.setCommand(new CommandStartFan( bedRoomFan ));
+        remote.buttonPressed();
+
+        remote.setCommand(new CommandStopFan( bedRoomFan ));
+        remote.buttonPressed();
+
+=>
+
+    Turning on light in living room
+    Light is on
+    Turning on light in bed room
+    Light is on
+    Stopping fan in living room
+    Fan stopped..
+    Starting fan in living room
+    Fan Started..
+    Stopping fan in bed room
+    Fan stopped..
+    Starting fan in bed room
+    Fan Started..

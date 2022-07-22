@@ -1,0 +1,42 @@
+@startuml
+class java_design_patterns.Q_command.home_automation.CommandStopFan {
+~ Fan fan
++ void execute()
+}
+class java_design_patterns.Q_command.home_automation.CommandTurnOnLight {
+~ Light light
++ void execute()
+}
+class java_design_patterns.Q_command.home_automation.Light {
+~ String location
++ void turnOn()
++ void turnOff()
+}
+class java_design_patterns.Q_command.home_automation.Fan {
+~ String location
+~ void start()
+~ void stop()
+}
+interface java_design_patterns.Q_command.home_automation.CommandInterface {
+~ void execute()
+}
+class java_design_patterns.Q_command.home_automation.RemoteController {
+~ CommandInterface command
++ void setCommand(CommandInterface)
++ void buttonPressed()
+}
+class java_design_patterns.Q_command.home_automation.CommandTurnOffLight {
+~ Light light
++ void execute()
+}
+class java_design_patterns.Q_command.home_automation.CommandStartFan {
+~ Fan fan
++ void execute()
+}
+
+
+java_design_patterns.Q_command.home_automation.CommandInterface <|.. java_design_patterns.Q_command.home_automation.CommandStopFan
+java_design_patterns.Q_command.home_automation.CommandInterface <|.. java_design_patterns.Q_command.home_automation.CommandTurnOnLight
+java_design_patterns.Q_command.home_automation.CommandInterface <|.. java_design_patterns.Q_command.home_automation.CommandTurnOffLight
+java_design_patterns.Q_command.home_automation.CommandInterface <|.. java_design_patterns.Q_command.home_automation.CommandStartFan
+@enduml

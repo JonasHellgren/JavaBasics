@@ -9,16 +9,11 @@ public class TestShape {
 
     @Test
     public void testCloneSquare() {
-
         Shape square=new Square("123","Square");
-        Square squareCopy= (Square) square.clone();
+        Shape squareCopy= square.clone();
 
-        System.out.println("square = " + square);
-        System.out.println("squareCopy = " + squareCopy);
-
-        Assert.assertEquals(square.getId(), squareCopy.getId());
-
-
+        Assert.assertTrue(squareCopy instanceof Square);
+        Assert.assertTrue(squareCopy.equals(square));
     }
 
 }

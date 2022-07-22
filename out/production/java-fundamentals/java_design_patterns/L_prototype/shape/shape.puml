@@ -1,0 +1,20 @@
+@startuml
+class java_design_patterns.L_prototype.shape.Rectangle {
++ void draw()
+}
+class java_design_patterns.L_prototype.shape.Square {
++ void draw()
+}
+abstract class java_design_patterns.L_prototype.shape.Shape {
+- String id
+# String type
+~ {abstract}void draw()
++ Shape clone()
++ boolean equals(Shape)
+}
+
+
+java_design_patterns.L_prototype.shape.Shape <|-- java_design_patterns.L_prototype.shape.Rectangle
+java_design_patterns.L_prototype.shape.Shape <|-- java_design_patterns.L_prototype.shape.Square
+java_design_patterns.L_prototype.shape.Cloneable <|.. java_design_patterns.L_prototype.shape.Shape
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+class java_design_patterns.L_prototype.tree.PlasticTree {
++ Tree copy()
+}
+abstract class java_design_patterns.L_prototype.tree.Tree {
+~ double mass
+~ double height
+~ double position
++ {abstract}Tree copy()
++ String toString()
+}
+class java_design_patterns.L_prototype.tree.PineTree {
++ Tree copy()
+}
+
+
+java_design_patterns.L_prototype.tree.Tree <|-- java_design_patterns.L_prototype.tree.PlasticTree
+java_design_patterns.L_prototype.tree.Tree <|-- java_design_patterns.L_prototype.tree.PineTree
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+interface java_design_patterns.N_template.order.OrderProcessInterface {
+~ void processOrder(boolean)
+}
+abstract class java_design_patterns.N_template.order.OrderProcessTemplate {
++ void processOrder(boolean)
++ {abstract}void doSelect()
++ {abstract}void doPayment()
++ void giftWrap()
++ {abstract}void doDelivery()
+}
+class java_design_patterns.N_template.order.StoreOrder {
++ void doSelect()
++ void doPayment()
++ void doDelivery()
+}
+class java_design_patterns.N_template.order.NetOrder {
++ void doSelect()
++ void doPayment()
++ void doDelivery()
+}
+
+
+java_design_patterns.N_template.order.OrderProcessInterface <|.. java_design_patterns.N_template.order.OrderProcessTemplate
+java_design_patterns.N_template.order.OrderProcessTemplate <|-- java_design_patterns.N_template.order.StoreOrder
+java_design_patterns.N_template.order.OrderProcessTemplate <|-- java_design_patterns.N_template.order.NetOrder
+@enduml

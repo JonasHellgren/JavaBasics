@@ -1,0 +1,51 @@
+@startuml
+class java_design_patterns.Q_command.remote_control.RemoteControl {
+~ Command slot
++ void selectButton(Command)
++ void pressButton()
+}
+class java_design_patterns.Q_command.remote_control.LightOnCommand {
+~ Light light
++ void execute()
+}
+class java_design_patterns.Q_command.remote_control.StereoOnCommandWithCdAndVolume11 {
++ {static} int VOLUME
+~ Stereo stereo
++ void execute()
+}
+class java_design_patterns.Q_command.remote_control.StereoOffCommand {
+~ Stereo stereo
++ void execute()
+}
+interface java_design_patterns.Q_command.remote_control.Command {
+~ void execute()
+}
+class java_design_patterns.Q_command.remote_control.Light {
++ void on()
++ void off()
+}
+class java_design_patterns.Q_command.remote_control.StereoOnCommandWithRadioAndVolume11 {
++ {static} int VOLUME
+~ Stereo stereo
++ void execute()
+}
+class java_design_patterns.Q_command.remote_control.Stereo {
++ void on()
++ void off()
++ void setCD()
++ void setDVD()
++ void setRadio()
++ void setVolume(int)
+}
+class java_design_patterns.Q_command.remote_control.LightOffCommand {
+~ Light light
++ void execute()
+}
+
+
+java_design_patterns.Q_command.remote_control.Command <|.. java_design_patterns.Q_command.remote_control.LightOnCommand
+java_design_patterns.Q_command.remote_control.Command <|.. java_design_patterns.Q_command.remote_control.StereoOnCommandWithCdAndVolume11
+java_design_patterns.Q_command.remote_control.Command <|.. java_design_patterns.Q_command.remote_control.StereoOffCommand
+java_design_patterns.Q_command.remote_control.Command <|.. java_design_patterns.Q_command.remote_control.StereoOnCommandWithRadioAndVolume11
+java_design_patterns.Q_command.remote_control.Command <|.. java_design_patterns.Q_command.remote_control.LightOffCommand
+@enduml

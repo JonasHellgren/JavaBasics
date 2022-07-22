@@ -1,0 +1,23 @@
+@startuml
+class java_design_patterns.M_memento.diet.DietInfoBackup {
+~ DietInfo.Memento memento
++ void saveState(DietInfo)
++ void restoreState(DietInfo)
+}
+class java_design_patterns.M_memento.diet.DietInfo {
+~ String personName
+~ int dayNumber
+~ int weight
++ void setDayNumberAndWeight(int,int)
++ Memento save()
++ void restore(Object)
+}
+class java_design_patterns.M_memento.diet.DietInfo.Memento {
+~ String mementoPersonName
+~ int mementoDayNumber
+~ int mementoWeight
+}
+
+
+java_design_patterns.M_memento.diet.DietInfo +.. java_design_patterns.M_memento.diet.DietInfo.Memento
+@enduml

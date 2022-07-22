@@ -1,0 +1,29 @@
+@startuml
+interface java_design_patterns.Q_command.stock.Order {
+~ void execute()
+}
+class java_design_patterns.Q_command.stock.BuyStock {
+- Stock abcStock
++ void execute()
+}
+class java_design_patterns.Q_command.stock.SellStock {
+- Stock abcStock
++ void execute()
+}
+class java_design_patterns.Q_command.stock.Broker {
+- List<Order> orderList
++ void takeOrder(Order)
++ int nofOrders()
++ void runOrders()
+}
+class java_design_patterns.Q_command.stock.Stock {
+- String name
+- Long quantity
++ void buy()
++ void sell()
+}
+
+
+java_design_patterns.Q_command.stock.Order <|.. java_design_patterns.Q_command.stock.BuyStock
+java_design_patterns.Q_command.stock.Order <|.. java_design_patterns.Q_command.stock.SellStock
+@enduml

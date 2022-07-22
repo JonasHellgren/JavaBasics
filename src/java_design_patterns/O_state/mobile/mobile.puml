@@ -1,0 +1,22 @@
+@startuml
+class java_design_patterns.O_state.mobile.Silent {
++ {static} int MAX_SILENT_ALERTS
+~ Long counter
++ void alert(MobilePhone)
+}
+class java_design_patterns.O_state.mobile.Vibration {
++ void alert(MobilePhone)
+}
+interface java_design_patterns.O_state.mobile.AlertStateInterface {
++ void alert(MobilePhone)
+}
+class java_design_patterns.O_state.mobile.MobilePhone {
+- AlertStateInterface currentState
++ void setState(AlertStateInterface)
++ void alert()
+}
+
+
+java_design_patterns.O_state.mobile.AlertStateInterface <|.. java_design_patterns.O_state.mobile.Silent
+java_design_patterns.O_state.mobile.AlertStateInterface <|.. java_design_patterns.O_state.mobile.Vibration
+@enduml

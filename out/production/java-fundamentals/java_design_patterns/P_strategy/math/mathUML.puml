@@ -1,0 +1,23 @@
+@startuml
+interface java_design_patterns.P_strategy.Strategy {
+~ int operate(int,int)
+}
+class java_design_patterns.P_strategy.Multiply {
++ int operate(int,int)
+}
+class java_design_patterns.P_strategy.Context {
+- Strategy strategy
++ int executeStrategy(int,int)
+}
+class java_design_patterns.P_strategy.Add {
++ int operate(int,int)
+}
+class java_design_patterns.P_strategy.Subtract {
++ int operate(int,int)
+}
+
+
+java_design_patterns.P_strategy.Strategy <|.. java_design_patterns.P_strategy.Multiply
+java_design_patterns.P_strategy.Strategy <|.. java_design_patterns.P_strategy.Add
+java_design_patterns.P_strategy.Strategy <|.. java_design_patterns.P_strategy.Subtract
+@enduml

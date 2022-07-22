@@ -16,16 +16,31 @@ public abstract class Shape implements Cloneable {
 
     abstract void draw();
 
-    public Object clone() {
-        Object clone = null;
+    public Shape clone() {
+        Shape clone = null;
 
         try {
-            clone = super.clone();
+            clone = (Shape) super.clone();
 
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
-
         return clone;
     }
+
+    public boolean equals(Shape other) {
+
+        if (!this.getClass().equals(other.getClass()))
+            return false;
+
+        if (!this.id.equals(other.id) || !this.type.equals(other.type))
+            return false;
+
+        return true;
+
+
+
+
+    }
+
 }

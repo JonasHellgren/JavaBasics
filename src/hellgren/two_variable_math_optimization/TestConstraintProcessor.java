@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TestConstraintProcessor {
@@ -34,10 +35,24 @@ public class TestConstraintProcessor {
 
         OptMediator mediator=new OptMediator(x,constraints);
         mediator.run();
-        System.out.println(mediator.getConstraintCheckResults());
 
-        Assert.assertTrue(mediator.getConstraintCheckResults().get(0));
-        Assert.assertTrue(mediator.getConstraintCheckResults().get(1));
+        Assert.assertEquals(Arrays.asList(true,true),mediator.getConstraintCheckResults());
+
+    }
+
+    @Test
+    public void test1and2SmEq2and2AndSumNotOk() {
+        DesignVariable x=new DesignVariable(1,2);
+        Constraint constrainBound=new ConstraintBound(2,2);
+        Constraint constraintSum=new ConstraintSum(1);
+        List<Constraint> constraints= new ArrayList<>();
+        constraints.add(constrainBound);
+        constraints.add(constraintSum);
+
+        OptMediator mediator=new OptMediator(x,constraints);
+        mediator.run();
+
+        Assert.assertEquals(Arrays.asList(true,false),mediator.getConstraintCheckResults());
 
     }
 }

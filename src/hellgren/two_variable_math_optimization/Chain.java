@@ -14,6 +14,7 @@ public class Chain  {
                 new ConstraintSumProcessor(null));
     }
 
+
     public void process(Constraint constraint) {
         chain.process(constraint);
     }

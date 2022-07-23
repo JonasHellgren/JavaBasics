@@ -1,5 +1,9 @@
 package hellgren.two_variable_math_optimization;
 
+import org.junit.Assert;
+
+import java.util.Objects;
+
 public class ConstraintSumProcessor extends ConstraintProcessorAbstract {
     public ConstraintSumProcessor(ConstraintProcessorAbstract nextProcessor) {
         super(nextProcessor);
@@ -9,7 +13,7 @@ public class ConstraintSumProcessor extends ConstraintProcessorAbstract {
     {
         if (constraint instanceof ConstraintSum)
         {
-            System.out.println("ConstraintSumProcessor");
+            constraint.check();
         }
         else
         {

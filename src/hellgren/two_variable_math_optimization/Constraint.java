@@ -5,10 +5,9 @@ import lombok.ToString;
 
 @AllArgsConstructor
 @ToString
-public abstract class Constraint  extends MediatorPartAbstract {
+public abstract class Constraint  extends MediatorMemberAbstract {
 
     public static final int NOT_USED_NUMBER = 0;
-
 
     double x1Max;
     double x2Max;

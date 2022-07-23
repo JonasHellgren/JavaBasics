@@ -1,10 +1,10 @@
 package hellgren.two_variable_math_optimization;
 
-public class Chain  {
+public class ChainOfConstraintTypes {
 
     ConstraintProcessorAbstract chain;
 
-    public Chain(){
+    public ChainOfConstraintTypes(){
         super();
         buildChain();
     }

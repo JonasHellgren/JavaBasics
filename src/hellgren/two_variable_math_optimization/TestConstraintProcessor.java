@@ -16,12 +16,12 @@ public class TestConstraintProcessor {
         List<Constraint> constraints= new ArrayList<>();
         constraints.add(constrainBound);
 
-        OptMediator mediator=new OptMediator(x,constraints);
+        OptimizationMediator mediator=new OptimizationMediator(x,CostFunction.newEmptyCostFunction(),constraints);
         mediator.run();
         System.out.println(mediator.getConstraintCheckResults());
 
         Assert.assertTrue(mediator.getConstraintCheckResults().get(0));
-
+        Assert.assertTrue(mediator.areConstraintsFeasible());
     }
 
     @Test
@@ -33,10 +33,11 @@ public class TestConstraintProcessor {
         constraints.add(constrainBound);
         constraints.add(constraintSum);
 
-        OptMediator mediator=new OptMediator(x,constraints);
+        OptimizationMediator mediator=new OptimizationMediator(x,CostFunction.newEmptyCostFunction(),constraints);
         mediator.run();
 
         Assert.assertEquals(Arrays.asList(true,true),mediator.getConstraintCheckResults());
+        Assert.assertTrue(mediator.areConstraintsFeasible());
 
     }
 
@@ -49,10 +50,10 @@ public class TestConstraintProcessor {
         constraints.add(constrainBound);
         constraints.add(constraintSum);
 
-        OptMediator mediator=new OptMediator(x,constraints);
+        OptimizationMediator mediator=new OptimizationMediator(x,CostFunction.newEmptyCostFunction(),constraints);
         mediator.run();
 
         Assert.assertEquals(Arrays.asList(true,false),mediator.getConstraintCheckResults());
-
+        Assert.assertFalse(mediator.areConstraintsFeasible());
     }
 }

@@ -1,7 +1,5 @@
 package java_design_patterns.I_chain_of_responsibility;
 
-import hellgren.two_variable_math_optimization.DesignVariable;
-
 public class Chain {
 
     ProcessorAbstract chain;

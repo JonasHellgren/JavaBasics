@@ -10,7 +10,9 @@ public class ConstraintBoundProcessor  extends ConstraintProcessorAbstract {
     {
         if (constraint instanceof ConstraintBound)
         {
-            constraint.check();
+            boolean result=constraint.check();
+            mediator.addConstraintCheckResults(result);
+           //  System.out.println("ConstraintBoundProcessor mediator.getDesignVariable() = " + mediator.getDesignVariable());
         }
         else
         {

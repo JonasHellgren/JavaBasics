@@ -13,7 +13,8 @@ public class ConstraintSumProcessor extends ConstraintProcessorAbstract {
     {
         if (constraint instanceof ConstraintSum)
         {
-            constraint.check();
+            boolean result=constraint.check();
+            mediator.addConstraintCheckResults(result);
         }
         else
         {

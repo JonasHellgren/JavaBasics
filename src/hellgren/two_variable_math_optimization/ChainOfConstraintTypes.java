@@ -7,6 +7,7 @@ public class ChainOfConstraintTypes {
     public ChainOfConstraintTypes(){
         super();
         buildChain();
+
     }
 
     private void buildChain(){
@@ -14,9 +15,21 @@ public class ChainOfConstraintTypes {
                 new ConstraintSumProcessor(null));
     }
 
+    void setMediatorInChain(OptimizationMediatorInterface mediator) {
+        ConstraintProcessorAbstract processor=chain;
+           while (processor!=null) {
+            processor.setMediator(mediator);
+            processor=processor.getNextProcessor();
+        }
+
+    }
 
     public void process(Constraint constraint) {
         chain.process(constraint);
     }
+
+
+
+
 
 }

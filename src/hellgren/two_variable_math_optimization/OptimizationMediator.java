@@ -25,6 +25,7 @@ public class OptimizationMediator implements OptimizationMediatorInterface {
         defineConstraints(constraints);
         this.constraintCheckResults = new ArrayList<>();
         chain=new ChainOfConstraintTypes();
+        chain.setMediatorInChain(this);
     }
 
     private void defineConstraints(List<Constraint> constraints) {

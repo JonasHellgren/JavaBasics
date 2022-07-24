@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class TestOptimizationProblem {
 
+    public static final int NOF_ITERATIONS = 10000;
     List<Constraint> constraintsEmpty= new ArrayList<>();
 
     @Test
@@ -55,7 +56,7 @@ public class TestOptimizationProblem {
     private DesignVariable findXbest(OptimizationMediator mediator) {
         DesignVariable xBest=new DesignVariable(0,0);
         double costBest=-Double.MAX_VALUE;
-        for (int i = 0; i < 1000 ; i++) {
+        for (int i = 0; i < NOF_ITERATIONS; i++) {
 
             DesignVariable xTest = getRandomDesignVariable();
             mediator.setDesignVariable(xTest);

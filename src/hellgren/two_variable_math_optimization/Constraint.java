@@ -13,6 +13,6 @@ public abstract class Constraint  extends MediatorMemberAbstract {
     double x2Max;
     double sumMax;
 
-    abstract void  check();
+    abstract boolean  check();
 
 }

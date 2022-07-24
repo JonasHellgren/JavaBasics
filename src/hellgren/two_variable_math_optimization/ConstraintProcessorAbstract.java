@@ -1,8 +1,10 @@
 package hellgren.two_variable_math_optimization;
 
 import java_design_patterns.I_chain_of_responsibility.NumberWrapper;
+import lombok.ToString;
 
-public class ConstraintProcessorAbstract {
+@ToString
+public abstract class ConstraintProcessorAbstract extends MediatorMemberAbstract  {
 
     private final ConstraintProcessorAbstract nextProcessor;
 
@@ -15,4 +17,7 @@ public class ConstraintProcessorAbstract {
             nextProcessor.process(constraint);
     }
 
+    public ConstraintProcessorAbstract getNextProcessor() {
+        return nextProcessor;
+    }
 }

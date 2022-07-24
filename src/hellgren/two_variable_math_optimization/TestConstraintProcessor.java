@@ -12,8 +12,8 @@ public class TestConstraintProcessor {
     @Test
     public void test1and2SmEq2and2() {
         DesignVariable x=new DesignVariable(1,2);
-        Constraint constrainBound=new ConstraintBound(2,2);
-        List<Constraint> constraints= new ArrayList<>();
+        ConstraintAbstract constrainBound=new ConstraintBound(2,2);
+        List<ConstraintAbstract> constraints= new ArrayList<>();
         constraints.add(constrainBound);
 
         OptimizationMediator mediator=new OptimizationMediator(x,CostFunction.newEmptyCostFunction(),constraints);
@@ -27,9 +27,9 @@ public class TestConstraintProcessor {
     @Test
     public void test1and2SmEq2and2AndSumOk() {
         DesignVariable x=new DesignVariable(1,2);
-        Constraint constrainBound=new ConstraintBound(2,2);
-        Constraint constraintSum=new ConstraintSum(20);
-        List<Constraint> constraints= new ArrayList<>();
+        ConstraintAbstract constrainBound=new ConstraintBound(2,2);
+        ConstraintAbstract constraintSum=new ConstraintSum(20);
+        List<ConstraintAbstract> constraints= new ArrayList<>();
         constraints.add(constrainBound);
         constraints.add(constraintSum);
 
@@ -44,9 +44,9 @@ public class TestConstraintProcessor {
     @Test
     public void test1and2SmEq2and2AndSumNotOk() {
         DesignVariable x=new DesignVariable(1,2);
-        Constraint constrainBound=new ConstraintBound(2,2);
-        Constraint constraintSum=new ConstraintSum(1);
-        List<Constraint> constraints= new ArrayList<>();
+        ConstraintAbstract constrainBound=new ConstraintBound(2,2);
+        ConstraintAbstract constraintSum=new ConstraintSum(1);
+        List<ConstraintAbstract> constraints= new ArrayList<>();
         constraints.add(constrainBound);
         constraints.add(constraintSum);
 

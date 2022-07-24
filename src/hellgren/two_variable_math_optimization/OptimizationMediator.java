@@ -1,23 +1,32 @@
 package hellgren.two_variable_math_optimization;
 
+import lombok.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Following fields will have access to the mediator: constraints and costFunction
+ * Thanks to the mediator pattern fields do not need to be transferred via method parameters.
+ * Following fields will have access to the mediator: chain and costFunction.
+ * Chain requires access to designVariable and constraintCheckResults.
+ * costFunction requires access to designVariable and costResult.
+ *
+ * The chain field implements the chain of responsibility pattern. A constraint will be "caught" by the relevant
+ * receiver in the chain.
  */
 
 public class OptimizationMediator implements OptimizationMediatorInterface {
 
     DesignVariable designVariable;
     CostFunction costFunction;
-    List<Constraint> constraints;
+    List<ConstraintAbstract> constraints;
     List<Boolean> constraintCheckResults;
     double costResult;
     ChainOfConstraintTypes chain;
 
-
-    public OptimizationMediator(DesignVariable designVariable, CostFunction costFunction, List<Constraint> constraints) {
+    public OptimizationMediator(@NonNull  DesignVariable designVariable,
+                                @NonNull CostFunction costFunction,
+                                @NonNull List<ConstraintAbstract> constraints) {
         this.designVariable = designVariable;
         this.costFunction = costFunction;
         costFunction.setMediator(this);
@@ -28,12 +37,9 @@ public class OptimizationMediator implements OptimizationMediatorInterface {
         chain.setMediatorInChain(this);
     }
 
-    private void defineConstraints(List<Constraint> constraints) {
+    private void defineConstraints(List<ConstraintAbstract> constraints) {
         this.constraints =new ArrayList<>();
-        for (Constraint constraint: constraints) {
-            constraint.setMediator(this);
-            this.constraints.add(constraint);
-        }
+        this.constraints.addAll(constraints);
     }
 
     @Override
@@ -43,9 +49,9 @@ public class OptimizationMediator implements OptimizationMediatorInterface {
         setCostResult(costFunction.calculate());
     }
 
-    //the constraint will be "caught" by relevant receiver in chain of responsibility
+
     private void evaluateConstraints() {
-        for (Constraint constraint: constraints) {
+        for (ConstraintAbstract constraint: constraints) {
             chain.process(constraint);
         }
     }
@@ -61,8 +67,7 @@ public class OptimizationMediator implements OptimizationMediatorInterface {
     }
 
     @Override
-    public void addConstraint(Constraint constraint) {
-        constraint.setMediator(this);
+    public void addConstraint(ConstraintAbstract constraint) {
         constraints.add(constraint);
     }
 

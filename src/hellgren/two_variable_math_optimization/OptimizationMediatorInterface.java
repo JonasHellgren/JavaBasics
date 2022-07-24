@@ -6,7 +6,7 @@ public interface OptimizationMediatorInterface {
     void run();
     void setDesignVariable(DesignVariable designVariable);
     DesignVariable getDesignVariable();
-    void addConstraint(Constraint constraint);
+    void addConstraint(ConstraintAbstract constraint);
     void addConstraintCheckResults(boolean checkResult);
     List<Boolean> getConstraintCheckResults();
     void setCostResult(double result);

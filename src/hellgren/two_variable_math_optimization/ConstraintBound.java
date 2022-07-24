@@ -1,17 +1,17 @@
 package hellgren.two_variable_math_optimization;
 
-import lombok.ToString;
+public class ConstraintBound extends ConstraintAbstract {
 
-
-public class ConstraintBound extends Constraint {
+    double x1Max;
+    double x2Max;
 
     public ConstraintBound(double x1Max, double x2Max) {
-        super(x1Max, x2Max,NOT_USED_NUMBER);
+        this.x1Max = x1Max;
+        this.x2Max = x2Max;
     }
 
     @Override
-    boolean check() {
-        DesignVariable x=mediator.getDesignVariable();
+    boolean check(DesignVariable x) {
         return x.x1<=x1Max+Double.MIN_VALUE && x.x2<=x2Max+Double.MIN_VALUE;
 
     }

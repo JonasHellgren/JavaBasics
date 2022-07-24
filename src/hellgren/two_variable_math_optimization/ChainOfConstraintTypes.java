@@ -24,7 +24,7 @@ public class ChainOfConstraintTypes {
 
     }
 
-    public void process(Constraint constraint) {
+    protected void process(ConstraintAbstract constraint) {
         chain.process(constraint);
     }
 

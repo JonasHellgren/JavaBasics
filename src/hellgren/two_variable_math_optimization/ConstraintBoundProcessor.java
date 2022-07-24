@@ -6,13 +6,11 @@ public class ConstraintBoundProcessor  extends ConstraintProcessorAbstract {
     }
 
     @Override
-    public void process(Constraint constraint)
+    public void process(ConstraintAbstract constraint)
     {
         if (constraint instanceof ConstraintBound)
         {
-            boolean result=constraint.check();
-            mediator.addConstraintCheckResults(result);
-           //  System.out.println("ConstraintBoundProcessor mediator.getDesignVariable() = " + mediator.getDesignVariable());
+            super.evaluate(constraint);
         }
         else
         {

@@ -1,6 +1,5 @@
 package hellgren.two_variable_math_optimization;
 
-import java_design_patterns.I_chain_of_responsibility.NumberWrapper;
 import lombok.ToString;
 
 @ToString
@@ -12,9 +11,15 @@ public abstract class ConstraintProcessorAbstract extends MediatorMemberAbstract
         this.nextProcessor = nextProcessor;
     }
 
-    public void process(Constraint constraint) {
+    public void process(ConstraintAbstract constraint) {
         if (nextProcessor != null)
             nextProcessor.process(constraint);
+    }
+
+    protected void evaluate(ConstraintAbstract constraint) {
+        DesignVariable x =mediator.getDesignVariable();
+        boolean result = constraint.check(x);
+        mediator.addConstraintCheckResults(result);
     }
 
     public ConstraintProcessorAbstract getNextProcessor() {

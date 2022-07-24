@@ -4,9 +4,9 @@ import hellgren.two_variable_math_optimization.constraints.ConstraintAbstract;
 import hellgren.two_variable_math_optimization.constraints.ConstraintBound;
 import hellgren.two_variable_math_optimization.cost_designvariable.CostFunction;
 import hellgren.two_variable_math_optimization.cost_designvariable.DesignVariable;
-import hellgren.two_variable_math_optimization.mediator_facade.OptimizationMediator;
-import hellgren.two_variable_math_optimization.mediator_facade.TwoVariableOptimizer;
-import hellgren.two_variable_math_optimization.mediator_facade.TwoVariableOptimizerInterface;
+import hellgren.two_variable_math_optimization.mediator.OptimizationMediator;
+import hellgren.two_variable_math_optimization.facade.TwoVariableOptimizer;
+import hellgren.two_variable_math_optimization.facade.TwoVariableOptimizerInterface;
 import org.junit.Assert;
 import org.junit.Test;
 

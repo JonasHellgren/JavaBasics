@@ -1,0 +1,47 @@
+@startuml
+class hellgren.two_variable_math_optimization.mediator.MediatorMemberAbstract {
+}
+class hellgren.two_variable_math_optimization.constraint_processor.ConstraintSumProcessor {
+}
+abstract class hellgren.two_variable_math_optimization.constraints.ConstraintAbstract {
+}
+class hellgren.two_variable_math_optimization.constraints.ConstraintBound {
+}
+interface hellgren.two_variable_math_optimization.mediator.OptimizationMediatorInterface {
+}
+class hellgren.two_variable_math_optimization.constraint_processor.ChainOfConstraintTypes {
+}
+class hellgren.two_variable_math_optimization.constraints.ConstraintSum {
+}
+class hellgren.two_variable_math_optimization.mediator.OptimizationMediator {
+}
+interface hellgren.two_variable_math_optimization.mediator.MediatorMemberInterface {
+}
+abstract class hellgren.two_variable_math_optimization.constraint_processor.ConstraintProcessorAbstract {
+}
+class hellgren.two_variable_math_optimization.tests.TestConstraintProcessor {
+}
+class hellgren.two_variable_math_optimization.cost_designvariable.CostFunction {
+}
+class hellgren.two_variable_math_optimization.constraint_processor.ConstraintBoundProcessor {
+}
+class hellgren.two_variable_math_optimization.cost_designvariable.DesignVariable {
+}
+class hellgren.two_variable_math_optimization.tests.TestOptimizationProblem {
+}
+interface hellgren.two_variable_math_optimization.facade.TwoVariableOptimizerInterface {
+}
+class hellgren.two_variable_math_optimization.facade.TwoVariableOptimizer {
+}
+
+
+hellgren.two_variable_math_optimization.mediator.MediatorMemberInterface <|.. hellgren.two_variable_math_optimization.mediator.MediatorMemberAbstract
+hellgren.two_variable_math_optimization.constraint_processor.ConstraintProcessorAbstract <|-- hellgren.two_variable_math_optimization.constraint_processor.ConstraintSumProcessor
+hellgren.two_variable_math_optimization.constraints.ConstraintAbstract <|-- hellgren.two_variable_math_optimization.constraints.ConstraintBound
+hellgren.two_variable_math_optimization.constraints.ConstraintAbstract <|-- hellgren.two_variable_math_optimization.constraints.ConstraintSum
+hellgren.two_variable_math_optimization.mediator.OptimizationMediatorInterface <|.. hellgren.two_variable_math_optimization.mediator.OptimizationMediator
+hellgren.two_variable_math_optimization.mediator.MediatorMemberAbstract <|-- hellgren.two_variable_math_optimization.constraint_processor.ConstraintProcessorAbstract
+hellgren.two_variable_math_optimization.mediator.MediatorMemberAbstract <|-- hellgren.two_variable_math_optimization.cost_designvariable.CostFunction
+hellgren.two_variable_math_optimization.constraint_processor.ConstraintProcessorAbstract <|-- hellgren.two_variable_math_optimization.constraint_processor.ConstraintBoundProcessor
+hellgren.two_variable_math_optimization.facade.TwoVariableOptimizerInterface <|.. hellgren.two_variable_math_optimization.facade.TwoVariableOptimizer
+@enduml

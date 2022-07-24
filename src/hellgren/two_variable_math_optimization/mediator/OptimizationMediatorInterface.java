@@ -1,4 +1,4 @@
-package hellgren.two_variable_math_optimization.mediator_facade;
+package hellgren.two_variable_math_optimization.mediator;
 
 import hellgren.two_variable_math_optimization.constraints.ConstraintAbstract;
 import hellgren.two_variable_math_optimization.cost_designvariable.DesignVariable;

@@ -1,4 +1,4 @@
-package hellgren.two_variable_math_optimization.mediator_facade;
+package hellgren.two_variable_math_optimization.mediator;
 
 public class MediatorMemberAbstract implements MediatorMemberInterface {
     protected OptimizationMediatorInterface mediator;

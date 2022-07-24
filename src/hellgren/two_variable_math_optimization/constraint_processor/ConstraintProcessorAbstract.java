@@ -2,7 +2,7 @@ package hellgren.two_variable_math_optimization.constraint_processor;
 
 import hellgren.two_variable_math_optimization.constraints.ConstraintAbstract;
 import hellgren.two_variable_math_optimization.cost_designvariable.DesignVariable;
-import hellgren.two_variable_math_optimization.mediator_facade.MediatorMemberAbstract;
+import hellgren.two_variable_math_optimization.mediator.MediatorMemberAbstract;
 import lombok.ToString;
 
 @ToString

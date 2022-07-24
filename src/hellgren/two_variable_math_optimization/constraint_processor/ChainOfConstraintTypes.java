@@ -1,7 +1,7 @@
 package hellgren.two_variable_math_optimization.constraint_processor;
 
 import hellgren.two_variable_math_optimization.constraints.ConstraintAbstract;
-import hellgren.two_variable_math_optimization.mediator_facade.OptimizationMediatorInterface;
+import hellgren.two_variable_math_optimization.mediator.OptimizationMediatorInterface;
 
 public class ChainOfConstraintTypes {
 

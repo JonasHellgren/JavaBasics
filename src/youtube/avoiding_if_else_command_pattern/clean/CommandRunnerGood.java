@@ -24,18 +24,17 @@ public class CommandRunnerGood {
         List<CommandExecutor> commandExecutors=new ArrayList<>();
         commandExecutors.add(new BalanceCommandExecutor(dataBase));
         commandExecutors.add(new RechargeCommandExecutor(dataBase, new RechargeProvider()));
-        CommandRunnerGood cr=new CommandRunnerGood(commandExecutors);
-        return cr;
+        return new CommandRunnerGood(commandExecutors);
     }
 
-    public String runCommand(Command command) {
+    public String runCommand(Command command) throws IllegalArgumentException {
         for (CommandExecutor commandExecutor: commandExecutors) {
             if (commandExecutor.isApplicable(command)) {
                 return commandExecutor.execute(command);
             }
         }
 
-        return "Invalid Command";
+        throw new IllegalArgumentException("No matching command");
     }
 
 }

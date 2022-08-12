@@ -19,7 +19,7 @@ import java.util.List;
 public class TestGood {
 
 
-    @Test public void test() {
+    @Test public void testBalance() {
 
         CommandRunnerGood cr=CommandRunnerGood.newCommandRunnerGood();
         Command command=new Command(CommandTypes.BALANCE, Arrays.asList("Jonas"));
@@ -28,6 +28,18 @@ public class TestGood {
 
         Assert.assertEquals("1000",reply);
 
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testNoCommand()
+    {
+
+        CommandRunnerGood cr=CommandRunnerGood.newCommandRunnerGood();
+        Command command=new Command(CommandTypes.DUMMY, Arrays.asList("Jonas"));
+        String reply=cr.runCommand(command);
+        System.out.println("reply = " + reply);
+
+        Assert.assertEquals("1000",reply);
 
     }
 

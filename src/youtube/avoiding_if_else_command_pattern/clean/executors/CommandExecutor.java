@@ -12,7 +12,7 @@ abstract public class CommandExecutor {
 
     public String execute(final Command command) {
         if (!isValid(command)) {
-            return "Invalid Command";
+            throw new IllegalArgumentException("No valid command");
         }
         return executeValidCommand(command);
     }

@@ -1,5 +1,7 @@
 Item 78: Synchronize access to shared mutable data
+
 Item 79: Avoid excessive synchronization
+
 Item 80: Prefer executors, tasks, and streams to threads
 
         We can use Java ExecutorService to create a single thread, a pool of threads, or a scheduled pool of threads. 
@@ -22,6 +24,7 @@ Item 81: Prefer concurrency utilities to wait and notify
         if ever, a reason to use wait and notify in new code. 
             
 Item 82: Document thread safety
+
 Item 83: Use lazy initialization judiciously
 
         Field accessed only a fraction of the instances of a class and it is costly to initialize, lazy

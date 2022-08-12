@@ -7,9 +7,11 @@
         return new Rectangle(width, height);
     }
 
+![img.png](img.png)
 
 * Item 2: Consider a builder when faced with many constructor
 parameters
+  
 * Item 3: Enforce the singleton property with a private
 constructor or an enum type
 

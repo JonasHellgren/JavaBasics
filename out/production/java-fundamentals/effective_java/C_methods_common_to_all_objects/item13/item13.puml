@@ -1,0 +1,19 @@
+@startuml
+class effective_java.C_methods_common_to_all_objects.item13.ContractEmployee {
++ int dailyWages
++ ContractEmployee getCopy()
+}
+class effective_java.C_methods_common_to_all_objects.item13.Address {
+~ String street
+~ String city
+}
+class effective_java.C_methods_common_to_all_objects.item13.Employee {
+- String name
+- String identifier
++ Address address
++ Employee getCopy()
+}
+
+
+effective_java.C_methods_common_to_all_objects.item13.Employee <|-- effective_java.C_methods_common_to_all_objects.item13.ContractEmployee
+@enduml

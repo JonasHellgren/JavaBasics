@@ -6,7 +6,7 @@ import lombok.ToString;
 //http://javadeveloperkit.com/create-copy-of-object-by-copy-constructor-static-factory-in-java/
 @AllArgsConstructor
 @ToString
-public class Employee{
+public class Employee {
 
     private final String name;
     private final String identifier;

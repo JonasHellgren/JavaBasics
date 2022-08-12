@@ -1,6 +1,8 @@
 9 General Programming
 Item 57: Minimize the scope of local variables
+
 Item 58: Prefer for-each loops to traditional for loops
+
 Item 59: Know and use the libraries
 
             lang and util are most important
@@ -26,7 +28,9 @@ Item 61: Prefer primitive types to boxed primitives
             it slowes down
 
 Item 62: Avoid strings where other types are more appropriate
+
 Item 63: Beware the performance of string concatenation
+
 Item 64: Refer to objects by their interfaces
         
         LinkedHashSet<String> stringSet = new LinkedHashSet();

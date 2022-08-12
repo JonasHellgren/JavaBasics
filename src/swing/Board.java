@@ -47,7 +47,6 @@ public class Board extends JPanel
     private void drawStar(Graphics g) {
         g.drawImage(star, x, y, this);
         Toolkit.getDefaultToolkit().sync();
-
     }
 
     @Override

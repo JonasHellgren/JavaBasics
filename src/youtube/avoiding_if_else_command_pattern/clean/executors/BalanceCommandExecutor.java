@@ -1,0 +1,27 @@
+package youtube.avoiding_if_else_command_pattern.clean.executors;
+
+import java_design_patterns.E_singleton.Database;
+import youtube.avoiding_if_else_command_pattern.common.Command;
+import youtube.avoiding_if_else_command_pattern.common.UserDataBase;
+
+public class BalanceCommandExecutor extends CommandExecutor{
+
+    public static final String BALANCE = "balance";
+
+    public BalanceCommandExecutor(UserDataBase database) {
+        super(database);
+    }
+
+    public Boolean isApplicable(Command command) {
+        return command.getName().equals(BALANCE);
+    }
+
+    protected Boolean isValid(Command command) {
+        return command.getParams().size() == 1;
+    }
+
+    protected String executeValidCommand(Command command) {
+        String user = command.getParams().get(0);
+        return database.getUsreBalance(user).toString();
+    }
+}

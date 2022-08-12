@@ -15,10 +15,11 @@
 * Item 18: Favor composition over inheritance
 * Item 19: Design and document for inheritance or else prohibit it
 
-
     final prevents inheritance
 
 * Item 20: Prefer interfaces to abstract classes
+
+![img.png](img.png)
 
         avoid code duplication by defining common methods in AbstractVending, can still use interface for variable declaration
 

@@ -9,6 +9,6 @@ import java.util.List;
 @AllArgsConstructor
 public class Command {
 
-    String name;
+    CommandTypes type;
     List<String> params;
 }

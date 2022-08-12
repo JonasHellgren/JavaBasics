@@ -2,6 +2,7 @@ package youtube.avoiding_if_else_command_pattern.bad;
 
 
 import youtube.avoiding_if_else_command_pattern.common.Command;
+import youtube.avoiding_if_else_command_pattern.common.CommandTypes;
 import youtube.avoiding_if_else_command_pattern.common.RechargeProvider;
 import youtube.avoiding_if_else_command_pattern.common.UserDataBase;
 
@@ -15,13 +16,13 @@ public class CommandRunnerBad {
     }
 
     public String runCommand(Command command) {
-        if ("balance".equals(command.getName())) {
+        if (CommandTypes.BALANCE.equals(command.getType())) {
             if (command.getParams().size() != 1) {
                 return "Invalid Command";
             }
             String user = command.getParams().get(0);
             return database.getUsreBalance(user).toString();
-        } else if ("recharge".equals(command.getName())) {
+        } else if (CommandTypes.CHARGE.equals(command.getType())) {
             if (command.getParams().size() != 2) {
                 return "Invalid Command";
             }

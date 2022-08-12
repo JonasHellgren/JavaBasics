@@ -1,0 +1,24 @@
+@startuml
+class youtube.avoiding_if_else_command_pattern.clean.executors.RechargeCommandExecutor {
+~ RechargeProvider rechargeProvider
++ Boolean isApplicable(Command)
+# Boolean isValid(Command)
+# String executeValidCommand(Command)
+}
+abstract class youtube.avoiding_if_else_command_pattern.clean.executors.CommandExecutor {
+# UserDataBase database
++ String execute(Command)
++ {abstract}Boolean isApplicable(Command)
+# {abstract}Boolean isValid(Command)
+# {abstract}String executeValidCommand(Command)
+}
+class youtube.avoiding_if_else_command_pattern.clean.executors.BalanceCommandExecutor {
++ Boolean isApplicable(Command)
+# Boolean isValid(Command)
+# String executeValidCommand(Command)
+}
+
+
+youtube.avoiding_if_else_command_pattern.clean.executors.CommandExecutor <|-- youtube.avoiding_if_else_command_pattern.clean.executors.RechargeCommandExecutor
+youtube.avoiding_if_else_command_pattern.clean.executors.CommandExecutor <|-- youtube.avoiding_if_else_command_pattern.clean.executors.BalanceCommandExecutor
+@enduml

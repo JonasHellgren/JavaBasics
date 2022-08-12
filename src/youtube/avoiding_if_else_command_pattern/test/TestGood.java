@@ -8,6 +8,7 @@ import youtube.avoiding_if_else_command_pattern.clean.executors.BalanceCommandEx
 import youtube.avoiding_if_else_command_pattern.clean.executors.CommandExecutor;
 import youtube.avoiding_if_else_command_pattern.clean.executors.RechargeCommandExecutor;
 import youtube.avoiding_if_else_command_pattern.common.Command;
+import youtube.avoiding_if_else_command_pattern.common.CommandTypes;
 import youtube.avoiding_if_else_command_pattern.common.RechargeProvider;
 import youtube.avoiding_if_else_command_pattern.common.UserDataBase;
 
@@ -21,7 +22,7 @@ public class TestGood {
     @Test public void test() {
 
         CommandRunnerGood cr=CommandRunnerGood.newCommandRunnerGood();
-        Command command=new Command("balance", Arrays.asList("Jonas"));
+        Command command=new Command(CommandTypes.BALANCE, Arrays.asList("Jonas"));
         String reply=cr.runCommand(command);
         System.out.println("reply = " + reply);
 

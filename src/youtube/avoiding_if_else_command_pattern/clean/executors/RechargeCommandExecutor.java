@@ -1,7 +1,7 @@
 package youtube.avoiding_if_else_command_pattern.clean.executors;
 
-import java_design_patterns.E_singleton.Database;
 import youtube.avoiding_if_else_command_pattern.common.Command;
+import youtube.avoiding_if_else_command_pattern.common.CommandTypes;
 import youtube.avoiding_if_else_command_pattern.common.RechargeProvider;
 import youtube.avoiding_if_else_command_pattern.common.UserDataBase;
 
@@ -14,7 +14,7 @@ public class RechargeCommandExecutor extends CommandExecutor {
     }
 
     public Boolean isApplicable(Command command) {
-        return command.getName().equals("recharge");
+        return command.getType().equals(CommandTypes.CHARGE);
     }
 
     protected Boolean isValid(Command command) {

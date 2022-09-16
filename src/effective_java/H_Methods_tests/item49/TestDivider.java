@@ -12,6 +12,12 @@ public class TestDivider {
         System.out.println("res = " + res);
     }
 
+    @Test
+    public void testDiv0() {
+        Double res= Divider.div(2,0);
+        System.out.println("res = " + res);
+    }
+
 
     //requires VM option -ea
     @Test(expected = AssertionError.class)

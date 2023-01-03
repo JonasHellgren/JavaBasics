@@ -56,7 +56,6 @@ public class PersonWithChildren extends PersonWithOrWithNoChildrenAbstract {
             counter.increment();
             nofOffSpringsRec(child,counter);
         }
-
     }
 
 

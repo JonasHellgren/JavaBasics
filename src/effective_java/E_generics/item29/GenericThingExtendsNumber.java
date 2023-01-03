@@ -6,6 +6,7 @@ public class GenericThingExtendsNumber<T extends Number> {
     private T val;
 
     public GenericThingExtendsNumber(T val) { this.val = val;}
-    public T getVal() { return this.val; }
+    public T getVal() { return this.val;
+    }
 
 }

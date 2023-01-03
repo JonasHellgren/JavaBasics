@@ -18,5 +18,7 @@ public class BuilderCat {
 
     @Singular   //build single or multiple child items
     public List<String> childs;
+
+
 }
 

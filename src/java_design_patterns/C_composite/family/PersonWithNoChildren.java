@@ -39,8 +39,7 @@ public class PersonWithNoChildren extends PersonWithOrWithNoChildrenAbstract {
 
     @Override
     public int nofChildren() {
-        return 0;
-    }
+        return 0;    }
 
     @Override
     public int nofOffSprings() {

@@ -32,5 +32,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Maven: javax.measure:unit-api:1.0" level="project" />
   </component>
 </module>

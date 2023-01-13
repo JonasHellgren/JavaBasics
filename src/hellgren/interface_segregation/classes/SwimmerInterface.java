@@ -1,4 +1,4 @@
-package hellgren.integration_segregation.classes;
+package hellgren.interface_segregation.classes;
 
 public interface SwimmerInterface extends AthleteInterface {
     void swim();

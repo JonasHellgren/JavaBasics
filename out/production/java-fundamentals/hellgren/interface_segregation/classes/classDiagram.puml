@@ -1,0 +1,35 @@
+@startuml
+abstract class hellgren.interface_segregation.classes.AthleteAbstract {
+~ String name
++ void compete()
+}
+interface hellgren.interface_segregation.classes.RunnerInterface {
+~ void run()
+}
+class hellgren.interface_segregation.classes.Swimmer {
++ void swim()
+}
+interface hellgren.interface_segregation.classes.ToExtensiveAthleteInterface {
+~ void compete()
+~ void swim()
+~ void run()
+}
+class hellgren.interface_segregation.classes.Runner {
++ void run()
+}
+interface hellgren.interface_segregation.classes.AthleteInterface {
+~ void compete()
+}
+interface hellgren.interface_segregation.classes.SwimmerInterface {
+~ void swim()
+}
+
+
+hellgren.interface_segregation.classes.AthleteInterface <|.. hellgren.interface_segregation.classes.AthleteAbstract
+hellgren.interface_segregation.classes.AthleteInterface <|-- hellgren.interface_segregation.classes.RunnerInterface
+hellgren.interface_segregation.classes.SwimmerInterface <|.. hellgren.interface_segregation.classes.Swimmer
+hellgren.interface_segregation.classes.AthleteAbstract <|-- hellgren.interface_segregation.classes.Swimmer
+hellgren.interface_segregation.classes.RunnerInterface <|.. hellgren.interface_segregation.classes.Runner
+hellgren.interface_segregation.classes.AthleteAbstract <|-- hellgren.interface_segregation.classes.Runner
+hellgren.interface_segregation.classes.AthleteInterface <|-- hellgren.interface_segregation.classes.SwimmerInterface
+@enduml

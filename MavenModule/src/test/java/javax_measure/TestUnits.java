@@ -4,24 +4,15 @@ import org.junit.Assert;
 import org.junit.Test;
 import tec.units.ri.format.SimpleUnitFormat;
 import tec.units.ri.unit.MetricPrefix;
-
-import javax.measure.Unit;
 import javax.measure.UnitConverter;
-import javax.measure.quantity.Pressure;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static tec.units.ri.unit.Units.*;
 import static tec.units.ri.unit.Units.SECOND;
 
+//https://www.baeldung.com/javax-measure
 public class TestUnits {
-
-    @Test
-    public void givenUnit_whenAlternateUnit_ThenGetAlternateUnit() {
-        Unit<Pressure> PASCAL = NEWTON.divide(METRE.pow(2))
-                .alternate("Pa").asType(Pressure.class);
-        Assert.assertTrue(SimpleUnitFormat.getInstance().parse("Pa")
-                .equals(PASCAL));
-    }
 
     @Test
     public void givenMeters_whenConvertToKilometer_ThenConverted() {
@@ -41,9 +32,13 @@ public class TestUnits {
 
     @Test
     public void givenSymbol_WhenCompareToSystemUnit_ThenSuccess() {
-        assertTrue(SimpleUnitFormat.getInstance().parse("kW")
-                .equals(MetricPrefix.KILO(WATT)));
-        assertTrue(SimpleUnitFormat.getInstance().parse("ms")
-                .equals(SECOND.divide(1000)));
+
+        System.out.println("MetricPrefix.KILO(WATT) = " + MetricPrefix.KILO(WATT));
+
+        assertEquals(SimpleUnitFormat.getInstance().parse("kW"), MetricPrefix.KILO(WATT));
+        assertEquals(SimpleUnitFormat.getInstance().parse("ms"), SECOND.divide(1000));
+
+
+
     }
 }

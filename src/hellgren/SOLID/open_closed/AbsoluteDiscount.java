@@ -3,13 +3,17 @@ package hellgren.SOLID.open_closed;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class AdultDiscount implements com.gkatzioura.solid.ocp.Discount {
+public class AbsoluteDiscount implements Discount{
+
+    double discount;
+
+    public AbsoluteDiscount(double discount) {
+        this.discount = discount;
+    }
 
     @Override
-    public BigDecimal apply(BigDecimal price) {
+    public double apply(double price) {
 
-        BigDecimal percent = new BigDecimal("0.10");
-        BigDecimal discount = price.multiply(percent);
-        return price.subtract(discount.setScale(2, RoundingMode.HALF_UP));
+        return  price-discount;
     }
 }

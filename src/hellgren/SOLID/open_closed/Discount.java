@@ -1,8 +1,8 @@
-package com.gkatzioura.solid.ocp;
+package hellgren.SOLID.open_closed;
 
 import java.math.BigDecimal;
 
 public interface Discount {
 
-    BigDecimal apply(BigDecimal price);
+    double apply(double price);
 }

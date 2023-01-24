@@ -1,0 +1,20 @@
+@startuml
+interface hellgren.SOLID.liskov_substitution.FlyingBird {
+~ void fly()
+}
+class hellgren.SOLID.liskov_substitution.Duck {
++ void eat()
++ void fly()
+}
+class hellgren.SOLID.liskov_substitution.Ostrich {
++ void eat()
+}
+interface hellgren.SOLID.liskov_substitution.Bird {
+~ void eat()
+}
+
+
+hellgren.SOLID.liskov_substitution.Bird <|-- hellgren.SOLID.liskov_substitution.FlyingBird
+hellgren.SOLID.liskov_substitution.FlyingBird <|.. hellgren.SOLID.liskov_substitution.Duck
+hellgren.SOLID.liskov_substitution.Bird <|.. hellgren.SOLID.liskov_substitution.Ostrich
+@enduml

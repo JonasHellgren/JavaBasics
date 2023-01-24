@@ -2,12 +2,12 @@ package javax_measure;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+
+import static org.junit.Assert.assertEquals;
 import tec.units.ri.format.SimpleUnitFormat;
 import tec.units.ri.unit.MetricPrefix;
 import javax.measure.UnitConverter;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static tec.units.ri.unit.Units.*;
 import static tec.units.ri.unit.Units.SECOND;
 
@@ -37,8 +37,6 @@ public class TestUnits {
 
         assertEquals(SimpleUnitFormat.getInstance().parse("kW"), MetricPrefix.KILO(WATT));
         assertEquals(SimpleUnitFormat.getInstance().parse("ms"), SECOND.divide(1000));
-
-
 
     }
 }

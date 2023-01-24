@@ -1,18 +1,20 @@
-package com.gkatzioura.solid.ocp;
+package hellgren.SOLID.open_closed;
+
+import hellgren.SOLID.open_closed.Discount;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DiscountService {
 
-    public BigDecimal applyDiscounts(BigDecimal price,Discount[] discounts) {
+    public List<Double>  applyDiscounts(double price, List<Discount> discounts) {
 
-        BigDecimal discountPrice = price.add(BigDecimal.ZERO);
-
+        List<Double> priceList=new ArrayList<>();
         for(Discount discount:discounts) {
-
-            discountPrice = discount.apply(discountPrice);
+            priceList.add(discount.apply(price));
         }
 
-        return discountPrice;
+        return priceList;
     }
 }

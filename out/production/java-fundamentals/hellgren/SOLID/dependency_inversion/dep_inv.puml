@@ -1,0 +1,23 @@
+@startuml
+class hellgren.SOLID.dependency_inversion.Project {
+- List<Developer> developers
++ void implement()
+}
+interface hellgren.SOLID.dependency_inversion.Developer {
+~ void develop()
+}
+class hellgren.SOLID.dependency_inversion.BackEndDeveloper {
+~ String name
++ void develop()
+- void writeJava()
+}
+class hellgren.SOLID.dependency_inversion.FrontEndDeveloper {
+~ String name
++ void develop()
++ void writeJavascript()
+}
+
+
+hellgren.SOLID.dependency_inversion.Developer <|.. hellgren.SOLID.dependency_inversion.BackEndDeveloper
+hellgren.SOLID.dependency_inversion.Developer <|.. hellgren.SOLID.dependency_inversion.FrontEndDeveloper
+@enduml

@@ -1,4 +1,4 @@
-package com.gkatzioura.solid.di;
+package hellgren.SOLID.dependency_inversion;
 
 public interface Developer {
 

@@ -1,4 +1,4 @@
-package hellgren.interface_segregation.classes;
+package hellgren.SOLID.interface_segregation.classes;
 
 import lombok.AllArgsConstructor;
 

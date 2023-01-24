@@ -1,0 +1,20 @@
+@startuml
+class hellgren.SOLID.open_closed.RelativeDiscount {
+- double relativeDiscount
++ double apply(double)
+}
+class hellgren.SOLID.open_closed.DiscountService {
++ List<Double> applyDiscounts(double,List<Discount>)
+}
+interface hellgren.SOLID.open_closed.Discount {
+~ double apply(double)
+}
+class hellgren.SOLID.open_closed.AbsoluteDiscount {
+~ double discount
++ double apply(double)
+}
+
+
+hellgren.SOLID.open_closed.Discount <|.. hellgren.SOLID.open_closed.RelativeDiscount
+hellgren.SOLID.open_closed.Discount <|.. hellgren.SOLID.open_closed.AbsoluteDiscount
+@enduml

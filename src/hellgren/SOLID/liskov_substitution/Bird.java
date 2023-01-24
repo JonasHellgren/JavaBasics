@@ -1,2 +1,5 @@
-package hellgren.SOLID.liskov_substitution;public interface Bird {
+package hellgren.SOLID.liskov_substitution;
+
+public interface Bird {
+    void eat();
 }

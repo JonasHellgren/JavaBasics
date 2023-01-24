@@ -1,16 +1,17 @@
 package hellgren.SOLID.open_closed;
 
-import hellgren.SOLID.open_closed.Discount;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+public class RelativeDiscount implements Discount {
 
-public class SeniorDiscount implements Discount {
+    private final double relativeDiscount;
+
+    public RelativeDiscount(double relativeDiscount) {
+
+        this.relativeDiscount = relativeDiscount/100;
+    }
 
     @Override
-    public BigDecimal apply(BigDecimal price) {
+    public double apply(double price) {
 
-        BigDecimal percent = new BigDecimal("0.20");
-        BigDecimal discount = price.multiply(percent);
-        return price.subtract(discount.setScale(2, RoundingMode.HALF_UP));
+        return  price*(1-relativeDiscount);
     }
 }

@@ -1,6 +1,14 @@
-package com.gkatzioura.solid.di;
+package hellgren.SOLID.dependency_inversion;
+
+import hellgren.SOLID.dependency_inversion.Developer;
 
 public class FrontEndDeveloper implements Developer {
+
+    String name;
+
+    public FrontEndDeveloper(String name) {
+        this.name = name;
+    }
 
     @Override
     public void develop() {
@@ -8,6 +16,7 @@ public class FrontEndDeveloper implements Developer {
     }
 
     public void writeJavascript() {
+        System.out.println(name+" develops Java script");
     }
 
 }

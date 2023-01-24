@@ -1,6 +1,6 @@
-package hellgren.interface_segregation.tests;
+package hellgren.SOLID.interface_segregation.tests;
 
-import hellgren.interface_segregation.classes.*;
+import hellgren.SOLID.interface_segregation.classes.*;
 import org.junit.Test;
 
 import java.util.ArrayList;

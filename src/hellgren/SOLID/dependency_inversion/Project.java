@@ -1,13 +1,14 @@
-package com.gkatzioura.solid.di;
+package hellgren.SOLID.dependency_inversion;
+
+import hellgren.SOLID.dependency_inversion.Developer;
 
 import java.util.List;
 
 public class Project {
 
-    private List<Developer> developers;
+    private final List<Developer> developers;
 
     public Project(List<Developer> developers) {
-
         this.developers = developers;
     }
 

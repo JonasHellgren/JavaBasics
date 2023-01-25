@@ -35,7 +35,6 @@ public class PointInsideRectangleChecker {
     private static final int NOF_CORNERS_IN_RECTANGLE = 4;
     Function<Double, Double> halfAndThenAbs = a -> 0.5 * Math.abs(a);
 
-
     @Builder
     static
     class CornerPoints {

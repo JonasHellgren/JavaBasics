@@ -1,8 +1,6 @@
 package test_is_point_inside_rectangel;
 
 import is_point_inside_rectangel.checker.PointInsideRectangleChecker;
-import org.junit.Assert;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -61,6 +59,14 @@ public class TestPointInsideRectangleChecker {
         Assertions.assertFalse(checker.isInRectangle(pointOutside));
     }
 
+    @ParameterizedTest
+    @MethodSource("pointsBarelyOutsideZeroAngle")
+    public void givenRectangle2by2Angle0PointBarelyOutsideHighTolerance_thenPointInside (Point pointBarelyOutside) {
+        RotatedRect rect=new RotatedRect(new Point(0,0),new Size(2,2), 0);
+        final double relativeEps = 0.5;
+        PointInsideRectangleChecker checker=new PointInsideRectangleChecker(rect, relativeEps);
+        Assertions.assertTrue(checker.isInRectangle(pointBarelyOutside));
+    }
 
     private static List<Double> angles() {
         return Arrays.asList(0d,10d,45d,90d,180d,250d);
@@ -76,6 +82,10 @@ public class TestPointInsideRectangleChecker {
 
     private static List<Point> pointsOutside45Angle() {
         return Arrays.asList(new Point(10,0),new Point(-5,0),new Point(5,5),new Point(-2.1,0));
+    }
+
+    private static List<Point> pointsBarelyOutsideZeroAngle() {
+        return Arrays.asList(new Point(1.1,0),new Point(-1.1,0),new Point(1.1,1.1),new Point(1.1,-1.1));
     }
 
 }

@@ -75,7 +75,8 @@ public class PointInsideRectangleChecker {
 
     public double area() {
         CornerPoints cp = CornerPoints.newFromList(getCornerPoints(rect));
-        return halfAndThenAbs.apply((cp.pA.y - cp.pC.y) * (cp.pD.x - cp.pB.x) + (cp.pB.y - cp.pD.y) * (cp.pA.x - cp.pC.x));
+        return halfAndThenAbs.apply(
+                (cp.pA.y - cp.pC.y) * (cp.pD.x - cp.pB.x) + (cp.pB.y - cp.pD.y) * (cp.pA.x - cp.pC.x));
     }
 
     private double areaOfSubRectangles(Point p) {

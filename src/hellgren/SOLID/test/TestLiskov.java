@@ -24,14 +24,14 @@ public class TestLiskov {
     public void whenFlyingBird_thenCanEatAndFly() {
         FlyingBird duck=new Duck();
         duck.eat();
-        duck.fly();  //does not compile
+        duck.fly();
     }
 
     @Test
     public void whenDuck_thenCanEatAndFly() {
         Duck duck=new Duck();
         duck.eat();
-        duck.fly();  //does not compile
+        duck.fly();
     }
 
 }

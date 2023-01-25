@@ -1,5 +1,8 @@
-javax_measure\TestUnits.class
 javax_measure\TestWaterTank.class
+test_is_point_inside_rectangel\TestPointInsideRectangleChecker.class
+junit5\TestJunit5.class
+test_is_point_inside_rectangel\TestModels.class
+javax_measure\TestUnits.class
 apach_linear_algebra\TestMatrixAndVector.class
 apache_collection_utils\TestCollection.class
 java_bean_validation\TestUser.class

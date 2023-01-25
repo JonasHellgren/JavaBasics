@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="apach_linear_algebra.TestMatrixAndVector" time="0.032" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="apach_linear_algebra.TestMatrixAndVector" time="0.025" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="15.0.2+7-27"/>
@@ -70,7 +70,7 @@
     <property name="sun.stdout.encoding" value="cp850"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="apach_linear_algebra.TestMatrixAndVector" name="whenInverting_thenDim2" time="0.016"/>
-  <testcase classname="apach_linear_algebra.TestMatrixAndVector" name="given2DimMatrixAndVector_whenMultipling_thenVector" time="0.015"/>
-  <testcase classname="apach_linear_algebra.TestMatrixAndVector" name="given2DimMatrix_whenGettingRowAndColDimension_thenIsTwo" time="0.001"/>
+  <testcase classname="apach_linear_algebra.TestMatrixAndVector" name="whenInverting_thenDim2" time="0.014"/>
+  <testcase classname="apach_linear_algebra.TestMatrixAndVector" name="given2DimMatrixAndVector_whenMultipling_thenVector" time="0.008"/>
+  <testcase classname="apach_linear_algebra.TestMatrixAndVector" name="given2DimMatrix_whenGettingRowAndColDimension_thenIsTwo" time="0.003"/>
 </testsuite>

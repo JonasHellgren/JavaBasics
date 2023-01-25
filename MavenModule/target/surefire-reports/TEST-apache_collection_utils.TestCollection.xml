@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="13" failures="0" name="apache_collection_utils.TestCollection" time="0.021" errors="0" skipped="0">
+<testsuite tests="13" failures="0" name="apache_collection_utils.TestCollection" time="0.031" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="15.0.2+7-27"/>
@@ -70,14 +70,14 @@
     <property name="sun.stdout.encoding" value="cp850"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="apache_collection_utils.TestCollection" name="givenTwoList_whenIntersection_commonElementsAreExtracted" time="0.008"/>
-  <testcase classname="apache_collection_utils.TestCollection" name="givenTwoList_whenSubtract_diffElementsAreExtracted" time="0.002"/>
+  <testcase classname="apache_collection_utils.TestCollection" name="givenTwoList_whenIntersection_commonElementsAreExtracted" time="0.016"/>
+  <testcase classname="apache_collection_utils.TestCollection" name="givenTwoList_whenSubtract_diffElementsAreExtracted" time="0"/>
   <testcase classname="apache_collection_utils.TestCollection" name="givenList_whenAddIgnoreNull_thenNoNullAdded" time="0"/>
-  <testcase classname="apache_collection_utils.TestCollection" name="givenTwoSortedLists_whenCollated_thenSorted" time="0.006"/>
+  <testcase classname="apache_collection_utils.TestCollection" name="givenTwoSortedLists_whenCollated_thenSorted" time="0"/>
   <testcase classname="apache_collection_utils.TestCollection" name="givenTwoList_whenCheckingInclusion_thenTrue" time="0"/>
-  <testcase classname="apache_collection_utils.TestCollection" name="givenTwoSortedLists_whenUnion_thenMerged" time="0.001"/>
+  <testcase classname="apache_collection_utils.TestCollection" name="givenTwoSortedLists_whenUnion_thenMerged" time="0"/>
   <testcase classname="apache_collection_utils.TestCollection" name="givenCustomerListAndASubcollection_whenChecked_thenTrue" time="0"/>
-  <testcase classname="apache_collection_utils.TestCollection" name="givenListOfCustomers_whenTransformed_thenListOfAddress" time="0.004"/>
+  <testcase classname="apache_collection_utils.TestCollection" name="givenListOfCustomers_whenTransformed_thenListOfAddress" time="0.015"/>
   <testcase classname="apache_collection_utils.TestCollection" name="givenNonEmptyList_whenCheckedIsNotEmpty_thenTrue" time="0"/>
   <testcase classname="apache_collection_utils.TestCollection" name="givenListOfStrings_whenTransformed_thenListOfIntegers" time="0"/>
   <testcase classname="apache_collection_utils.TestCollection" name="givenEmptyOrNullList_whenCheckedIsEmpty_thenTrue" time="0"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="java_bean_validation.TestUser" time="0.308" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="java_bean_validation.TestUser" time="0.301" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="15.0.2+7-27"/>
@@ -70,7 +70,7 @@
     <property name="sun.stdout.encoding" value="cp850"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="java_bean_validation.TestUser" name="createNonValidUser" time="0.27"/>
+  <testcase classname="java_bean_validation.TestUser" name="createNonValidUser" time="0.247"/>
   <testcase classname="java_bean_validation.TestUser" name="createNegAgeUser" time="0.031"/>
-  <testcase classname="java_bean_validation.TestUser" name="createValidUser" time="0.007"/>
+  <testcase classname="java_bean_validation.TestUser" name="createValidUser" time="0.023"/>
 </testsuite>

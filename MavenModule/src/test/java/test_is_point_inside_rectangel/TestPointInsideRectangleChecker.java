@@ -29,16 +29,53 @@ public class TestPointInsideRectangleChecker {
         Assertions.assertEquals(4,area, DELTA);
     }
 
-    @Test public void givenRectangle2by2Angle0PointAtOrigo_thenSubAreaIs1 () {
+    @ParameterizedTest
+    @MethodSource("pointsInside")
+    public void givenRectangle2by2Angle0PointInside_thenPointInside (Point pointInside) {
         RotatedRect rect=new RotatedRect(new Point(0,0),new Size(2,2), 0);
         PointInsideRectangleChecker checker=new PointInsideRectangleChecker(rect);
-        double area=checker.areaOfSubRectangles(new Point(10.0,1.0));
-        System.out.println("area = " + area);
+        Assertions.assertTrue(checker.isInRectangle(pointInside));
+    }
+
+    @ParameterizedTest
+    @MethodSource("pointsInside")
+    public void givenRectangle2by2Angle45PointInside_thenPointInside (Point pointInside) {
+        RotatedRect rect=new RotatedRect(new Point(0,0),new Size(2,2), 45);
+        PointInsideRectangleChecker checker=new PointInsideRectangleChecker(rect);
+        Assertions.assertTrue(checker.isInRectangle(pointInside));
+    }
+
+    @ParameterizedTest
+    @MethodSource("pointsOutsideZeroAngle")
+    public void givenRectangle2by2Angle0PointOutside_thenPointOutside (Point pointOutside) {
+        RotatedRect rect=new RotatedRect(new Point(0,0),new Size(2,2), 0);
+        PointInsideRectangleChecker checker=new PointInsideRectangleChecker(rect);
+        Assertions.assertFalse(checker.isInRectangle(pointOutside));
+    }
+
+    @ParameterizedTest
+    @MethodSource("pointsOutside45Angle")
+    public void givenRectangle2by2Angle45PointOutside_thenPointOutside (Point pointOutside) {
+        RotatedRect rect=new RotatedRect(new Point(0,0),new Size(2,2), 45);
+        PointInsideRectangleChecker checker=new PointInsideRectangleChecker(rect);
+        Assertions.assertFalse(checker.isInRectangle(pointOutside));
     }
 
 
     private static List<Double> angles() {
         return Arrays.asList(0d,10d,45d,90d,180d,250d);
+    }
+
+    private static List<Point> pointsInside() {
+        return Arrays.asList(new Point(0,0),new Point(1,0),new Point(0.5,0.5),new Point(-1,0));
+    }
+
+    private static List<Point> pointsOutsideZeroAngle() {
+        return Arrays.asList(new Point(10,0),new Point(-10,0),new Point(5,5),new Point(-1.1,0));
+    }
+
+    private static List<Point> pointsOutside45Angle() {
+        return Arrays.asList(new Point(10,0),new Point(-5,0),new Point(5,5),new Point(-2.1,0));
     }
 
 }

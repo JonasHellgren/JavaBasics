@@ -20,14 +20,14 @@ import java.util.function.Function;
  *   ABCD == ABP+BCP+CDP+DAP with tolerance eps => inside
  *
  *   where
- *  ABCD = 0.5 * abs((yA - yC)*(xD - xB) + (yB - yD)*(xA - xC))
+ *   ABCD = 0.5 * abs((yA - yC)*(xD - xB) + (yB - yD)*(xA - xC))
  *
- *  ABP = 0.5 * abs(xA*(yB - yP) + xB*(yP - yA) + xP*(yA - yB))
- *  BCP = 0.5 * abs(xB*(yC - yP) + xC*(yP - yB) + xP*(yB - yC))
- *  CDP = 0.5 * abs(xC*(yD - yP) + xD*(yP - yC) + xP*(yC - yD))
- *  DAP = 0.5 * abs(xD*(yA - yP) + xA*(yP - yD) + xP*(yD - yA))
+ *   ABP = 0.5 * abs(xA*(yB - yP) + xB*(yP - yA) + xP*(yA - yB))
+ *   BCP = 0.5 * abs(xB*(yC - yP) + xC*(yP - yB) + xP*(yB - yC))
+ *   CDP = 0.5 * abs(xC*(yD - yP) + xD*(yP - yC) + xP*(yC - yD))
+ *   DAP = 0.5 * abs(xD*(yA - yP) + xA*(yP - yD) + xP*(yD - yA))
  *
- *  corners of rectangle are A, B, C, D and point is P
+ *   corners of rectangle are A, B, C, D and point is P
  *
  */
 public class PointInsideRectangleChecker {

@@ -1,1 +1,5 @@
+javax_measure\TestUnits.class
+javax_measure\TestWaterTank.class
+apach_linear_algebra\TestMatrixAndVector.class
 apache_collection_utils\TestCollection.class
+java_bean_validation\TestUser.class

@@ -1,0 +1,2 @@
+package pluralsight_courses.implementing_design_patterns_using_java_lambda.test;public class TestComprators {
+}

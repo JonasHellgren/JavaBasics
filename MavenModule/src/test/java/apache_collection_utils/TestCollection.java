@@ -141,11 +141,10 @@ public class TestCollection {
         //List<Integer> integerList=Arrays.asList(1,2,3,4,5,6,7,8);
 
         List<Integer> integerList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8));
-        Predicate<Integer> p = (n) -> n % 2 == 0;
-        CollectionUtils.filter(integerList,p);
+        Predicate<Integer> predicateTrueIfEven = (n) -> n % 2 == 0;
+        CollectionUtils.filter(integerList,predicateTrueIfEven);
 
         System.out.println("Filtered List (Even numbers): " + integerList);
-
     }
 
 

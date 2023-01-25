@@ -1,3 +1,5 @@
 javax_measure\WaterTank.class
 apache_collection_utils\Address.class
 apache_collection_utils\Customer.class
+java_bean_validation\User$UserBuilder.class
+java_bean_validation\User.class

@@ -34,4 +34,16 @@ public class TestLiskov {
         duck.fly();
     }
 
+    @Test public void whenCreatingOstrichWithStaticConstructor_thenCanEat() {
+        Bird ostrich=Bird.newOstrich();
+        ostrich.eat();
+    }
+
+
+    @Test public void whenCreatingDuckWithStaticConstructor_thenCanEatAndFly () {
+        FlyingBird duck=Bird.newDuck();
+        duck.eat();
+        duck.fly();
+    }
+
 }

@@ -9,6 +9,9 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * https://stackoverflow.com/questions/33279154/what-design-pattern-should-be-used-when-similarly-if-else-grows
+ */
 public class ErrorCodeUtilIfElse {
 
     private static final String NOT_KNOWN_ERROR = "Not known error";

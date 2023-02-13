@@ -7,8 +7,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
-import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Log
@@ -17,46 +15,37 @@ public class ElevatorRules {
     private static final int POS_BETWEEN = 10;
     private static final int TOP_POS = 30;
     private static final int BOTTOM_POS = 0;
+    private static final int SPEED_STILL = 0;
+    private static final int SPEED_UP = 1;
+    private static final int SPEED_DOWN = -1;
 
     Map<BiPredicate<Integer,Integer>, BiFunction<Integer,Integer,Integer>> decisionTable;
     Random random = new Random();
 
     public ElevatorRules() {
-        decisionTable=new HashMap<>();
-        decisionTable.put( (s,p) -> isMovingUp(s) && !isAtFloor(p) ,(s, p) -> 1);  //moving up, not at floor
-        decisionTable.put( (s,p) -> isMovingUp(s) && isAtFloor(p),(s, p) -> 0);  //moving up, at floor
-        decisionTable.put( (s,p) -> isStill(s) && isAtFloor(p) && !isAtTop(p),(s, p) -> 1);  //still, at floor, not at top floor
-        decisionTable.put( (s,p) -> isStill(s) && isAtFloor(p) && isAtTop(p),(s, p) -> -1);  //still, at floor, at top floor
-        decisionTable.put( (s,p) -> isMovingDown(s) && !isAtFloor(p) ,(s, p) -> -1);  //moving down, not at floor
-        decisionTable.put( (s,p) -> isMovingDown(s) && isAtFloor(p),(s, p) -> 0);  //moving down, at floor
-        decisionTable.put( (s,p) -> isStill(s) && isAtFloor(p) && !isAtBottom(p),(s, p) -> -1);  //still, at floor, not at bottom floor
-        decisionTable.put( (s,p) -> isStill(s) && isAtFloor(p) && isAtBottom(p),(s, p) -> 1);  //still, at floor, at bottom floor
+
+        BiPredicate<Integer,Integer> isAtTop = (s, p) -> p == TOP_POS;
+        BiPredicate<Integer,Integer> isNotAtTop = isAtTop.negate();
+        BiPredicate<Integer,Integer> isAtBottom = (s, p)-> p == BOTTOM_POS;
+        BiPredicate<Integer,Integer> isNotAtBottom = isAtBottom.negate();
+        BiPredicate<Integer,Integer> isStill = (s, p) -> s == SPEED_STILL;
+        BiPredicate<Integer,Integer> isMovingUp = (s, p) -> s == SPEED_UP;
+        BiPredicate<Integer,Integer> isMovingDown = (s, p) -> s == SPEED_DOWN;
+        BiPredicate<Integer,Integer> isAtFloor = (s, p) ->  p % POS_BETWEEN == 0;
+        BiPredicate<Integer,Integer> isNotAtFloor = isAtFloor.negate();
+
+        decisionTable = new HashMap<>();
+        decisionTable.put( (s,p) -> isMovingUp.and(isNotAtFloor).test(s,p) ,(s, p) -> SPEED_UP);
+        decisionTable.put( (s,p) -> isMovingUp.and(isAtFloor).test(s,p),(s, p) -> SPEED_STILL);
+        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isNotAtTop).test(s,p),(s, p) -> SPEED_UP);
+        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isAtTop).test(s,p),(s, p) -> SPEED_DOWN);
+        decisionTable.put( (s,p) -> isMovingDown.and(isNotAtFloor).test(s,p) ,(s, p) -> SPEED_DOWN);
+        decisionTable.put( (s,p) -> isMovingDown.and(isAtFloor).test(s,p),(s, p) -> SPEED_STILL);
+        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isNotAtBottom).test(s,p),(s, p) -> SPEED_DOWN);
+        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isAtBottom).test(s,p),(s, p) -> SPEED_UP);
 
     }
 
-    private boolean isAtTop(Integer p) {
-        return p == TOP_POS;
-    }
-
-    private boolean isAtBottom(Integer p) {
-        return p == BOTTOM_POS;
-    }
-
-    private boolean isStill(Integer s) {
-        return s == 0;
-    }
-
-    private boolean isMovingUp(Integer s) {
-        return s == 1;
-    }
-
-    private boolean isMovingDown(Integer s) {
-        return s == -1;
-    }
-
-    private boolean isAtFloor(Integer p) {
-        return p % POS_BETWEEN == 0;
-    }
 
     public  Integer process(Integer speed, Integer pos) {
 
@@ -66,9 +55,8 @@ public class ElevatorRules {
                 .collect(Collectors.toList());
 
         if (fcnList.size()>1) {
-            log.warning("Multiple matching rules, nof ="+fcnList.size());
-
-            return fcnList.get(getRandom(0, fcnList.size())+1).apply(speed,pos);
+            log.warning("Multiple matching rules, nof ="+fcnList.size()+". Applying random.");
+            return fcnList.get(getRandom(0, fcnList.size())).apply(speed,pos);
         }
 
         if (fcnList.size()==0) {

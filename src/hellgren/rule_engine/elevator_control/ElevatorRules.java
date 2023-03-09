@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @Log
@@ -19,7 +20,7 @@ public class ElevatorRules {
     private static final int SPEED_UP = 1;
     private static final int SPEED_DOWN = -1;
 
-    Map<BiPredicate<Integer,Integer>, BiFunction<Integer,Integer,Integer>> decisionTable;
+    Map<BiPredicate<Integer,Integer>, Supplier<Integer>> decisionTable;
     Random random = new Random();
 
     public ElevatorRules() {
@@ -35,28 +36,28 @@ public class ElevatorRules {
         BiPredicate<Integer,Integer> isNotAtFloor = isAtFloor.negate();
 
         decisionTable = new HashMap<>();
-        decisionTable.put( (s,p) -> isMovingUp.and(isNotAtFloor).test(s,p) ,(s, p) -> SPEED_UP);
-        decisionTable.put( (s,p) -> isMovingUp.and(isAtFloor).test(s,p),(s, p) -> SPEED_STILL);
-        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isNotAtTop).test(s,p),(s, p) -> SPEED_UP);
-        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isAtTop).test(s,p),(s, p) -> SPEED_DOWN);
-        decisionTable.put( (s,p) -> isMovingDown.and(isNotAtFloor).test(s,p) ,(s, p) -> SPEED_DOWN);
-        decisionTable.put( (s,p) -> isMovingDown.and(isAtFloor).test(s,p),(s, p) -> SPEED_STILL);
-        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isNotAtBottom).test(s,p),(s, p) -> SPEED_DOWN);
-        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isAtBottom).test(s,p),(s, p) -> SPEED_UP);
+        decisionTable.put( (s,p) -> isMovingUp.and(isNotAtFloor).test(s,p) ,() -> SPEED_UP);
+        decisionTable.put( (s,p) -> isMovingUp.and(isAtFloor).test(s,p),() -> SPEED_STILL);
+        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isNotAtTop).test(s,p),() -> SPEED_UP);
+        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isAtTop).test(s,p),() -> SPEED_DOWN);
+        decisionTable.put( (s,p) -> isMovingDown.and(isNotAtFloor).test(s,p) ,() -> SPEED_DOWN);
+        decisionTable.put( (s,p) -> isMovingDown.and(isAtFloor).test(s,p),() -> SPEED_STILL);
+        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isNotAtBottom).test(s,p),() -> SPEED_DOWN);
+        decisionTable.put( (s,p) -> isStill.and(isAtFloor).and(isAtBottom).test(s,p),() -> SPEED_UP);
 
     }
 
 
     public  Integer process(Integer speed, Integer pos) {
 
-        List<BiFunction<Integer,Integer,Integer>> fcnList=decisionTable.entrySet().stream()
+        List<Supplier<Integer>> fcnList=decisionTable.entrySet().stream()
                 .filter(e -> e.getKey().test(speed,pos))
                 .map(e -> e.getValue())
                 .collect(Collectors.toList());
 
         if (fcnList.size()>1) {
             log.warning("Multiple matching rules, nof ="+fcnList.size()+". Applying random.");
-            return fcnList.get(getRandom(0, fcnList.size())).apply(speed,pos);
+            return fcnList.get(getRandom(0, fcnList.size())).get();
         }
 
         if (fcnList.size()==0) {
@@ -64,7 +65,7 @@ public class ElevatorRules {
             return BACKUP;
         }
 
-        return fcnList.get(0).apply(speed,pos);
+        return fcnList.get(0).get();
     }
 
     //The min parameter (the origin) is inclusive, whereas the upper bound max is exclusive.

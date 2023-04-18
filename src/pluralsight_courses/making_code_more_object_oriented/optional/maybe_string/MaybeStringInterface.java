@@ -1,0 +1,6 @@
+package pluralsight_courses.making_code_more_object_oriented.optional.maybe_string;
+
+public interface  MaybeStringInterface {
+    MaybeStringInterface toUpperCase();
+    String orElse(String substite);
+}

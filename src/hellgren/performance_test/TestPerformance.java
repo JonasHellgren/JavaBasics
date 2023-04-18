@@ -1,22 +1,25 @@
 package hellgren.performance_test;
 
 import lombok.SneakyThrows;
-import lombok.extern.java.Log;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-//@Log
-public class PerformanceTest {
+public class TestPerformance {
 
-    public static void main(String[] args) {
+    @Test
+    public void testPerformance() {
+
         List<Integer> intList= Arrays.asList(1,2,3,4,5,6,7,8,9);
         for (int i = 0; i < 1_000 ; i++) {
             int sum=sumIntList(intList);
-         //   log.fine("sum = " + sum);
+            //   log.fine("sum = " + sum);
             int prod=productIntegerList(intList);
-         //   log.fine("prod = " + prod);
+            //   log.fine("prod = " + prod);
         }
+
+
     }
 
 

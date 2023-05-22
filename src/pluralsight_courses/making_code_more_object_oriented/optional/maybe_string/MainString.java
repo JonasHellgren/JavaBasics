@@ -1,7 +1,5 @@
 package pluralsight_courses.making_code_more_object_oriented.optional.maybe_string;
 
-import org.junit.Test;
-
 public class MainString {
 
     public static void main(String[] args) {

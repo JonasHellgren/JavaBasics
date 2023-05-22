@@ -20,6 +20,8 @@ public class ElevatorRules {
     private static final int SPEED_UP = 1;
     private static final int SPEED_DOWN = -1;
 
+
+
     Map<BiPredicate<Integer,Integer>, Supplier<Integer>> decisionTable;
     Random random = new Random();
 

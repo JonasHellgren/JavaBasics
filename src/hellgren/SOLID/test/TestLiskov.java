@@ -32,6 +32,7 @@ public class TestLiskov {
         Duck duck=new Duck();
         duck.eat();
         duck.fly();
+
     }
 
     @Test public void whenCreatingOstrichWithStaticConstructor_thenCanEat() {
@@ -44,6 +45,7 @@ public class TestLiskov {
         FlyingBird duck=Bird.newDuck();
         duck.eat();
         duck.fly();
+
     }
 
 }

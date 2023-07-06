@@ -12,17 +12,17 @@ public class ProductsRepo {
 
     public static Optional<Product> findById(Long id) {
         return PRODUCTS.stream()
-                .filter(p -> p.id.equals(id)).findFirst();
+                .filter(p -> p.id().equals(id)).findFirst();
     }
 
     public static String nameOfId(Long id) {
         Optional<Product> product=findById(id);
-        return product.map(p -> p.name).orElse("");
+        return product.map(p -> p.name()).orElse("");
     }
 
     public static List<String> nameOfDiscounted(List<Long> ids) {
         return PRODUCTS.stream()
-                .filter(p -> ids.contains(p.id)).map(p -> p.name).collect(Collectors.toList());
+                .filter(p -> ids.contains(p.id())).map(p -> p.name()).collect(Collectors.toList());
     }
 
     public static List<Product> productsDiscounted(List<Long> ids) {

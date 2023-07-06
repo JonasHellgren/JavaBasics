@@ -37,7 +37,7 @@ Assume T is animal
 Collections copy har extends for in and super for out
 
 ## Lambda expressions 
-Shall ha no side effects. In explicit not modify variables outside lambda expression. 
+Shall have no side effects. In explicit not modify variables outside lambda expression. 
 
 ## Optional
 Do ex …2

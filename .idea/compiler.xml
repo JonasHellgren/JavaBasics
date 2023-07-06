@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17">
-      <module name="MavenModule" target="16" />
+      <module name="MavenModule" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

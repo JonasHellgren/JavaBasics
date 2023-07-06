@@ -1,0 +1,20 @@
+@startuml
+abstract class Vehicle  {
+    String registrationNumber;
+    + String getRegistrationNumber();
+    + abstract int getNofSeats();
+}
+
+interface Service {
++ int getMaxServiceIntervalInMonths()
++ int getMaxDistanceBetweenServicesInKilometers()
+}
+
+Vehicle <|..  TwoWheeler
+Service <|.. TwoWheeler
+TwoWheeler <|.. MotorCycle
+Vehicle <|.. Truck
+Service <|.. Truck
+Vehicle <|.. Car
+Service <|.. Car
+@enduml

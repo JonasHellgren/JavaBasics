@@ -27,6 +27,6 @@ public class TestLogging {
 
     @Test
     public void whenLogFine_thenNoShow() {
-        log.fine("Fine log will not be shown");
+        log.fine("Fine log will not be shown in console but present in file c:/temp/logs/logs.log");
     }
 }

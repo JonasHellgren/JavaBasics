@@ -18,6 +18,7 @@ List.of creates immutable and is preferred
 
 ## Intersection of sets: retainAll
 Cut set from other set. removeAll
+
 Replace elements in list: replaceAll(unary operator)
 Sort list: sort(compare to)
 Sort custom class: sort(comparing..)

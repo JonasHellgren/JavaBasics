@@ -1,0 +1,122 @@
+@startuml
+map Config {
+ git config --global USER.NAME "Jonas Hellgren" => sets name
+ git config --global USER.EMAIL "jonas.hellgren@volvo.com" => sets email
+ git config list => shows config settings
+ git help config  => shows help about config
+ git init  => creates local repo
+ }
+
+ map InfoShow {
+ git status  => shows status
+ git reset FILE  => removes FILE (with path)) from staging area
+ git reset   => removes all files from staging area
+ git log   => list commit history
+ git show <hash> => display the changes for single commit
+ git diff  => lists file changes, unstages files (before add)
+ alias loggraph="git log --all --decorate --oneline --graph"  => defines loggraph
+}
+
+map AddAndCommit {
+ git add <files>  => add files to staging area
+ git commit -m <message>  => create commit from files in staging area (updates repo)
+ git commit --amend -m <message>  => update latest commit
+}
+
+map RemoteInteraction {
+ git clone <url> <where to clone>  => cloning remote repo, <where to clone> can be . (here)
+ git remote -v  => info about remote repo, for ex after cloning it
+ git remote add origin <url>>  => defines origin alias
+ git pull <repoalias> <branch>  => updates local repo from remote repo/branch
+ git push <repoalias> <branch>  => updates remote repo from local repo/branch
+}
+
+map Branches {
+ git branch => lists local branches
+ git branch -a  => lists all branches, also on remote repos
+ git branch <name>  => creates branch <name>
+ git checkout <name>  => sets branch <name> as actual, head points to this one
+ git push <repoalias> <branch>  => updates remote repo according to local repo/branch
+ git branch -d <name> => delete local branch <name>
+ git push origin --delete <name> => delete branch <name> on remote repo origin
+}
+
+'https://www.youtube.com/watch?v=FdZecVxzJbk
+map UndoMistakes {
+ git checkout <filename>  => restores file
+ git cherrypick <hashofcommit>  => copies <hashofcommit> commit to present branch, handy if commited to wrong branch
+ git reset --soft <hashofoldcommit>  => as hard but keeps local changes
+ git reset --hard <hashofoldcommit>  => "walk back in time", warning files updated, careful <=> removes local changes
+ git clean -df  => remove all untracked files
+ git reflog => can be used to restore commits "deleted" by git reset, max up to 30 days
+ git revert <hashofcommit> => creates new commits to revert changes of earlier commits, undo earlier commits
+}
+
+'https://www.youtube.com/watch?v=KLEDKgMmbBI&t=110s
+map Stash {
+ General description => Creates "commits" independent of branch. Handy when e.g. want to switch between branches without commiting
+ git stash save "<message>" =>  saves working files in stash que
+ git stash list => lists stashes
+ git stash apply <iteminstashlist>  => update working files according specific stash
+ git stash pop   => update according latest stash, that item disappears from stash list
+}
+
+map GitAddVariants {
+ General description => Git add can be done in different ways
+ git add -A => adds all changes: modified, new and deleted files. Also files above current directory.
+ git add -A <folder> => ....in specific folder
+ git add  => same as git add -A
+ git add -u  => adds only modified and deleted, but not new files.
+ git add -p => Make more specific commits. Will go through all new changes in your code and let you to decide what you would like to stage or not stage.
+ git add . => add changes in current folder but not above.
+}
+
+map MoveCommitFromOneBranchToAnother {
+background =>  commit HASH on wrong branch, want to move it to BRANCH
+git checkout BRANCH
+git cherry-pick HASH   =>  copies HASH to BRANCH
+git reset --hard HEAD^  =>  use parent of present commit as new present commit, HEAD in the ether
+}
+
+'https://www.youtube.com/watch?v=FyAAIHHClqI&list=WL&index=140
+'https://www.youtube.com/watch?v=7Mh259hfxJg&t=739s
+map Merging {
+ fast forward merge => result of merging branches on top of each other
+ merge commit => result of merging branches, each with multiple commits, one new commit created
+ git  branch --merged => shows merged/identical branches
+ git  merge <name> => merges branch <name> into current branch
+ git  branch -d <name>  => deletes branch
+ git checkout master;  git  merge <name> =>  fast forward merge, put <name> into master
+
+}
+
+'https://www.youtube.com/watch?v=7Mh259hfxJg&t=739s
+map Rebase {
+definition => moves feature branch so begins at the tip of the master branch. Rewrites history. Creates new commits for all original feature branch commits.
+rules =>  don't change history when other peoples using same branch, never change history on master, only change history for commits not yet been paused
+git switch <branch-name> => identical to git checkout except flag for creating new branch is -c for switch and -b for checkout
+git rebase master =>
+}
+
+'https://stackoverflow.com/questions/11828270/how-do-i-exit-the-vim-editor
+'https://www.youtube.com/watch?v=RwvTrSm7zEY&t=611s
+map Squash {
+definition => Squash is about fusing multiple commits into one
+git rebase -i HEAD~4  => fuses 4 commits back
+git rebase -i :<commit-hash>  => fuses until <commit-hash>, opens text editor where {pick,squash} determines commit fusing
+git merge --squash <branch-name>  => Take all changes from <branch-name> and applies to current branch, needs commmit to take affect
+}
+
+Config --[hidden]> InfoShow
+InfoShow --[hidden]> AddAndCommit
+AddAndCommit --[hidden]> RemoteInteraction
+RemoteInteraction --[hidden]> Branches
+Branches --[hidden]> UndoMistakes
+UndoMistakes --[hidden]> Stash
+Stash --[hidden]> GitAddVariants
+GitAddVariants --[hidden]> MoveCommitFromOneBranchToAnother
+MoveCommitFromOneBranchToAnother --[hidden]> Merging
+Merging --[hidden]> Rebase
+Rebase --[hidden]> Squash
+
+@enduml

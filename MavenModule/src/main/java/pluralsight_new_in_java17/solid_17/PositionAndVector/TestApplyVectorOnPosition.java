@@ -12,8 +12,6 @@ import static org.junit.Assert.assertEquals;
 
 
 public class TestApplyVectorOnPosition {
-
-
     Position pos=new Position(1d,1d);
     Vector vec=new Vector(1d,1d);
 

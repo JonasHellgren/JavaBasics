@@ -1,0 +1,17 @@
+
+math with primitive doubles loses precision
+    -> refactor to use Money API
+
+Should we create portfolios with existing stocks?
+No, create an empty portfolio first, then add() stocks
+
+We started testing with very large step - portfolio total value
+    - What about testing individual pieces of data of individual stocks first?
+
+
+It's OK to start over sometimes, TDD shouldn't let you go very far
+
+At this point, we coded up a desired API in our tests - getPosition("symbol")
+    This makes us move from List to Map
+
+Merging stocks into one position makes us rethink the getPx method name too

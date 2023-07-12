@@ -1,0 +1,14 @@
+
+Found first bug - StringIndexOutOfBoundsException
+
+Found second bug - string changes when limit == input length, but it shouldn't
+
+Let's add one more test to check minimum allowed limit works
+
+Realize a sin:
+    - one test knows about the internals of the implementation (ellipsis length)
+    - solution - implement and test 3-arg truncate
+
+TODO - more tests:
+    - How to treat blank strings?
+    - Should we vary input length to have varied more test data?

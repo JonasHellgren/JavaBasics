@@ -73,7 +73,7 @@ map GitAddVariants {
 
 map MoveCommitFromOneBranchToAnother {
 background =>  commit HASH on wrong branch, want to move it to BRANCH
-git checkout BRANCH
+git checkout BRANCH => tbd
 git cherry-pick HASH   =>  copies HASH to BRANCH
 git reset --hard HEAD^  =>  use parent of present commit as new present commit, HEAD in the ether
 }

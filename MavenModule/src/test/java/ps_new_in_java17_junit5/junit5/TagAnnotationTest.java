@@ -1,10 +1,15 @@
 package ps_new_in_java17_junit5.junit5;
 
-import org.junit.Test;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-@Tag("math")
+/***
+ * Filtering on tag fails if importing org.junit.Test
+ *
+ */
+
 public class TagAnnotationTest {
 
     @Test

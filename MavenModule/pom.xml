@@ -11,8 +11,8 @@
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
-        <junit.jupiter.version>5.9.2</junit.jupiter.version>
-        <junit.platform.version>1.9.2</junit.platform.version>
+        <junit.jupiter.version>5.9.3</junit.jupiter.version>
+        <junit.platform.version>1.9.3</junit.platform.version>
     </properties>
 
 
@@ -152,13 +152,7 @@
         </configuration>
     </plugin>
 
-        <plugin>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.22.2</version>
-            <configuration>
-                <groups>UnitTest</groups>
-            </configuration>
-        </plugin>
+
 
 </plugins>
 </build>

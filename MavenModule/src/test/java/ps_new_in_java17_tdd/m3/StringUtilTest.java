@@ -1,4 +1,4 @@
-package pluralsight_new_in_java17.java_tdd.test.m3;
+package ps_new_in_java17_tdd.m3;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;

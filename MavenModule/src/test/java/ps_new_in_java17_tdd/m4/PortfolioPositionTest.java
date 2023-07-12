@@ -1,4 +1,4 @@
-package pluralsight_new_in_java17.java_tdd.test.m4;
+package ps_new_in_java17_tdd.m4;
 
 
 import org.junit.Test;

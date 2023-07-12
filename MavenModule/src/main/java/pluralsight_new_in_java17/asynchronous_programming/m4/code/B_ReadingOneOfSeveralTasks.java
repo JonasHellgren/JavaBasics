@@ -1,13 +1,15 @@
 package pluralsight_new_in_java17.asynchronous_programming.m4.code;
 
+import pluralsight_new_in_java17.asynchronous_programming.common.Weather;
+import pluralsight_new_in_java17.asynchronous_programming.common.WeatherTaskGenerator;
+
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
 public class B_ReadingOneOfSeveralTasks {
 
-    record Weather(String server, String weather) {
-    }
+
 
     public static void main(String[] args) throws InterruptedException {
         run();
@@ -17,7 +19,7 @@ public class B_ReadingOneOfSeveralTasks {
 
         Random random = new Random();
 
-        List<Supplier<Weather>> weatherTasks = buildWeatherTasks(random);
+        List<Supplier<Weather>> weatherTasks = WeatherTaskGenerator.buildWeatherTasks(random);
 
             List<CompletableFuture<Weather>> futures = new ArrayList<>();
             for (Supplier<Weather> task : weatherTasks) {
@@ -31,40 +33,5 @@ public class B_ReadingOneOfSeveralTasks {
         future.thenAccept(System.out::println).join();
     }
 
-    private static List<Supplier<Weather>> buildWeatherTasks(Random random) {
-        Supplier<Weather> fetchWeatherA =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-//                  System.out.println("A running in " + Thread.currentThread());
-                  return new Weather("Server A", "Sunny");
-              };
-        Supplier<Weather> fetchWeatherB =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-//                  System.out.println("B running in " + Thread.currentThread());
-                  return new Weather("Server B", "Mostly Sunny");
-              };
-        Supplier<Weather> fetchWeatherC =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-//                  System.out.println("C running in " + Thread.currentThread());
-                  return new Weather("Server C", "Almost Sunny");
-              };
 
-        var weatherTasks =
-              List.of(fetchWeatherA, fetchWeatherB, fetchWeatherC);
-        return weatherTasks;
-    }
 }

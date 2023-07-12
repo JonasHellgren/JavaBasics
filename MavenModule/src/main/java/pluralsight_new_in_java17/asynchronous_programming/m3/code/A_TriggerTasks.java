@@ -1,5 +1,8 @@
 package pluralsight_new_in_java17.asynchronous_programming.m3.code;
 
+import pluralsight_new_in_java17.asynchronous_programming.common.Quotation;
+import pluralsight_new_in_java17.asynchronous_programming.common.QuotationSupplierGenerator;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
@@ -7,10 +10,13 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.function.Supplier;
 
+/**
+ The thenAccept method receives a Consumer and passes it the result of the computation. Then the final future.get()
+ call returns an instance of the Void type
+ */
+
 public class A_TriggerTasks {
 
-    record Quotation(String server, int amount) {
-    }
 
     public static void main(String[] args) throws InterruptedException {
         run();
@@ -18,41 +24,9 @@ public class A_TriggerTasks {
 
     public static void run() throws InterruptedException {
 
-        Random random = new Random();
-
-        Supplier<Quotation> fetchQuotationA =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-//                  System.out.println("A running in " + Thread.currentThread());
-                  return new Quotation("Server A", random.nextInt(40, 60));
-              };
-        Supplier<Quotation> fetchQuotationB =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-//                  System.out.println("B running in " + Thread.currentThread());
-                  return new Quotation("Server B", random.nextInt(30, 70));
-              };
-        Supplier<Quotation> fetchQuotationC =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-//                  System.out.println("C running in " + Thread.currentThread());
-                  return new Quotation("Server C", random.nextInt(40, 80));
-              };
-
+        QuotationSupplierGenerator generator=new QuotationSupplierGenerator();
         var quotationTasks =
-              List.of(fetchQuotationA, fetchQuotationB, fetchQuotationC);
+                List.of(generator.quotationA, generator.quotationB, generator.quotationC);
 
         Instant begin = Instant.now();
 
@@ -66,16 +40,16 @@ public class A_TriggerTasks {
         Collection<Quotation> quotations = new ConcurrentLinkedDeque<>();
         List<CompletableFuture<Void>> voids = new ArrayList<>();
         for (CompletableFuture<Quotation> future : futures) {
-
             future.thenAccept(System.out::println);
             CompletableFuture<Void> accept =
-                  future.thenAccept(quotations::add);
+                  future.thenAccept(quotations::add);  //consumer
             voids.add(accept);
         }
 
         for (CompletableFuture<Void> v : voids) {
-            v.join();
+            v.join();   //completing tasks
         }
+
         System.out.println("quotations = " + quotations);
 
 

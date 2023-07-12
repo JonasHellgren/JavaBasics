@@ -1,6 +1,7 @@
-package pluralsight_new_in_java17.asynchronous_programming.m2.code;
+package pluralsight_new_in_java17.asynchronous_programming.common;
 
 import lombok.extern.java.Log;
+import pluralsight_new_in_java17.asynchronous_programming.common.Quotation;
 
 import java.util.Random;
 import java.util.concurrent.Callable;
@@ -9,7 +10,9 @@ import java.util.concurrent.Callable;
 public class QuotationCallableGenerator {
 
     static Random random = new Random();
-    Callable<Quotation> quotationA, quotationB, quotationC;
+    public Callable<Quotation> quotationA;
+    public Callable<Quotation> quotationB;
+    public Callable<Quotation> quotationC;
 
     public QuotationCallableGenerator() {
         quotationA=fetchQuotationA;

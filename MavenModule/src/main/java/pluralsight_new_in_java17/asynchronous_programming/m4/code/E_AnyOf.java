@@ -1,12 +1,12 @@
 package pluralsight_new_in_java17.asynchronous_programming.m4.code;
 
+import pluralsight_new_in_java17.asynchronous_programming.common.Weather;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
 public class E_AnyOf {
 
-    record Weather(String server, String weather) {
-    }
 
     public static void main(String[] args) {
 

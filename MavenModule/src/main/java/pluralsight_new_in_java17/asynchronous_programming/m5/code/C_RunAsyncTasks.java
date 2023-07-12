@@ -1,5 +1,8 @@
 package pluralsight_new_in_java17.asynchronous_programming.m5.code;
 
+import pluralsight_new_in_java17.asynchronous_programming.common.Quotation;
+import pluralsight_new_in_java17.asynchronous_programming.common.QuotationSupplierGenerator;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -11,8 +14,6 @@ import java.util.function.Supplier;
 
 public class C_RunAsyncTasks {
 
-    record Quotation(String server, int amount) {
-    }
 
     public static void main(String[] args) {
         run();
@@ -20,10 +21,9 @@ public class C_RunAsyncTasks {
 
     public static void run() {
 
-        ExecutorService executor = Executors.newFixedThreadPool(4);
-        Random random = new Random();
 
-        List<Supplier<Quotation>> quotationTasks = buildQuotationTasks(random);
+        QuotationSupplierGenerator generator=new QuotationSupplierGenerator();
+        List<Supplier<Quotation>> quotationTasks = generator.buildQuotationTasks();
 
         List<CompletableFuture<Quotation>> futures = new ArrayList<>();
         for (Supplier<Quotation> quotationTask : quotationTasks) {
@@ -44,43 +44,6 @@ public class C_RunAsyncTasks {
                     .orElseThrow();
 
         System.out.println("Best quotation = " + bestQuotation);
-    }
-
-    private static List<Supplier<Quotation>> buildQuotationTasks(Random random) {
-        Supplier<Quotation> fetchQuotationA =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-                  System.out.println("Quotation A in thread " + Thread.currentThread() );
-                  return new Quotation("Server A", random.nextInt(40, 60));
-              };
-        Supplier<Quotation> fetchQuotationB =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-                  System.out.println("Quotation B in thread " + Thread.currentThread() );
-                  return new Quotation("Server B", random.nextInt(30, 70));
-              };
-        Supplier<Quotation> fetchQuotationC =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-                  System.out.println("Quotation C in thread " + Thread.currentThread() );
-                  return new Quotation("Server C", random.nextInt(40, 80));
-              };
-
-        var quotationTasks =
-              List.of(fetchQuotationA, fetchQuotationB, fetchQuotationC);
-        return quotationTasks;
     }
 
     private static Quotation openFuture(Future<Quotation> future) {

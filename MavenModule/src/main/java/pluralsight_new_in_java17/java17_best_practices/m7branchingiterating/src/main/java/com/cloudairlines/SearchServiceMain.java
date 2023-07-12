@@ -1,9 +1,8 @@
 package pluralsight_new_in_java17.java17_best_practices.m7branchingiterating.src.main.java.com.cloudairlines;
 
-
-import com.cloudairlines.flight.Flight;
-import com.cloudairlines.flight.FlightSearch;
-import com.cloudairlines.passenger.SearchRequest;
+import pluralsight_new_in_java17.java17_best_practices.m7branchingiterating.src.main.java.com.cloudairlines.flight.Flight;
+import pluralsight_new_in_java17.java17_best_practices.m7branchingiterating.src.main.java.com.cloudairlines.flight.FlightSearch;
+import pluralsight_new_in_java17.java17_best_practices.m7branchingiterating.src.main.java.com.cloudairlines.passenger.SearchRequest;
 
 import java.util.List;
 

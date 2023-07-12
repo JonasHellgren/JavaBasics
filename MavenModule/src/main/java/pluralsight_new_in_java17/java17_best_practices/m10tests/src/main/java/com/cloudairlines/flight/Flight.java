@@ -1,6 +1,7 @@
 package pluralsight_new_in_java17.java17_best_practices.m10tests.src.main.java.com.cloudairlines.flight;
 
-import com.cloudairlines.airport.Airport;
+
+import pluralsight_new_in_java17.java17_best_practices.m10tests.src.main.java.com.cloudairlines.airport.Airport;
 
 public class Flight {
 
@@ -20,10 +21,10 @@ public class Flight {
 
     public Flight(Airport fromAirport, Airport toAirport, String date) {
         this.fromAirport = fromAirport;
-        this.fromCity = fromAirport.city();
+        this.fromCity = fromAirport.getCity();
 
         this.toAirport = toAirport;
-        this.toCity = toAirport.city();
+        this.toCity = toAirport.getCity();
 
         this.date = date;
     }

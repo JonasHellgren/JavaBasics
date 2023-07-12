@@ -8,8 +8,8 @@ public enum DurationUnit {
     WEEK("week", "weeks", 7),
     MONTH("month", "months", 30);
 
-    private String singularForm;
-    private String pluralForm;
+    public String singularForm;
+    public String pluralForm;
     private int multiplier;
 
     DurationUnit(String singularForm, String pluralForm, int multiplier) {

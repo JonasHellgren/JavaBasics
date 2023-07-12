@@ -22,9 +22,9 @@ public enum DurationUnit {
         return multiplier;
     }
 
-    public static pluralsight_new_in_java17.unit5_testing.code.main.src.prescription.DurationUnit getByTextValue(String durationString) {
+    public static DurationUnit getByTextValue(String durationString) {
         Objects.requireNonNull(durationString, "Duration string must be non-null");
-        for (pluralsight_new_in_java17.unit5_testing.code.main.src.prescription.DurationUnit unit : pluralsight_new_in_java17.unit5_testing.code.main.src.prescription.DurationUnit.values()) {
+        for (DurationUnit unit : DurationUnit.values()) {
             if ((unit.singularForm.equals(durationString.toLowerCase())) ||
                     (unit.pluralForm.equals(durationString.toLowerCase()))) {
                 return unit;

@@ -1,8 +1,6 @@
 package pluralsight_new_in_java17.java17_best_practices.m10tests.src.main.java.com.cloudairlines.flight;
 
-
-
-import com.cloudairlines.airport.AirportStore;
+import pluralsight_new_in_java17.java17_best_practices.m10tests.src.main.java.com.cloudairlines.airport.AirportStore;
 
 import java.util.List;
 

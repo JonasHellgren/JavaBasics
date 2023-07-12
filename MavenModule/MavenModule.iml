@@ -8,8 +8,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" generated="true" />
-      <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/pluralsight_new_in_java17/java17_best_practices/m6stringsnumbers" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -57,5 +57,8 @@
     <orderEntry type="library" name="Maven: org.bytedeco:flandmark:1.07-1.5.7" level="project" />
     <orderEntry type="library" name="Maven: org.bytedeco:leptonica:1.82.0-1.5.7" level="project" />
     <orderEntry type="library" name="Maven: org.bytedeco:tesseract:5.0.1-1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.15.2" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.15.2" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.15.2" level="project" />
   </component>
 </module>

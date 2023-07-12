@@ -31,8 +31,8 @@ public enum DrugClassification {
         return description;
     }
 
-    public static pluralsight_new_in_java17.unit5_testing.code.main.src.drug.DrugClassification getClassificationByCode(int therapeuticCode) {
-        return Arrays.stream(pluralsight_new_in_java17.unit5_testing.code.main.src.drug.DrugClassification.values()).filter(c -> c.getClassificationCode() == therapeuticCode)
+    public static DrugClassification getClassificationByCode(int therapeuticCode) {
+        return Arrays.stream(DrugClassification.values()).filter(c -> c.getClassificationCode() == therapeuticCode)
                 .findFirst().orElse(null);
     }
 

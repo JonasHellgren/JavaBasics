@@ -1,9 +1,9 @@
 package pluralsight_new_in_java17.java17_best_practices.m7branchingiterating.src.main.java.com.cloudairlines.flight;
 
 
-import com.cloudairlines.airport.Airport;
-import com.cloudairlines.passenger.Passenger;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import pluralsight_new_in_java17.java17_best_practices.m7branchingiterating.src.main.java.com.cloudairlines.airport.Airport;
+import pluralsight_new_in_java17.java17_best_practices.m7branchingiterating.src.main.java.com.cloudairlines.passenger.Passenger;
 
 import java.util.List;
 
@@ -32,10 +32,10 @@ public class Flight {
 
     public Flight(Airport fromAirport, Airport toAirport, String date, List<Passenger> passengerList) {
         this.fromAirport = fromAirport;
-        this.fromCity = fromAirport.city();
+        this.fromCity = fromAirport.getCity();
 
         this.toAirport = toAirport;
-        this.toCity = toAirport.city();
+        this.toCity = toAirport.getCity();
 
         this.date = date;
         this.passengerList = passengerList;

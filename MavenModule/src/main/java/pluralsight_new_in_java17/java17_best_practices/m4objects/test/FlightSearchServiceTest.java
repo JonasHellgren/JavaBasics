@@ -1,8 +1,8 @@
 package pluralsight_new_in_java17.java17_best_practices.m4objects.test;
 
 import org.junit.Test;
-import pluralsight_courses.java17_best_practices.m4objects.src.Flight;
-import pluralsight_courses.java17_best_practices.m4objects.src.FlightSearchService;
+import pluralsight_new_in_java17.java17_best_practices.m4objects.src.Flight;
+import pluralsight_new_in_java17.java17_best_practices.m4objects.src.FlightSearchService;
 
 import java.util.List;
 

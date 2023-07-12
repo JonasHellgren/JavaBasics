@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class DrugConcept {
 
-    public final static pluralsight_new_in_java17.unit5_testing.code.main.src.drug.DrugConcept OPIATES = new pluralsight_new_in_java17.unit5_testing.code.main.src.drug.DrugConcept(new DrugClassification[]{
+    public final static DrugConcept OPIATES = new DrugConcept(new DrugClassification[]{
             DrugClassification.ANTIANXIETY,
             DrugClassification.ANALGESICS_NARCOTIC,
             DrugClassification.NARCOTIC_ANTHISTAMINE});

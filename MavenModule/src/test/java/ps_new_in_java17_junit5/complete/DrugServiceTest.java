@@ -1,6 +1,9 @@
 package ps_new_in_java17_junit5.complete;
 
 import org.junit.jupiter.api.*;
+import pluralsight_new_in_java17.unit5_testing.code.complete.src.drug.DispensableDrug;
+import pluralsight_new_in_java17.unit5_testing.code.complete.src.drug.DrugClassification;
+import pluralsight_new_in_java17.unit5_testing.code.complete.src.drug.DrugService;
 import pluralsight_new_in_java17.unit5_testing.code.main.src.drug.database.DrugRecord;
 import pluralsight_new_in_java17.unit5_testing.code.main.src.drug.database.DrugSource;
 

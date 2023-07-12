@@ -1,9 +1,8 @@
 package pluralsight_new_in_java17.java17_best_practices.m5methods.src.main.java.com.cloudairlines.flight;
 
 
-
-import pluralsight_courses.java17_best_practices.m10tests.src.main.java.com.cloudairlines.airport.Airport;
-import pluralsight_courses.java17_best_practices.m3namingAfter.cloudairlines.Passenger;
+import pluralsight_new_in_java17.java17_best_practices.m5methods.src.main.java.com.cloudairlines.airport.Airport;
+import pluralsight_new_in_java17.java17_best_practices.m5methods.src.main.java.com.cloudairlines.passenger.Passenger;
 
 import java.util.List;
 

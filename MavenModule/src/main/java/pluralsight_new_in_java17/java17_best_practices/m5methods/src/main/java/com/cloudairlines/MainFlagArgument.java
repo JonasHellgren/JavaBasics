@@ -1,8 +1,8 @@
 package pluralsight_new_in_java17.java17_best_practices.m5methods.src.main.java.com.cloudairlines;
 
-import com.cloudairlines.flight.Flight;
-import com.cloudairlines.flight.FlightStoreImpl;
-import com.cloudairlines.passenger.PassengerSearch;
+import pluralsight_new_in_java17.java17_best_practices.m5methods.src.main.java.com.cloudairlines.flight.Flight;
+import pluralsight_new_in_java17.java17_best_practices.m5methods.src.main.java.com.cloudairlines.flight.FlightStoreImpl;
+import pluralsight_new_in_java17.java17_best_practices.m5methods.src.main.java.com.cloudairlines.passenger.PassengerSearch;
 
 public class MainFlagArgument {
 

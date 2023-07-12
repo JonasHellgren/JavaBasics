@@ -2,6 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/MavenModule/src/main/java/pluralsight_new_in_java17/java-se-17-tdd/01/demos/Java-17-TDD" vcs="Git" />
   </component>
 </project>

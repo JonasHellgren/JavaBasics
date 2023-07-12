@@ -1,43 +1,47 @@
 package pluralsight_new_in_java17.java_tdd.m4;
 
+/**
+ * Buying event
+ */
+
 public class Position {
 
-    Stock stock;
-    int qty;
-    double px;
+    Stock stockName;
+    int nofStocks;
+    double averagePrice;
 
-    public Position(Stock stock, int qty, double px) {
-        this.stock = stock;
-        this.qty = qty;
-        this.px = px;
+    public Position(Stock stockName, int nofStocks, double averagePrice) {
+        this.stockName = stockName;
+        this.nofStocks = nofStocks;
+        this.averagePrice = averagePrice;
     }
 
-    public Stock getStock() {
-        return stock;
+    public Stock getStockName() {
+        return stockName;
     }
 
-    public int getQty() {
-        return qty;
+    public int getNofStocks() {
+        return nofStocks;
     }
 
     public double getAveragePx() {
-        return px;
+        return averagePrice;
     }
 
     public double getValue() {
-        return qty * px;
+        return nofStocks * averagePrice;
     }
 
     public void setQuantity(int newQty) {
-        this.qty = newQty;
+        this.nofStocks = newQty;
     }
 
     public void setAveragePx(double newAveragePx) {
-        this.px = newAveragePx;
+        this.averagePrice = newAveragePx;
     }
 
     @Override
     public String toString() {
-        return String.format("{ %s | Qty: %s | Px: %s | Value: %s}", stock, qty, px, qty * px);
+        return String.format("{ %s | Qty: %s | Px: %s | Value: %s}", stockName, nofStocks, averagePrice, nofStocks * averagePrice);
     }
 }

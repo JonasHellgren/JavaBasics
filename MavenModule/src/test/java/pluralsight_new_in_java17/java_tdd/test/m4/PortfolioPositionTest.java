@@ -26,7 +26,7 @@ public class PortfolioPositionTest {
         portfolio.add(position(symbol, 10, 260));
         Assertions.assertEquals(1, portfolio.getAllPositions().size());
 
-        Assertions.assertEquals(10, portfolio.getPosition(symbol).getQty());
+        Assertions.assertEquals(10, portfolio.getPosition(symbol).getNofStocks());
         Assertions.assertEquals(260, portfolio.getPosition(symbol).getAveragePx());
         Assertions.assertEquals(2600, portfolio.getPosition(symbol).getValue());
     }
@@ -45,13 +45,13 @@ public class PortfolioPositionTest {
 
         // msft
         var microsoftPosition = portfolio.getPosition(microsoft);
-        Assertions.assertEquals(10, microsoftPosition.getQty());
+        Assertions.assertEquals(10, microsoftPosition.getNofStocks());
         Assertions.assertEquals(260, microsoftPosition.getAveragePx());
         Assertions.assertEquals(2600, microsoftPosition.getValue());
 
         // aapl
         var applePosition = portfolio.getPosition(apple);
-        Assertions.assertEquals(2, applePosition.getQty());
+        Assertions.assertEquals(2, applePosition.getNofStocks());
         Assertions.assertEquals(150, applePosition.getAveragePx());
         Assertions.assertEquals(300, applePosition.getValue());
     }
@@ -81,7 +81,7 @@ public class PortfolioPositionTest {
         portfolio.add(position(microsoft, 10, 260));
         portfolio.add(position(microsoft, 1, 200));
 
-        Assertions.assertEquals(11, portfolio.getPosition(microsoft).getQty());
+        Assertions.assertEquals(11, portfolio.getPosition(microsoft).getNofStocks());
     }
 
     @Test

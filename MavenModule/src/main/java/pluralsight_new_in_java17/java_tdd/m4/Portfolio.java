@@ -3,6 +3,10 @@ package pluralsight_new_in_java17.java_tdd.m4;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Would be clearer with Map<String, List<Position>> : stock name maps to list of positions
+ */
+
 public class Portfolio {
 
     private final Map<String, Position> positions;
@@ -16,14 +20,14 @@ public class Portfolio {
     }
 
     public void add(Position position) {
-        String symbol = position.getStock().symbol();
+        String symbol = position.getStockName().symbol();
 
         // If the position already exists, update it
         if (positions.containsKey(symbol)) {
             Position existingPosition = positions.get(symbol);
-            int newQuantity = existingPosition.getQty() + position.getQty();
-            double newAveragePx = (existingPosition.getQty() * existingPosition.getAveragePx()
-                    + position.getQty() * position.getAveragePx()) / newQuantity;
+            int newQuantity = existingPosition.getNofStocks() + position.getNofStocks();
+            double newAveragePx = (existingPosition.getNofStocks() * existingPosition.getAveragePx()
+                    + position.getNofStocks() * position.getAveragePx()) / newQuantity;
 
             existingPosition.setQuantity(newQuantity);
             existingPosition.setAveragePx(newAveragePx);

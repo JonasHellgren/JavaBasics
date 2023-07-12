@@ -10,10 +10,20 @@ import java.util.Random;
 import java.util.concurrent.*;
 import java.util.function.Supplier;
 
+/***
+ * The Future interface was added in Java 5 to serve as a result of an asynchronous computation, but it did not have
+ * any methods to combine these computations or handle possible errors.
+ *
+ * Java 8 introduced the CompletableFuture class. Along with the Future interface, it also implemented the
+ * CompletionStage interface. This interface defines the contract for an asynchronous computation step that we
+ * can combine with other steps.
+ *
+ * CompletableFuture is at the same time, a building block and a framework, with about 50 different methods for
+ * composing, combining, and executing asynchronous computation steps and handling errors.
+ */
+
 public class C_RunAsyncTasks {
 
-    record Quotation(String server, int amount) {
-    }
 
     public static void main(String[] args) {
         run();
@@ -21,38 +31,9 @@ public class C_RunAsyncTasks {
 
     public static void run() {
 
-        Random random = new Random();
-
-        Supplier<Quotation> fetchQuotationA =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-                  return new Quotation("Server A", random.nextInt(40, 60));
-              };
-        Supplier<Quotation> fetchQuotationB =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-                  return new Quotation("Server B", random.nextInt(30, 70));
-              };
-        Supplier<Quotation> fetchQuotationC =
-              () -> {
-                  try {
-                      Thread.sleep(random.nextInt(80, 120));
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
-                  return new Quotation("Server C", random.nextInt(40, 80));
-              };
-
+        QuotationSupplierGenerator generator=new QuotationSupplierGenerator();
         var quotationTasks =
-              List.of(fetchQuotationA, fetchQuotationB, fetchQuotationC);
+              List.of(generator.quotationA, generator.quotationB, generator.quotationC);
 
         Instant begin = Instant.now();
 

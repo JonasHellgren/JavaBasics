@@ -1,5 +1,11 @@
 jdk 17 x
 records  x
-sealed
+sealed x
 
 debugging
+flytta repo 11 cert kurs
+flytta repo designpatterns
+städa JavaBasics repo
+nytt repo JavaMath
+flytta repo GraphAlg till JavaMath
+nytt repo JavaGraphics  - tex plotta

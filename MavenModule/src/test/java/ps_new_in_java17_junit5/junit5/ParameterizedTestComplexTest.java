@@ -67,6 +67,7 @@ public class ParameterizedTestComplexTest {
         }
     }
 
+
     @ParameterizedTest
     @CsvSource({"1,1,2", "1,0,1", "101,10,111"})
     void whenSum_thenCorrect1(ArgumentsAccessor arguments) {
@@ -91,5 +92,28 @@ public class ParameterizedTestComplexTest {
                 Arguments.of(2, 3, 5)
         );
     }
+
+
+    record DoubleSummer(double a, double b) {
+        double sum() {
+            return a + b;
+        }
+    }
+
+    @ParameterizedTest(name = "{index} => a={0}, b={1}, expectedSum={2}")
+    @MethodSource("sumDoubleProvider")
+    void whenSumDoubles_thenCorrect2(double a, double b, double expectedSum) {
+        var summer = new DoubleSummer(a, b);
+        assertEquals(expectedSum, summer.sum(),0.1);
+    }
+
+    private static Stream<Arguments> sumDoubleProvider() {
+        return Stream.of(
+                Arguments.of(1.0, 1.0, 2.0),
+                Arguments.of(2.5, 3.5, 6.0),
+                Arguments.of(2.5, 3.5, 6.05)  //0.1 tolerance
+        );
+    }
+
 
 }

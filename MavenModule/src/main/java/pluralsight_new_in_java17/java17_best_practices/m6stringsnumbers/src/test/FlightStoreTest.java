@@ -1,9 +1,11 @@
-package pluralsight_new_in_java17.java17_best_practices.m6stringsnumbers.src.test.java.com.airlines;
+package pluralsight_new_in_java17.java17_best_practices.m6stringsnumbers.src.test;
 
-import com.cloudairlines.Flight;
-import com.cloudairlines.FlightSimpleStore;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+
+
+import org.junit.Assert;
+import org.junit.Test;
+import pluralsight_new_in_java17.java17_best_practices.m6stringsnumbers.src.main.Flight;
+import pluralsight_new_in_java17.java17_best_practices.m6stringsnumbers.src.main.FlightSimpleStore;
 
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class FlightStoreTest {
         var store = new FlightSimpleStore();
         List<Flight> flights = store.getFlights(json);
 
-        Assertions.assertEquals(2, flights.size());
+        Assert.assertEquals(2, flights.size());
     }
 
     @Test
@@ -48,6 +50,6 @@ public class FlightStoreTest {
         var store = new FlightSimpleStore();
         List<Flight> flights = store.getFlights(json);
 
-        Assertions.assertEquals(2, flights.size());
+        Assert.assertEquals(2, flights.size());
     }
 }

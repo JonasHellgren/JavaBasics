@@ -1,4 +1,4 @@
-package pluralsight_new_in_java17.java17_best_practices.m6stringsnumbers.src.main.java.com.cloudairlines;
+package pluralsight_new_in_java17.java17_best_practices.m6stringsnumbers.src.main;
 
 public class CargoFlight {
 

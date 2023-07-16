@@ -2,7 +2,11 @@ jdk 17 x
 records  x
 sealed x
 
-debugging
+debugging  x
+mer junit5 x
+NestedTest   x
+TimeoutTest
+DynamicTest
 flytta repo 11 cert kurs
 flytta repo designpatterns
 städa JavaBasics repo

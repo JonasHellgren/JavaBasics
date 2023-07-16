@@ -5,8 +5,8 @@ sealed x
 debugging  x
 mer junit5 x
 NestedTest   x
-TimeoutTest
-DynamicTest
+TimeoutTest  x
+DynamicTest  x
 flytta repo 11 cert kurs
 flytta repo designpatterns
 städa JavaBasics repo

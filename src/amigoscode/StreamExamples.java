@@ -24,7 +24,7 @@ public class StreamExamples {
     public void replaceFor() {
         List<NumAndSquared> numAndSquaredList=numberList.stream()
                 .map(num -> new NumAndSquared(num, num * num))
-                .collect(Collectors.toList());
+                .toList();
 
         Assert.assertEquals(4,numAndSquaredList.size());
         Assert.assertEquals(4,numAndSquaredList.get(1).getSqNum());
@@ -35,5 +35,6 @@ public class StreamExamples {
     public void anyMatch() {
         boolean anyMatch=numberList.stream().anyMatch(num -> num==2);
         Assert.assertTrue(anyMatch);
+
     }
 }

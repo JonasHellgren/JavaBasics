@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MassCategoryEvaluator bmce;    //polymorphism <=> the exact implementation of bmce is TBD
+        MassCategoryEvaluator<?> bmce;    //polymorphism <=> the exact implementation of bmce is TBD
         int mass = 95;
         bmce = new MassCategoryMassBased(mass);
         System.out.println("mass = " + mass + " is " + bmce.findCategory());

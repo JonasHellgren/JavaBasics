@@ -14,7 +14,6 @@ public record PersonRecordSpecificConstructors(String name, String address) {
     public PersonRecordSpecificConstructors(@NonNull  String name, @NonNull String address) {
         this.name=name;
         this.address=address;
-
     }
 
     public static PersonRecordSpecificConstructors newFromName(String name) {

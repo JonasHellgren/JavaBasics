@@ -5,6 +5,6 @@ import java.util.function.BiFunction;
 
 public class DefaultPredicates {
 
-    public static  BiFunction<String,String,String > defaultIfNullString=(v, d) -> Objects.isNull(v)?d:v;
+    public static BiFunction<String,String,String > defaultIfNullString=(v, d) -> Objects.isNull(v)?d:v;
     public static BiFunction<Integer,Integer,Integer> defaultIfNullInteger=(v, d) -> Objects.isNull(v)?d:v;
 }

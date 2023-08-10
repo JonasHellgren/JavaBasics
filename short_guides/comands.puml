@@ -1,4 +1,7 @@
 @startuml
+
+
+
 map Config {
  git config --global USER.NAME "Jonas Hellgren" => sets name
  git config --global USER.EMAIL "jonas.hellgren@volvo.com" => sets email
@@ -26,7 +29,7 @@ map AddAndCommit {
 map RemoteInteraction {
  git clone <url> <where to clone>  => cloning remote repo, <where to clone> can be . (here)
  git remote -v  => info about remote repo, for ex after cloning it
- git remote add origin <url>>  => defines origin alias
+ git remote add origin <url>  => defines origin alias
  git pull <repoalias> <branch>  => updates local repo from remote repo/branch
  git push <repoalias> <branch>  => updates remote repo from local repo/branch
 }
@@ -38,7 +41,7 @@ map Branches {
  git checkout <name>  => sets branch <name> as actual, head points to this one
  git push <repoalias> <branch>  => updates remote repo according to local repo/branch
  git branch -d <name> => delete local branch <name>
- git push origin --delete <name> => delete branch <name> on remote repo origin
+     git push origin --delete <name> => delete branch <name> on remote repo origin
 }
 
 'https://www.youtube.com/watch?v=FdZecVxzJbk
@@ -54,7 +57,7 @@ map UndoMistakes {
 
 'https://www.youtube.com/watch?v=KLEDKgMmbBI&t=110s
 map Stash {
- General description => Creates "commits" independent of branch. Handy when e.g. want to switch between branches without commiting
+ General description => Creates "commits" independent of branch. Handy when e.g. want to switch between branches without committing.
  git stash save "<message>" =>  saves working files in stash que
  git stash list => lists stashes
  git stash apply <iteminstashlist>  => update working files according specific stash

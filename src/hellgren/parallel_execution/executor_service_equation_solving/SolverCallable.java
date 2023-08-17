@@ -18,6 +18,7 @@ import java.util.function.Function;
 
 @Log
 class SolverCallable implements Callable<SolverCallable.XYPair> {
+    static  Function<Double,Double> function=(x) -> 4*x-2;
 
     record XYPair(double x, double y) {
         XYPair returnOtherPairIfBetter(XYPair otherPair) {
@@ -34,14 +35,11 @@ class SolverCallable implements Callable<SolverCallable.XYPair> {
 
     }
 
-    Function<Double,Double> function;
     long maxTimeInMillis;
     XYPair bestPair;
 
-    public SolverCallable(Function<Double, Double> function, long maxTimeInMillis) {
-        this.function = function;
+    public SolverCallable(long maxTimeInMillis) {
         this.maxTimeInMillis = maxTimeInMillis;
-        log.info("Solver created");
     }
 
     @Override
@@ -49,7 +47,7 @@ class SolverCallable implements Callable<SolverCallable.XYPair> {
         CpuTimer timer=new CpuTimer(maxTimeInMillis);
         Random r=new Random();
         bestPair=XYPair.newRandom(r,function);
-        log.info("Solving");
+        log.info("Starting solving");
         int i=0;
         do {
             XYPair testPair=XYPair.newRandom(r,function);

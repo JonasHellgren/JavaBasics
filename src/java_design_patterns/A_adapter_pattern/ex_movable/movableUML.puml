@@ -1,21 +1,21 @@
 @startuml
-class java_design_patterns.A_adapter_pattern.ex_movable.MovableAdapterImpl {
-+ {static} double MPH_TO_KMH
-- Movable movable
-+ double getTopSpeed()
-- double convertMPHtoKMPH(double)
+class UsEuCarAdapter {
+- CarUSInterface car
+
 }
-interface java_design_patterns.A_adapter_pattern.ex_movable.Movable {
+interface CarUSInterface {
 ~ double getTopSpeedInMph()
 }
-interface java_design_patterns.A_adapter_pattern.ex_movable.MovableAdapter {
-~ double getTopSpeed()
+interface EuCarAdapterInterface {
++ double getTopSpeed()
++ double getLength()
 }
-class java_design_patterns.A_adapter_pattern.ex_movable.BugattiVeyron {
+class FordMustang {
++ double getTopSpeedInMph()
 + double getTopSpeedInMph()
 }
 
 
-java_design_patterns.A_adapter_pattern.ex_movable.MovableAdapter <|.. java_design_patterns.A_adapter_pattern.ex_movable.MovableAdapterImpl
-java_design_patterns.A_adapter_pattern.ex_movable.Movable <|.. java_design_patterns.A_adapter_pattern.ex_movable.BugattiVeyron
+EuCarAdapterInterface <|.. UsEuCarAdapter
+CarUSInterface <|.. FordMustang
 @enduml

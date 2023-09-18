@@ -5,6 +5,15 @@ import java_design_patterns.flyweight_pattern.GxfObjectFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * A common practice is to keep state in external data structures and pass them to the Flyweight Object when needed.
+ * Each Flyweight Object is divided into two pieces: the state-dependent (extrinsic) part, and the state-independent
+ * (intrinsic) part. Intrinsic can be saved in map.
+ * intrinsic=color, extrinsic=position
+ *
+ *
+ */
+
 public class TestFlyWeight {
 
     private static final String[] colors = { "Red", "Green", "Blue", "White", "Black" };
@@ -15,13 +24,11 @@ public class TestFlyWeight {
         GxfObjectFactory factory=new GxfObjectFactory();
 
         for (int i = 0; i < NOF_RENDERED_OBJECTS; ++i) {
-            Circle character = factory.getCharacter(getRandomColor());
-            character.setX(getRandomX());
-            character.setY(getRandomY());
-            character.render();
+            Circle gfxObject = factory.getGfxObject(getRandomColor());
+            gfxObject.setX(getRandomX());
+            gfxObject.setY(getRandomY());
+            gfxObject.render();
         }
-
-        System.out.println("factory.getMapSize() = " + factory.getMapSize());
 
         Assert.assertTrue(factory.getMapSize() < NOF_RENDERED_OBJECTS );
 

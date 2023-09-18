@@ -6,17 +6,23 @@ public class GxfObjectFactory {
 
     private static final HashMap<String, Circle> circleMap = new HashMap<>();
 
-    public  Circle getCharacter(String color) {
-        Circle character =  circleMap.get(color);
-        if (character == null) {
+    public Circle getGfxObject(String color) {
+        Circle character;
+        if (isNotColorInMap(color)) {
             character = new Circle(color);
-            circleMap.put(color, character);
+            circleMap.put(color, new Circle(color));
+        } else {
+            character = circleMap.get(color);
         }
         return character;
     }
 
+    private static boolean isNotColorInMap(String color) {
+        return !circleMap.containsKey(color);
+    }
 
-    public int getMapSize()   {
+
+    public int getMapSize() {
         return circleMap.size();
     }
 

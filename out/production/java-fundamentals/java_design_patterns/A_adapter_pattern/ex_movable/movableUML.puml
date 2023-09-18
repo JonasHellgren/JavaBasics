@@ -1,21 +1,23 @@
 @startuml
-class MovableAdapterImpl {
-+ {static} double MPH_TO_KMH
-- CarUS movable
-+ double getTopSpeed()
-- double convertMPHtoKMPH(double)
+class UsEuCarAdapter {
+- CarUSInterface car
+
 }
-interface CarUS {
-~ double getTopSpeedInMph()
+interface CarUSInterface {
++ double getTopSpeedInKph()
++ double getLengthInMeter()
 }
-interface MovableAdapter {
-~ double getTopSpeed()
+
+interface EuCarAdapterInterface {
++ double getTopSpeedInKph()
++ double getLengthInMeter()
 }
-class BugattiVeyron {
-+ double getTopSpeedInMph()
+
+class FordMustang {
+
 }
 
 
-MovableAdapter <|.. MovableAdapterImpl
-CarUS <|.. BugattiVeyron
+EuCarAdapterInterface <|.. UsEuCarAdapter
+CarUSInterface <|.. FordMustang
 @enduml

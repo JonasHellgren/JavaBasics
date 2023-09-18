@@ -4,15 +4,17 @@ class UsEuCarAdapter {
 
 }
 interface CarUSInterface {
-~ double getTopSpeedInMph()
++ double getTopSpeedInKph()
++ double getLengthInMeter()
 }
+
 interface EuCarAdapterInterface {
-+ double getTopSpeed()
-+ double getLength()
++ double getTopSpeedInKph()
++ double getLengthInMeter()
 }
+
 class FordMustang {
-+ double getTopSpeedInMph()
-+ double getTopSpeedInMph()
+
 }
 
 

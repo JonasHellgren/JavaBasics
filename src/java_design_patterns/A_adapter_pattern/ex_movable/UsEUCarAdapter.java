@@ -9,12 +9,12 @@ public class UsEUCarAdapter implements EuCarAdapterInterface {
     private CarUsInterface carUs;
 
     @Override
-    public double getTopSpeed() {
+    public double getTopSpeedInKph() {
         return convertMPHtoKMPH(carUs.getTopSpeedInMph());
     }
 
     @Override
-    public double getLength() {
+    public double getLengthInMeter() {
           return convertInchToMeter(carUs.getLengthInInch());
     }
 

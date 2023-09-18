@@ -1,6 +1,7 @@
 package java_design_patterns.flyweight_pattern_test;
 
 import java_design_patterns.flyweight_pattern.Circle;
+import java_design_patterns.flyweight_pattern.GfxObject;
 import java_design_patterns.flyweight_pattern.GxfObjectFactory;
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,7 +25,7 @@ public class TestFlyWeight {
         GxfObjectFactory factory=new GxfObjectFactory();
 
         for (int i = 0; i < NOF_RENDERED_OBJECTS; ++i) {
-            Circle gfxObject = factory.getGfxObject(getRandomColor());
+            Circle gfxObject = (Circle) factory.getGfxObject(getRandomColor());
             gfxObject.setX(getRandomX());
             gfxObject.setY(getRandomY());
             gfxObject.render();

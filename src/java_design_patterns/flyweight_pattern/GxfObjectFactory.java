@@ -4,23 +4,24 @@ import java.util.HashMap;
 
 public class GxfObjectFactory {
 
-    private static final HashMap<String, Circle> circleMap = new HashMap<>();
+    private static final HashMap<String, GfxObject> circleMap = new HashMap<>();
 
-    public Circle getGfxObject(String color) {
-        Circle character;
-        if (isNotColorInMap(color)) {
-            character = new Circle(color);
-            circleMap.put(color, new Circle(color));
-        } else {
-            character = circleMap.get(color);
-        }
+    public GfxObject getGfxObject(String color) {
+
+        boolean isNotObjectInMap = isNotObjectInMap(color);
+
+        GfxObject character = isNotObjectInMap
+                ? new Circle(color)
+                : circleMap.get(color);
+
+        circleMap.putIfAbsent(color,character);
+
         return character;
     }
 
-    private static boolean isNotColorInMap(String color) {
+    private static boolean isNotObjectInMap(String color) {
         return !circleMap.containsKey(color);
     }
-
 
     public int getMapSize() {
         return circleMap.size();

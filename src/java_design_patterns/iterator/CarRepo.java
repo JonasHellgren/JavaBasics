@@ -37,7 +37,6 @@ public class CarRepo implements Iterable<String> {
             public void remove() {
                 throw new UnsupportedOperationException();
             }
-
         };
     }
 }

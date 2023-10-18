@@ -4,8 +4,8 @@ class UsEuCarAdapter {
 
 }
 interface CarUSInterface {
-+ double getTopSpeedInKph()
-+ double getLengthInMeter()
++ double getTopSpeedInMph()
++ double getLengthInMiles()
 }
 
 interface EuCarAdapterInterface {

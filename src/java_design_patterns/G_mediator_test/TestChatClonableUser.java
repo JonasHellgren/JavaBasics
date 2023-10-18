@@ -32,7 +32,7 @@ public class TestChatClonableUser {
         System.out.println("cloned.getChat() = " + cloned.getChat());
 
         Assert.assertEquals(3,chat.nofUser());
-        Assert.assertEquals(user1.getChat(),cloned.getChat());  //same chat
+        Assert.assertEquals(user1.getChat(),cloned.getChat());  //clone refers to same chat
 
 
     }

@@ -1,4 +1,4 @@
-package java_design_patterns.G_mediator.charging_station.mediator_parts;
+package java_design_patterns.G_mediator.charging_station.mediator_collegues;
 
 import java_design_patterns.G_mediator.charging_station.mediator.ChargingStationMediatorI;
 import java_design_patterns.G_mediator.charging_station.other.Informer;
@@ -10,7 +10,7 @@ public class PowerSplitter {
 
     public double deltaSocPerSlot() {
         Informer informer = mediator.getInformer();
-        return informer.getDeltaSoCDepotMax() /Math.max(1, informer.nOccupiedSlots());
+        return informer.getDeltaSoCDepotMax()/Math.max(1, informer.nOccupiedSlots());
     }
 
 

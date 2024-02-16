@@ -1,6 +1,6 @@
 package java_design_patterns.G_mediator.charging_station.other;
 
-import java_design_patterns.G_mediator.charging_station.mediator_parts.ChargingSlot;
+import java_design_patterns.G_mediator.charging_station.mediator_collegues.ChargingSlot;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.Queue;
 public class Informer {
 
     List<ChargingSlot> slots;
-    Queue<Vehicle> vehiclesInQueu;
+    Queue<Vehicle> vehiclesInQueue;
     double deltaSoCDepotMax;
 
     public int nOccupiedSlots() {
@@ -32,7 +32,7 @@ public class Informer {
     }
 
     public int nofVehiclesInQueue() {
-        return vehiclesInQueu.size();
+        return vehiclesInQueue.size();
     }
 
 

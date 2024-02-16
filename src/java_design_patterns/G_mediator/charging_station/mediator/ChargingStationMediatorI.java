@@ -5,7 +5,7 @@ import java_design_patterns.G_mediator.charging_station.other.Vehicle;
 
 public interface ChargingStationMediatorI {
     void addArrivedVehicle(Vehicle vehicle);
-    double deltaSocPerSlot();
+    double calcDeltaSocPerSlot();
     void chargeVehicles();
     void releaseChargedVehiclesAndAddFromQueu();
     Informer getInformer();

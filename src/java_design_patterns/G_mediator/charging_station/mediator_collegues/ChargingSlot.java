@@ -1,6 +1,5 @@
-package java_design_patterns.G_mediator.charging_station.mediator_parts;
+package java_design_patterns.G_mediator.charging_station.mediator_collegues;
 
-import common.Conditionals;
 import java_design_patterns.G_mediator.charging_station.mediator.ChargingStationMediatorI;
 import java_design_patterns.G_mediator.charging_station.other.Vehicle;
 import lombok.extern.java.Log;
@@ -36,9 +35,8 @@ public class ChargingSlot {
     }
 
     public void chargeVehicle() {
-        double deltaSoc = mediator.deltaSocPerSlot();
         executeOneOfTwo(isOccupied(),
-                () -> occupVehicle.charge(deltaSoc),
+                () -> occupVehicle.charge(mediator.calcDeltaSocPerSlot()),
                 () -> log.info("No vehicle to charge"));
     }
 

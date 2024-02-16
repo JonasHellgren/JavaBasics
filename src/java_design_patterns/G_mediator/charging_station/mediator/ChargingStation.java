@@ -46,7 +46,7 @@ public class ChargingStation implements ChargingStationMediatorI {
     }
 
     @Override
-    public void releaseChargedVehiclesAndAddFromQueu() {
+    public void releaseChargedVehiclesAndAddFromQueue() {
         slots.forEach(s -> executeIfTrue(s.isFullyCharged(), () -> releaseAndReplaceVehicle(s)));
        }
 
@@ -74,7 +74,7 @@ public class ChargingStation implements ChargingStationMediatorI {
         slot.releaseVehicle();
         executeIfTrue(!vehiclesInQueue.isEmpty(),
                 () -> {
-                    log.info("pulling vehicle from queue");
+                    log.info("Moving vehicle from queue to charge slot");
                     slot.parkVehicle(vehiclesInQueue.poll());
                 });
     }

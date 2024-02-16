@@ -7,6 +7,6 @@ public interface ChargingStationMediatorI {
     void addArrivedVehicle(Vehicle vehicle);
     double calcDeltaSocPerSlot();
     void chargeVehicles();
-    void releaseChargedVehiclesAndAddFromQueu();
+    void releaseChargedVehiclesAndAddFromQueue();
     Informer getInformer();
 }

@@ -8,6 +8,7 @@ import static common.Conditionals.executeOneOfTwo;
 
 @Log
 public class ChargingSlot {
+    public static final double SOC_MAX = 100;
     ChargingStationMediatorI mediator;
     boolean available;
     Vehicle occupVehicle;
@@ -46,8 +47,7 @@ public class ChargingSlot {
     }
 
     public boolean isFullyCharged() {
-        return isOccupied() && occupVehicle.getSoc() >= 100;
-
+        return isOccupied() && occupVehicle.getSoc() >= SOC_MAX;
     }
 
     @Override

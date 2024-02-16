@@ -71,7 +71,7 @@ public class TestChargingStation {
     public void whenChargingOneMuchThenRelease_thenCorrect() {
         station.addArrivedVehicle(Vehicle.createVehicleWithZeroSoC("A"));
         IntStream.range(0,10).forEach(i -> station.chargeVehicles());
-        station.releaseChargedVehiclesAndAddFromQueu();
+        station.releaseChargedVehiclesAndAddFromQueue();
         assertEquals(0,informer.nOccupiedSlots());
     }
 
@@ -87,7 +87,7 @@ public class TestChargingStation {
             Conditionals.executeIfTrue(doubleInInterval(0,1)< probAddVehicle,
                     () -> station.addArrivedVehicle(Vehicle.createVehicleWithZeroSoC(UUID.randomUUID().toString())));
             station.chargeVehicles();
-            station.releaseChargedVehiclesAndAddFromQueu();
+            station.releaseChargedVehiclesAndAddFromQueue();
             nofOccupSlots.add(informer.nOccupiedSlots());
             nofVehInQueue.add(informer.nofVehiclesInQueue());
         }

@@ -5,7 +5,7 @@ import java_design_patterns.G_mediator.charging_station.mediator.ChargingStation
 import java_design_patterns.G_mediator.charging_station.other.Vehicle;
 import lombok.extern.java.Log;
 
-import java.util.Optional;
+import static common.Conditionals.executeOneOfTwo;
 
 @Log
 public class ChargingSlot {
@@ -35,8 +35,9 @@ public class ChargingSlot {
         return occupVehicle;
     }
 
-    public void chargeVehicle(double deltaSoc) {
-        Conditionals.executeOneOfTwo(isOccupied(),
+    public void chargeVehicle() {
+        double deltaSoc = mediator.deltaSocPerSlot();
+        executeOneOfTwo(isOccupied(),
                 () -> occupVehicle.charge(deltaSoc),
                 () -> log.info("No vehicle to charge"));
     }
@@ -47,9 +48,6 @@ public class ChargingSlot {
     }
 
     public boolean isFullyCharged() {
-//        Conditionals.executeIfTrue(isAvailable(),
-  //              () -> log.info("No vehicle to charge"));
-
         return isOccupied() && occupVehicle.getSoc() >= 100;
 
     }

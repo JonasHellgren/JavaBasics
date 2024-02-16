@@ -2,14 +2,12 @@ package java_design_patterns.G_mediator_test;
 
 import common.Conditionals;
 import java_design_patterns.G_mediator.charging_station.mediator.ChargingStation;
-import java_design_patterns.G_mediator.charging_station.mediator_parts.ChargingSlot;
-import java_design_patterns.G_mediator.charging_station.mediator_parts.PowerSplitter;
+import java_design_patterns.G_mediator.charging_station.other.Informer;
 import java_design_patterns.G_mediator.charging_station.other.Vehicle;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 import java.util.UUID;
 import java.util.stream.IntStream;
 
@@ -23,38 +21,34 @@ public class TestChargingStation {
     public static final int NOF_SLOTS = 5;
     public static final int DELTA_SOC_DEPOT_MAX = 50;
     ChargingStation station;
-    List<ChargingSlot> slots;
-    Queue<Vehicle> queue;
-    PowerSplitter powerSplitter;
+    Informer informer;
 
     @Before
     public void init() {
         station = new ChargingStation(NOF_SLOTS, DELTA_SOC_DEPOT_MAX);
-        slots = station.getSlots();
-        queue = station.getVehiclesInQueu();
-        powerSplitter=station.getPowerSplitter();
+        informer=station.getInformer();
     }
 
     @Test
     public void whenCreated_thenCorrect() {
-        assertEquals(NOF_SLOTS, slots.size());
-        assertEquals(0, queue.size());
-        assertEquals(0, powerSplitter.getnOccupSlots());
+        assertEquals(NOF_SLOTS, informer.nofSlots());
+        assertEquals(0, informer.nofVehiclesInQueue());
+        assertEquals(0, informer.nOccupiedSlots());
     }
 
     @Test
     public void whenAddOneArrived_thenCorrect() {
         station.addArrivedVehicle(Vehicle.createVehicleWithZeroSoC("A"));
-        assertEquals(0, queue.size());
-        assertEquals(1, powerSplitter.getnOccupSlots());
+        assertEquals(0, informer.nofVehiclesInQueue());
+        assertEquals(1, informer.nOccupiedSlots());
     }
 
     @Test
     public void whenAdd10Arrived_thenCorrect() {
         int nAdded = 10;
         addMultipleVehicles(nAdded);
-        assertEquals(nAdded-NOF_SLOTS, queue.size());
-        assertEquals(NOF_SLOTS, powerSplitter.getnOccupSlots());
+        assertEquals(nAdded-NOF_SLOTS, informer.nofVehiclesInQueue());
+        assertEquals(NOF_SLOTS, informer.nOccupiedSlots());
     }
 
 
@@ -62,8 +56,7 @@ public class TestChargingStation {
     public void whenChargingOne_thenCorrect() {
         station.addArrivedVehicle(Vehicle.createVehicleWithZeroSoC("A"));
         station.chargeVehicles();
-        var socs = getSocs();
-        assertEquals(DELTA_SOC_DEPOT_MAX,socs.get(0),0.01);
+        assertEquals(DELTA_SOC_DEPOT_MAX,informer.getSocs().get(0),0.01);
     }
 
     @Test
@@ -71,8 +64,7 @@ public class TestChargingStation {
         int nAdded = 5;
         addMultipleVehicles(nAdded);
         station.chargeVehicles();
-        var socs = getSocs();
-        assertTrue(socs.get(0)<DELTA_SOC_DEPOT_MAX);
+        assertTrue(informer.getSocs().get(0)<DELTA_SOC_DEPOT_MAX);
     }
 
     @Test
@@ -80,7 +72,7 @@ public class TestChargingStation {
         station.addArrivedVehicle(Vehicle.createVehicleWithZeroSoC("A"));
         IntStream.range(0,10).forEach(i -> station.chargeVehicles());
         station.releaseChargedVehiclesAndAddFromQueu();
-        assertEquals(0,powerSplitter.getnOccupSlots());
+        assertEquals(0,informer.nOccupiedSlots());
     }
 
 
@@ -96,8 +88,8 @@ public class TestChargingStation {
                     () -> station.addArrivedVehicle(Vehicle.createVehicleWithZeroSoC(UUID.randomUUID().toString())));
             station.chargeVehicles();
             station.releaseChargedVehiclesAndAddFromQueu();
-            nofOccupSlots.add(powerSplitter.getnOccupSlots());
-            nofVehInQueue.add(queue.size());
+            nofOccupSlots.add(informer.nOccupiedSlots());
+            nofVehInQueue.add(informer.nofVehiclesInQueue());
         }
 
         System.out.println("nofOccupSlots = " + nofOccupSlots);
@@ -108,17 +100,6 @@ public class TestChargingStation {
 
     }
 
-
-    private List<Double> getSocs() {
-        List<Double> socs=new ArrayList<>();
-        for (ChargingSlot slot : slots) {
-            if (slot.isOccupied()) {
-                Vehicle occupVehicle = slot.getOccupVehicle();
-                socs.add(occupVehicle.getSoc());
-            }
-        }
-        return socs;
-    }
 
 
     private void addMultipleVehicles(int nAdded) {

@@ -2,6 +2,7 @@ package java_design_patterns.G_mediator.charging_station.mediator;
 
 import java_design_patterns.G_mediator.charging_station.mediator_parts.ChargingSlot;
 import java_design_patterns.G_mediator.charging_station.mediator_parts.PowerSplitter;
+import java_design_patterns.G_mediator.charging_station.other.Informer;
 import java_design_patterns.G_mediator.charging_station.other.Vehicle;
 import lombok.Getter;
 import lombok.extern.java.Log;
@@ -19,31 +20,32 @@ public class ChargingStation implements ChargingStationMediatorI {
     List<ChargingSlot> slots;
     Queue<Vehicle> vehiclesInQueu;
     PowerSplitter powerSplitter;
+    Informer informer;
 
     public ChargingStation(int nofSlots, double deltaSoCDepotMax) {
         this.slots = new ArrayList<>();
         IntStream.range(0, nofSlots).forEach(i -> slots.add(new ChargingSlot(this)));
         this.vehiclesInQueu = new LinkedList<>();
-        this.powerSplitter = new PowerSplitter(this, deltaSoCDepotMax);
+        this.powerSplitter = new PowerSplitter(this);
+        this.informer=new Informer(slots,vehiclesInQueu,deltaSoCDepotMax);
     }
 
     @Override
     public void addArrivedVehicle(Vehicle vehicle) {
-        executeOneOfTwo(isAllSlotsOccupied(),
+        executeOneOfTwo(informer.isAllSlotsOccupied(),
                 () -> parkVehicleInQueu(vehicle),
                 () -> parkVehicleInAvailableSlot(vehicle));
     }
 
-    private void parkVehicleInQueu(Vehicle vehicle) {
-        log.info("parking vehicle in queue, "+vehicle);
-        vehiclesInQueu.add(vehicle);
+    @Override
+    public double deltaSocPerSlot() {
+        return powerSplitter.deltaSocPerSlot();
     }
 
     @Override
     public void chargeVehicles() {
-        double deltaSoc = powerSplitter.deltaSocPerSlot();
         for (ChargingSlot slot : slots) {
-            executeIfTrue(slot.isOccupied(), () -> slot.chargeVehicle(deltaSoc));
+            executeIfTrue(slot.isOccupied(), () -> slot.chargeVehicle());
         }
     }
 
@@ -56,8 +58,9 @@ public class ChargingStation implements ChargingStationMediatorI {
         }
     }
 
-    private boolean isAllSlotsOccupied() {
-        return powerSplitter.getnOccupSlots() >= slots.size();
+    private void parkVehicleInQueu(Vehicle vehicle) {
+        log.info("parking vehicle in queue, "+vehicle);
+        vehiclesInQueu.add(vehicle);
     }
 
     private void parkVehicleInAvailableSlot(Vehicle vehicle) {
@@ -65,7 +68,6 @@ public class ChargingStation implements ChargingStationMediatorI {
             if (slot.isAvailable()) {
                 log.info("parking vehicle in slot, "+vehicle);
                 slot.parkVehicle(vehicle);
-                powerSplitter.increaseNofOccupSlots();
                 break;
             }
         }
@@ -74,12 +76,10 @@ public class ChargingStation implements ChargingStationMediatorI {
     private void releaseAndReplaceVehicle(ChargingSlot slot) {
         log.info("releasing vehicle in slot, "+slot.getOccupVehicle());
         slot.releaseVehicle();
-        powerSplitter.decreaseNofOccupSlots();
         executeIfTrue(!vehiclesInQueu.isEmpty(),
                 () -> {
                     log.info("pulling vehicle from queue");
                     slot.parkVehicle(vehiclesInQueu.poll());
-                    powerSplitter.increaseNofOccupSlots();
                 });
     }
 }

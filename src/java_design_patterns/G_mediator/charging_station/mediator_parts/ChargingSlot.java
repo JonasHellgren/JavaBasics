@@ -1,0 +1,53 @@
+package java_design_patterns.G_mediator.charging_station.mediator_parts;
+
+import common.Conditionals;
+import java_design_patterns.G_mediator.charging_station.mediator.ChargingStationMediatorI;
+import java_design_patterns.G_mediator.charging_station.other.Vehicle;
+import lombok.extern.java.Log;
+
+import java.util.Optional;
+
+@Log
+public class ChargingSlot {
+    ChargingStationMediatorI mediator;
+    boolean available;
+    Vehicle occupVehicle;
+
+    public ChargingSlot(ChargingStationMediatorI mediator) {
+        this.available = true;
+        this.mediator = mediator;
+    }
+
+    public boolean isAvailable() {
+        return available && occupVehicle != null;
+    }
+
+    public boolean isOccupied() {
+        return !isAvailable();
+    }
+
+    public void parkVehicle(Vehicle vehicle) {
+        this.available = false;
+        this.occupVehicle = vehicle;
+    }
+
+    public void chargeVehicle(double deltaSoc) {
+        Conditionals.executeOneOfTwo(isAvailable(),
+                () -> occupVehicle.charge(deltaSoc),
+                () -> log.info("No vehicle to charge"));
+    }
+
+    public void releaseVehicle() {
+        this.available = true;
+        this.occupVehicle = null;
+    }
+
+    public boolean isFullyCharged() {
+        Conditionals.executeIfTrue(!isAvailable(),
+                () -> log.info("No vehicle to charge"));
+
+        return isAvailable() && occupVehicle.getSoc() > 100;
+
+    }
+
+}

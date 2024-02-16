@@ -11,12 +11,12 @@ public class Vehicle {
     String id;
     double soc;
 
-    public Vehicle createVehicleWithZeroSoC(String id) {
+    public static Vehicle createVehicleWithZeroSoC(String id) {
         return new Vehicle(id,0d);
     }
 
     public void  charge(double deltaSoc) {
-        this.soc+=deltaSoc;
+        this.soc=Math.min(100,soc+deltaSoc);
     }
 
 }

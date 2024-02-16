@@ -19,7 +19,7 @@ public class ChargingSlot {
     }
 
     public boolean isAvailable() {
-        return available && occupVehicle != null;
+        return available && occupVehicle == null;
     }
 
     public boolean isOccupied() {
@@ -31,8 +31,12 @@ public class ChargingSlot {
         this.occupVehicle = vehicle;
     }
 
+    public Vehicle getOccupVehicle() {
+        return occupVehicle;
+    }
+
     public void chargeVehicle(double deltaSoc) {
-        Conditionals.executeOneOfTwo(isAvailable(),
+        Conditionals.executeOneOfTwo(isOccupied(),
                 () -> occupVehicle.charge(deltaSoc),
                 () -> log.info("No vehicle to charge"));
     }
@@ -43,11 +47,16 @@ public class ChargingSlot {
     }
 
     public boolean isFullyCharged() {
-        Conditionals.executeIfTrue(!isAvailable(),
-                () -> log.info("No vehicle to charge"));
+//        Conditionals.executeIfTrue(isAvailable(),
+  //              () -> log.info("No vehicle to charge"));
 
-        return isAvailable() && occupVehicle.getSoc() > 100;
+        return isOccupied() && occupVehicle.getSoc() >= 100;
 
+    }
+
+    @Override
+    public String toString() {
+        return "available = "+available+", vehicle = "+occupVehicle;
     }
 
 }

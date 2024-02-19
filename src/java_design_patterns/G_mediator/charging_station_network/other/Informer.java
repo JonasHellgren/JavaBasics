@@ -1,7 +1,7 @@
 package java_design_patterns.G_mediator.charging_station_network.other;
 
-import java_design_patterns.G_mediator.charging_station_network.helper.VehicleCharger;
-import java_design_patterns.G_mediator.charging_station_network.helper.VehicleMover;
+import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.VehicleCharger;
+import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.VehicleMover;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.ChargingSlot;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.PowerSplitter;
 import lombok.AllArgsConstructor;
@@ -31,7 +31,7 @@ public class Informer {
 
     public List<Double> getSocs() {
     return slots.stream()
-            .filter(ChargingSlot::isOccupied).map(slot -> slot.getOccupVehicle().getSoc()).toList();
+            .filter(ChargingSlot::isOccupied).map(slot -> slot.getVehicle().getSoc()).toList();
     }
 
     public int nofSlots() {

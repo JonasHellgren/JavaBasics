@@ -1,7 +1,6 @@
 package java_design_patterns.G_mediator.charging_station_network.network;
 
-import java_design_patterns.G_mediator.charging_station_network.helper.VehicleMover;
-import java_design_patterns.G_mediator.charging_station_network.interface_class.ChargingStationMediatorI;
+import java_design_patterns.G_mediator.charging_station_network.interface_class.NetworkI;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.PowerSplitter;
 import java_design_patterns.G_mediator.charging_station_network.other.Informer;
 import java_design_patterns.G_mediator.charging_station_network.station.ChargingStation;
@@ -11,7 +10,7 @@ import lombok.extern.java.Log;
 
 @Log
 @AllArgsConstructor
-public class Network implements ChargingStationMediatorI {
+public class Network implements NetworkI {
 
     ChargingStation station;
 
@@ -19,7 +18,6 @@ public class Network implements ChargingStationMediatorI {
     public double calcDeltaSocPerSlot() {
         return getPowerSplitter().deltaSocPerSlot();
     }
-
 
     @Override
     public Informer getInformer() {

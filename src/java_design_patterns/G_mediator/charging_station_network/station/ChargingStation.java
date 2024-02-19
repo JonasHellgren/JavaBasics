@@ -1,8 +1,8 @@
 package java_design_patterns.G_mediator.charging_station_network.station;
 
-import java_design_patterns.G_mediator.charging_station_network.helper.VehicleCharger;
-import java_design_patterns.G_mediator.charging_station_network.helper.VehicleMover;
-import java_design_patterns.G_mediator.charging_station_network.interface_class.ChargingStationMediatorI;
+import java_design_patterns.G_mediator.charging_station_network.interface_class.NetworkI;
+import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.VehicleCharger;
+import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.VehicleMover;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.ChargingSlot;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.PowerSplitter;
 import java_design_patterns.G_mediator.charging_station_network.network.Network;
@@ -13,13 +13,12 @@ import lombok.extern.java.Log;
 import java.util.*;
 import java.util.stream.IntStream;
 
-import static common.Conditionals.executeIfTrue;
 import static common.Conditionals.executeOneOfTwo;
 
 @Log
 public class ChargingStation  {
 
-    Network network;
+    NetworkI network;  //mediator
     List<ChargingSlot> slots;
     Queue<Vehicle> vehiclesInQueue;
     PowerSplitter powerSplitter;
@@ -59,6 +58,7 @@ public class ChargingStation  {
     @Override
     public String toString() {
         StringBuilder sb=new StringBuilder();
+        sb.append("nofVehiclesInQueue = ").append(vehiclesInQueue);
         for (ChargingSlot slot:slots) {
             sb.append(slot.toString()).append(System.lineSeparator());
         }

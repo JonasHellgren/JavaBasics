@@ -10,13 +10,18 @@ import lombok.ToString;
 public class Vehicle {
     String id;
     double soc;
+    boolean isEmpty;
 
     public static Vehicle createVehicleWithZeroSoC(String id) {
-        return new Vehicle(id,0d);
+        return new Vehicle(id, 0d, false);
     }
 
-    public void  charge(double deltaSoc) {
-        this.soc=Math.min(100,soc+deltaSoc);
+    public static Vehicle createEmpty() {
+        return new Vehicle("", 0, true);
+    }
+
+    public void charge(double deltaSoc) {
+        this.soc = Math.min(100, soc + deltaSoc);
     }
 
 }

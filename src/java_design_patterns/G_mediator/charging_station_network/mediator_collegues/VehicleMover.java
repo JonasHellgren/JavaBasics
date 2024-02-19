@@ -1,7 +1,6 @@
-package java_design_patterns.G_mediator.charging_station_network.helper;
+package java_design_patterns.G_mediator.charging_station_network.mediator_collegues;
 
-import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.ChargingSlot;
-import java_design_patterns.G_mediator.charging_station_network.network.Network;
+import java_design_patterns.G_mediator.charging_station_network.interface_class.NetworkI;
 import java_design_patterns.G_mediator.charging_station_network.other.Vehicle;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
@@ -15,7 +14,7 @@ import static common.Conditionals.executeIfTrue;
 @Log
 public class VehicleMover {
 
-    Network network;
+    NetworkI network;
 
     public void releaseChargedVehiclesAndAddFromQueue() {
         getSlots().forEach(s -> executeIfTrue(s.isFullyCharged(), () -> releaseAndReplaceVehicle(s)));
@@ -37,7 +36,7 @@ public class VehicleMover {
     }
 
     public void releaseAndReplaceVehicle(ChargingSlot slot) {
-        log.info("releasing vehicle in slot, "+slot.getOccupVehicle());
+        log.info("releasing vehicle in slot, "+slot.getVehicle());
         slot.releaseVehicle();
         executeIfTrue(!getVehiclesInQueue().isEmpty(),
                 () -> {

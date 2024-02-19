@@ -2,15 +2,17 @@
 
 
 interface ChargingStationMediatorI {
-    void addArrivedVehicle(Vehicle vehicle);
     double calcDeltaSocPerSlot();
-    void chargeVehicles();
-    void releaseChargedVehiclesAndAddFromQueue();
     Informer getInformer();
 }
 
 class ChargingStation {
+    Network network;  //mediator
+    List<ChargingSlot> slots;
     Queue<Vehicle> vehiclesInQueue;
+    PowerSplitter powerSplitter;
+    VehicleMover mover;
+    VehicleCharger charger;
     Informer informer;
 }
 
@@ -18,26 +20,21 @@ note right of ChargingStation
  For ex does addArrivedVehicle() call vehiclesInQueue and
  the colleagues slots (list of Charging slot). When calling
  chargeVehicles(), a slot object will need to call
- calcDeltaSocPerSlot in its mediator.
+ calcDeltaSocPerSlot in its network.
  It is hande that all objects has access to the informer
 end note
 
- class ChargingSlot<Colleague to station> {
+ class ChargingSlot<network access> {
     ChargingStationMediatorI mediator;
 
-    boolean available;
     Vehicle occupVehicle;
 
     boolean isAvailable()
-    boolean isOccupied()
     void parkVehicle(Vehicle vehicle)
-    Vehicle getOccupVehicle()
-    void chargeVehicle()
-    void releaseVehicle()
-    boolean isFullyCharged()
+    :
 }
 
- class PowerSplitter <Colleague to station> {
+ class PowerSplitter <network acces> {
     ChargingStationMediatorI mediator;
 
     double deltaSocPerSlot()

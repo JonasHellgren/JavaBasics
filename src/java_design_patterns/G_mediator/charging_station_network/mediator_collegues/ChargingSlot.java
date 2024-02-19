@@ -1,6 +1,6 @@
 package java_design_patterns.G_mediator.charging_station_network.mediator_collegues;
 
-import java_design_patterns.G_mediator.charging_station_network.interface_class.ChargingStationMediatorI;
+import java_design_patterns.G_mediator.charging_station_network.interface_class.NetworkI;
 import java_design_patterns.G_mediator.charging_station_network.other.Vehicle;
 import lombok.extern.java.Log;
 
@@ -9,17 +9,16 @@ import static common.Conditionals.executeOneOfTwo;
 @Log
 public class ChargingSlot {
     public static final double SOC_MAX = 100;
-    ChargingStationMediatorI mediator;
-    boolean available;
-    Vehicle occupVehicle;
+    NetworkI network;
+    Vehicle vehicle;
 
-    public ChargingSlot(ChargingStationMediatorI mediator) {
-        this.available = true;
-        this.mediator = mediator;
+    public ChargingSlot(NetworkI mediator) {
+        this.network = mediator;
+        this.vehicle =Vehicle.createEmpty();
     }
 
     public boolean isAvailable() {
-        return available && occupVehicle == null;
+        return vehicle.isEmpty();
     }
 
     public boolean isOccupied() {
@@ -27,32 +26,30 @@ public class ChargingSlot {
     }
 
     public void parkVehicle(Vehicle vehicle) {
-        this.available = false;
-        this.occupVehicle = vehicle;
+        this.vehicle = vehicle;
     }
 
-    public Vehicle getOccupVehicle() {
-        return occupVehicle;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public void chargeVehicle() {
+    public void chargeVehicle(double deltaSoc) {
         executeOneOfTwo(isOccupied(),
-                () -> occupVehicle.charge(mediator.calcDeltaSocPerSlot()),
+                () -> vehicle.charge(deltaSoc),
                 () -> log.info("No vehicle to charge"));
     }
 
     public void releaseVehicle() {
-        this.available = true;
-        this.occupVehicle = null;
+        this.vehicle = Vehicle.createEmpty();
     }
 
     public boolean isFullyCharged() {
-        return isOccupied() && occupVehicle.getSoc() >= SOC_MAX;
+        return isOccupied() && vehicle.getSoc() >= SOC_MAX;
     }
 
     @Override
     public String toString() {
-        return "available = "+available+", vehicle = "+occupVehicle;
+        return "available = "+isAvailable()+", vehicle = "+ vehicle;
     }
 
 }

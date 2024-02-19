@@ -2,7 +2,7 @@ package java_design_patterns.G_mediator_test;
 
 
 import common.Conditionals;
-import java_design_patterns.G_mediator.charging_station_network.helper.VehicleCharger;
+import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.VehicleCharger;
 import java_design_patterns.G_mediator.charging_station_network.other.Informer;
 import java_design_patterns.G_mediator.charging_station_network.other.Vehicle;
 import java_design_patterns.G_mediator.charging_station_network.station.ChargingStation;

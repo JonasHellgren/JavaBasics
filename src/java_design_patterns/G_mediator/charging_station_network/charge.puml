@@ -1,61 +1,60 @@
 @startuml
 
 
-interface ChargingStationMediatorI {
-    void addArrivedVehicle(Vehicle vehicle);
+interface NetworkI {
     double calcDeltaSocPerSlot();
-    void chargeVehicles();
-    void releaseChargedVehiclesAndAddFromQueue();
     Informer getInformer();
 }
 
 class ChargingStation {
-    Queue<Vehicle> vehiclesInQueue;
-    Informer informer;
+   NetworkI network;  //mediator
+       List<ChargingSlot> slots;
+       Queue<Vehicle> vehiclesInQueue;
+
+     addArrivedVehicle(Vehicle vehicle)
+     updateVehiclesInStation()
 }
 
-note right of ChargingStation
- For ex does addArrivedVehicle() call vehiclesInQueue and
- the colleagues slots (list of Charging slot). When calling
- chargeVehicles(), a slot object will need to call
- calcDeltaSocPerSlot in its mediator.
- It is hande that all objects has access to the informer
-end note
+ class ChargingSlot<network access> {
+    NetworkI mediator;
 
- class ChargingSlot<Colleague to station> {
-    ChargingStationMediatorI mediator;
-
-    boolean available;
     Vehicle occupVehicle;
 
     boolean isAvailable()
-    boolean isOccupied()
     void parkVehicle(Vehicle vehicle)
-    Vehicle getOccupVehicle()
     void chargeVehicle()
-    void releaseVehicle()
-    boolean isFullyCharged()
+    :
 }
 
- class PowerSplitter <Colleague to station> {
-    ChargingStationMediatorI mediator;
+ class PowerSplitter <network acces> {
+    NetworkI mediator;
 
     double deltaSocPerSlot()
     }
 
 class Informer {
-
-    List<ChargingSlot> slots;
-    Queue<Vehicle> vehiclesInQueue;
-    double deltaSoCDepotMax;
+     "All fields in station"
 
      int nOccupiedSlots()
      boolean isAllSlotsOccupied()
-     List<Double> getSocs()
-     int nofSlots()
-     int nofVehiclesInQueue()
+:
     }
 
+class VehicleMover <network acces> {
+
+    NetworkI network;
+
+    releaseChargedVehiclesAndAddFromQueue()
+    parkVehicleInQueue(Vehicle vehicle)
+    releaseAndReplaceVehicle(ChargingSlot slot)
+
+    }
+
+class VehicleCharger <network acces>{
+    NetworkI network;
+
+    chargeVehicles()  <calls power splitter via network>
+ }
 
 class Vehicle {
       String id;
@@ -64,8 +63,13 @@ class Vehicle {
       void  charge(double deltaSoc)
  }
 
-ChargingStationMediatorI <|-- ChargingStation
-ChargingStation <-- PowerSplitter
+ChargingStation <|-- PowerSplitter
+ChargingStation <|-- VehicleMover
+ChargingStation <|-- VehicleCharger
+ChargingStation <|-- Informer
+
+
+
 ChargingStation "1" *-d- "many" ChargingSlot
 
 @enduml

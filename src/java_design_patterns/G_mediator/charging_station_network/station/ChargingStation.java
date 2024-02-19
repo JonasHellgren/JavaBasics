@@ -1,5 +1,7 @@
 package java_design_patterns.G_mediator.charging_station_network.station;
 
+import java_design_patterns.G_mediator.charging_station_network.helper.VehicleCharger;
+import java_design_patterns.G_mediator.charging_station_network.helper.VehicleMover;
 import java_design_patterns.G_mediator.charging_station_network.interface_class.ChargingStationMediatorI;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.ChargingSlot;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.PowerSplitter;
@@ -21,6 +23,8 @@ public class ChargingStation  {
     List<ChargingSlot> slots;
     Queue<Vehicle> vehiclesInQueue;
     PowerSplitter powerSplitter;
+    VehicleMover mover;
+    VehicleCharger charger;
     Informer informer;
 
     public ChargingStation(int nofSlots, double deltaSoCDepotMax) {
@@ -30,7 +34,9 @@ public class ChargingStation  {
         IntStream.range(0, nofSlots).forEach(i -> slots.add(new ChargingSlot(network)));
         this.vehiclesInQueue = new LinkedList<>();
         this.powerSplitter = new PowerSplitter(network);
-        this.informer=new Informer(slots, vehiclesInQueue,powerSplitter,deltaSoCDepotMax);
+        this.mover=new VehicleMover(network);
+        this.charger=new VehicleCharger(network);
+        this.informer=new Informer(slots, vehiclesInQueue,powerSplitter,mover,charger,deltaSoCDepotMax);
 
     }
 
@@ -40,45 +46,15 @@ public class ChargingStation  {
 
     public void addArrivedVehicle(Vehicle vehicle) {
         executeOneOfTwo(informer.isAllSlotsOccupied(),
-                () -> parkVehicleInQueue(vehicle),
-                () -> parkVehicleInAvailableSlot(vehicle));
+                () -> mover.parkVehicleInQueue(vehicle),
+                () -> mover.parkVehicleInAvailableSlot(vehicle));
     }
 
-    public void updateCharge() {
-
+    public void updateVehiclesInStation() {
+        charger.chargeVehicles();
+        mover.releaseChargedVehiclesAndAddFromQueue();
     }
 
-    public void chargeVehicles() {
-        slots.forEach(s -> executeIfTrue(s.isOccupied(), () -> s.chargeVehicle()));
-    }
-
-    public void releaseChargedVehiclesAndAddFromQueue() {
-        slots.forEach(s -> executeIfTrue(s.isFullyCharged(), () -> releaseAndReplaceVehicle(s)));
-    }
-
-    private void parkVehicleInQueue(Vehicle vehicle) {
-        log.info("parking vehicle in queue, "+vehicle);
-        vehiclesInQueue.add(vehicle);
-    }
-
-    private void parkVehicleInAvailableSlot(Vehicle vehicle) {
-        slots.stream()
-                .filter(ChargingSlot::isAvailable).findFirst() // take first available slot
-                .ifPresent(slot -> {
-                    log.info("Parking vehicle in slot, " + vehicle);
-                    slot.parkVehicle(vehicle);
-                });
-    }
-
-    private void releaseAndReplaceVehicle(ChargingSlot slot) {
-        log.info("releasing vehicle in slot, "+slot.getOccupVehicle());
-        slot.releaseVehicle();
-        executeIfTrue(!vehiclesInQueue.isEmpty(),
-                () -> {
-                    log.info("Moving vehicle from queue to charge slot");
-                    slot.parkVehicle(vehiclesInQueue.poll());
-                });
-    }
 
     @Override
     public String toString() {

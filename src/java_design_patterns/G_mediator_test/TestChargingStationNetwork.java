@@ -2,6 +2,7 @@ package java_design_patterns.G_mediator_test;
 
 
 import common.Conditionals;
+import java_design_patterns.G_mediator.charging_station_network.helper.VehicleCharger;
 import java_design_patterns.G_mediator.charging_station_network.other.Informer;
 import java_design_patterns.G_mediator.charging_station_network.other.Vehicle;
 import java_design_patterns.G_mediator.charging_station_network.station.ChargingStation;
@@ -55,15 +56,16 @@ public class TestChargingStationNetwork {
     @Test
     public void whenChargingOne_thenCorrect() {
         station.addArrivedVehicle(Vehicle.createVehicleWithZeroSoC("A"));
-        station.chargeVehicles();
+        getCharger().chargeVehicles();
         assertEquals(DELTA_SOC_DEPOT_MAX,informer.getSocs().get(0),0.01);
     }
+
 
     @Test
     public void whenChargingFive_thenCorrect() {
         int nAdded = 5;
         addMultipleVehicles(nAdded);
-        station.chargeVehicles();
+        getCharger().chargeVehicles();
         System.out.println("station = " + station);
         assertTrue(informer.getSocs().get(0)<DELTA_SOC_DEPOT_MAX);
     }
@@ -71,8 +73,8 @@ public class TestChargingStationNetwork {
     @Test
     public void whenChargingOneMuchThenRelease_thenCorrect() {
         station.addArrivedVehicle(Vehicle.createVehicleWithZeroSoC("A"));
-        IntStream.range(0,10).forEach(i -> station.chargeVehicles());
-        station.releaseChargedVehiclesAndAddFromQueue();
+        IntStream.range(0,10).forEach(i -> getCharger().chargeVehicles());
+        station.getInformer().getMover().releaseChargedVehiclesAndAddFromQueue();
         assertEquals(0,informer.nOccupiedSlots());
     }
 
@@ -85,10 +87,8 @@ public class TestChargingStationNetwork {
         double probAddVehicle = 0.35;
         int nSimSteps = 100;
         for (int i = 0; i < nSimSteps; i++) {
-            Conditionals.executeIfTrue(doubleInInterval(0,1)< probAddVehicle,
-                    () -> station.addArrivedVehicle(Vehicle.createVehicleWithZeroSoC(UUID.randomUUID().toString())));
-            station.chargeVehicles();
-            station.releaseChargedVehiclesAndAddFromQueue();
+            maybeAddArrivedVehicles(probAddVehicle);
+            station.updateVehiclesInStation();
             nofOccupSlots.add(informer.nOccupiedSlots());
             nofVehInQueue.add(informer.nofVehiclesInQueue());
         }
@@ -101,7 +101,14 @@ public class TestChargingStationNetwork {
 
     }
 
+    private void maybeAddArrivedVehicles(double probAddVehicle) {
+        Conditionals.executeIfTrue(doubleInInterval(0,1)< probAddVehicle,
+                () -> station.addArrivedVehicle(Vehicle.createVehicleWithZeroSoC(UUID.randomUUID().toString())));
+    }
 
+    private VehicleCharger getCharger() {
+        return station.getInformer().getCharger();
+    }
 
     private void addMultipleVehicles(int nAdded) {
         IntStream.range(0, nAdded).

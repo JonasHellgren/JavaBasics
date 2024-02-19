@@ -1,5 +1,6 @@
 package java_design_patterns.G_mediator.charging_station_network.interface_class;
 
+import java_design_patterns.G_mediator.charging_station_network.helper.VehicleMover;
 import java_design_patterns.G_mediator.charging_station_network.other.Informer;
 import java_design_patterns.G_mediator.charging_station_network.other.Vehicle;
 

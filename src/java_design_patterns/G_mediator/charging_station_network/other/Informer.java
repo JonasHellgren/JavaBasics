@@ -1,5 +1,7 @@
 package java_design_patterns.G_mediator.charging_station_network.other;
 
+import java_design_patterns.G_mediator.charging_station_network.helper.VehicleCharger;
+import java_design_patterns.G_mediator.charging_station_network.helper.VehicleMover;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.ChargingSlot;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.PowerSplitter;
 import lombok.AllArgsConstructor;
@@ -15,6 +17,8 @@ public class Informer {
     List<ChargingSlot> slots;
     Queue<Vehicle> vehiclesInQueue;
     PowerSplitter powerSplitter;
+    VehicleMover mover;
+    VehicleCharger charger;
     double deltaSoCDepotMax;
 
     public int nOccupiedSlots() {

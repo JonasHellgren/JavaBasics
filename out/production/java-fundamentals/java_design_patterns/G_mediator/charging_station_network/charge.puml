@@ -15,8 +15,7 @@ class ChargingStation {
      updateVehiclesInStation()
 }
 
- class ChargingSlot<network access> {
-    NetworkI mediator;
+ class ChargingSlot {
 
     Vehicle occupVehicle;
 

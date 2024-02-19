@@ -5,7 +5,7 @@ import java_design_patterns.G_mediator.charging_station_network.other.Informer;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class PowerSplitter {
+public class PowerSplitAlgorithm {
     NetworkI mediator;
 
     public double deltaSocPerSlot() {

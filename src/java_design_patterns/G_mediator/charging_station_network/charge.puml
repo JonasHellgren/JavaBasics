@@ -15,8 +15,7 @@ class ChargingStation {
      updateVehiclesInStation()
 }
 
- class ChargingSlot<network access> {
-    NetworkI mediator;
+ class ChargingSlot {
 
     Vehicle occupVehicle;
 
@@ -26,7 +25,7 @@ class ChargingStation {
     :
 }
 
- class PowerSplitter <network acces> {
+ class PowerSplitAlgorithm <network acces> {
     NetworkI mediator;
 
     double deltaSocPerSlot()
@@ -63,13 +62,13 @@ class Vehicle {
       void  charge(double deltaSoc)
  }
 
-ChargingStation <|-- PowerSplitter
-ChargingStation <|-- VehicleMover
-ChargingStation <|-- VehicleCharger
-ChargingStation <|-- Informer
-
-
-
+ChargingStation *-- PowerSplitAlgorithm
+ChargingStation *-- VehicleMover
+ChargingStation *-- VehicleCharger
+ChargingStation *-- Informer
 ChargingStation "1" *-d- "many" ChargingSlot
+ChargingStation -- Vehicle
+
+'PowerSplitAlgorithm  --- VehicleCharger
 
 @enduml

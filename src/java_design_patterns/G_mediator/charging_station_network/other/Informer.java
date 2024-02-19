@@ -3,7 +3,7 @@ package java_design_patterns.G_mediator.charging_station_network.other;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.VehicleCharger;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.VehicleMover;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.ChargingSlot;
-import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.PowerSplitter;
+import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.PowerSplitAlgorithm;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -16,7 +16,7 @@ public class Informer {
 
     List<ChargingSlot> slots;
     Queue<Vehicle> vehiclesInQueue;
-    PowerSplitter powerSplitter;
+    PowerSplitAlgorithm powerSplitter;
     VehicleMover mover;
     VehicleCharger charger;
     double deltaSoCDepotMax;

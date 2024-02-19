@@ -4,7 +4,7 @@ import java_design_patterns.G_mediator.charging_station_network.interface_class.
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.VehicleCharger;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.VehicleMover;
 import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.ChargingSlot;
-import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.PowerSplitter;
+import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.PowerSplitAlgorithm;
 import java_design_patterns.G_mediator.charging_station_network.network.Network;
 import java_design_patterns.G_mediator.charging_station_network.other.Informer;
 import java_design_patterns.G_mediator.charging_station_network.other.Vehicle;
@@ -21,7 +21,7 @@ public class ChargingStation  {
     NetworkI network;  //mediator
     List<ChargingSlot> slots;
     Queue<Vehicle> vehiclesInQueue;
-    PowerSplitter powerSplitter;
+    PowerSplitAlgorithm powerSplitter;
     VehicleMover mover;
     VehicleCharger charger;
     Informer informer;
@@ -30,9 +30,9 @@ public class ChargingStation  {
 
         this.network=new Network(this);
         this.slots = new ArrayList<>();
-        IntStream.range(0, nofSlots).forEach(i -> slots.add(new ChargingSlot(network)));
+        IntStream.range(0, nofSlots).forEach(i -> slots.add(new ChargingSlot()));
         this.vehiclesInQueue = new LinkedList<>();
-        this.powerSplitter = new PowerSplitter(network);
+        this.powerSplitter = new PowerSplitAlgorithm(network);
         this.mover=new VehicleMover(network);
         this.charger=new VehicleCharger(network);
         this.informer=new Informer(slots, vehiclesInQueue,powerSplitter,mover,charger,deltaSoCDepotMax);

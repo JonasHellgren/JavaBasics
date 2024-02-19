@@ -1,6 +1,5 @@
 package java_design_patterns.G_mediator.charging_station_network.mediator_collegues;
 
-import java_design_patterns.G_mediator.charging_station_network.interface_class.NetworkI;
 import java_design_patterns.G_mediator.charging_station_network.other.Vehicle;
 import lombok.extern.java.Log;
 
@@ -9,11 +8,9 @@ import static common.Conditionals.executeOneOfTwo;
 @Log
 public class ChargingSlot {
     public static final double SOC_MAX = 100;
-    NetworkI network;
     Vehicle vehicle;
 
-    public ChargingSlot(NetworkI mediator) {
-        this.network = mediator;
+    public ChargingSlot() {
         this.vehicle =Vehicle.createEmpty();
     }
 

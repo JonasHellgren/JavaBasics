@@ -1,7 +1,7 @@
 package java_design_patterns.G_mediator.charging_station_network.network;
 
 import java_design_patterns.G_mediator.charging_station_network.interface_class.NetworkI;
-import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.PowerSplitter;
+import java_design_patterns.G_mediator.charging_station_network.mediator_collegues.PowerSplitAlgorithm;
 import java_design_patterns.G_mediator.charging_station_network.other.Informer;
 import java_design_patterns.G_mediator.charging_station_network.station.ChargingStation;
 import lombok.AllArgsConstructor;
@@ -24,7 +24,7 @@ public class Network implements NetworkI {
         return station.getInformer();
     }
 
-    private PowerSplitter getPowerSplitter() {
+    private PowerSplitAlgorithm getPowerSplitter() {
         return getInformer().getPowerSplitter();
     }
 

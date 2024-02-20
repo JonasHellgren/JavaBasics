@@ -1,4 +1,4 @@
-package hellgren.state_updating.classes;
+package hellgren.car_state_updating.classes;
 
 public record SimulationSettings(double deltaTime) {
 

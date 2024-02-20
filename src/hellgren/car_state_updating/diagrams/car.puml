@@ -1,0 +1,26 @@
+@startuml
+
+class Car {
+CarState state
++ void applyForce(double force)
+}
+
+class CarState {
+double velocity;
+
++ void applyForce(double force)
+}
+
+class CarStateUpdater {
+final CarParameters parameters;
+final SimulationSettings settings;
+
+double newVelocity(CarState state, double force)
+double acceleration(CarState state, double force)
+
+}
+
+Car *-- CarState
+CarState *-- CarStateUpdater
+
+@enduml

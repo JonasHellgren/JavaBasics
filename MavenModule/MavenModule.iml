@@ -67,4 +67,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-launcher:1.9.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-console-standalone:1.9.3" level="project" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="baf44140-0383-4b77-b28e-e0f1040b4a1e" />
+  </component>
 </module>

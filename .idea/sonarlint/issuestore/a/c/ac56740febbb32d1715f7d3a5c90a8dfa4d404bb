@@ -1,0 +1,105 @@
+
+Z
+java:S6208Ÿ"CMerge the previous cases into this one using comma-separated label.(˜ğ€©
+i
+java:S1192n"NDefine a constant instead of duplicating this literal "Current sum: " 3 times.(ôŠü¤ıÿÿÿÿ
+x
+java:S1192"]Define a constant instead of duplicating this literal "***************************" 16 times.(®ÚİÓşÿÿÿÿ
+a
+java:S13018"KReplace this "switch" statement by "if" statements to increase readability.(›”£Ä
+a
+java:S1301O"KReplace this "switch" statement by "if" statements to increase readability.(›”£Ä
+b
+java:S1301·"KReplace this "switch" statement by "if" statements to increase readability.(‘şñ
+b
+java:S1301Ğ"KReplace this "switch" statement by "if" statements to increase readability.(‘şñ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü“Œ‰ıÿÿÿÿ
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®±ğ·ûÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(¢£«ıÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(Î€ş
+E	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(Œşÿÿÿÿ
+@	java:S106""+Replace this use of System.out by a logger.(ğåçÖ
+E	java:S106%"+Replace this use of System.out by a logger.(ŞÌº‚ıÿÿÿÿ
+E	java:S106'"+Replace this use of System.out by a logger.(¹¡Ñûÿÿÿÿ
+E	java:S106)"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+E	java:S106*"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+c	java:S100-"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğÒ¤Â
+E	java:S106."+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+E	java:S106/"+Replace this use of System.out by a logger.(‚†şüûÿÿÿÿ
+E	java:S1060"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S1064"+Replace this use of System.out by a logger.(ÓåŒ©ûÿÿÿÿ
+E	java:S1065"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+a	java:S1289"LEnd this switch case with an unconditional break, return or throw statement.(Ë‹®õ
+7	java:S1318""Add a default case to this switch.(›”£Ä
+E	java:S106>"+Replace this use of System.out by a logger.(Ó›¬œøÿÿÿÿ
+E	java:S106@"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+E	java:S106A"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+c	java:S100D"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜ë˜Â
+E	java:S106E"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+?	java:S106F"+Replace this use of System.out by a logger.(ü¨ O
+E	java:S106G"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S106K"+Replace this use of System.out by a logger.(ÓåŒ©ûÿÿÿÿ
+E	java:S106L"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+7	java:S131O""Add a default case to this switch.(›”£Ä
+E	java:S106W"+Replace this use of System.out by a logger.(Ó›¬œøÿÿÿÿ
+E	java:S106Y"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+E	java:S106Z"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+h	java:S100]"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª×°Âÿÿÿÿÿ
+E	java:S106^"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+E	java:S106_"+Replace this use of System.out by a logger.(äÛÜÄıÿÿÿÿ
+E	java:S106`"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S106d"+Replace this use of System.out by a logger.(–úé“ùÿÿÿÿ
+E	java:S106e"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S106j"+Replace this use of System.out by a logger.(‹ü›ºøÿÿÿÿ
+E	java:S106n"+Replace this use of System.out by a logger.(ôŠü¤ıÿÿÿÿ
+E	java:S106q"+Replace this use of System.out by a logger.(ôŠü¤ıÿÿÿÿ
+E	java:S106u"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+E	java:S106v"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+h	java:S100y"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª¸†Ûıÿÿÿÿ
+E	java:S106z"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+E	java:S106{"+Replace this use of System.out by a logger.(ĞÌ‚Íûÿÿÿÿ
+E	java:S106|"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+F	java:S106€"+Replace this use of System.out by a logger.(–úé“ùÿÿÿÿ
+F	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+g	java:S128…"LEnd this switch case with an unconditional break, return or throw statement.(Ùàæ˜ùÿÿÿÿ
+G
+java:S4524‡"+Move this default to the end of the switch.(İ–Ò˜ÿÿÿÿÿ
+F	java:S106ˆ"+Replace this use of System.out by a logger.(ôŠü¤ıÿÿÿÿ
+F	java:S106‹"+Replace this use of System.out by a logger.(‹ü›ºøÿÿÿÿ
+F	java:S106"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+F	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+i	java:S100“"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†µùÿÿÿÿ
+F	java:S106”"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+A	java:S106•"+Replace this use of System.out by a logger.(¾ü½‘
+F	java:S106–"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+A	java:S106š"+Replace this use of System.out by a logger.(ö³àà
+F	java:S106›"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+A	java:S106 "+Replace this use of System.out by a logger.(ä¶ƒÇ
+F	java:S106£"+Replace this use of System.out by a logger.(ÀÙøúÿÿÿÿ
+F	java:S106§"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+F	java:S106¨"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+d	java:S100«"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ª°”
+F	java:S106¬"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+F	java:S106­"+Replace this use of System.out by a logger.(Ú¡ö‹şÿÿÿÿ
+F	java:S106®"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+F	java:S106²"+Replace this use of System.out by a logger.(¾éá–ıÿÿÿÿ
+F	java:S106³"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+8	java:S131·""Add a default case to this switch.(‘şñ
+A	java:S106¹"+Replace this use of System.out by a logger.(Õ°ßÙ
+F	java:S106¼"+Replace this use of System.out by a logger.(×¬Œ÷ûÿÿÿÿ
+F	java:S106À"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+F	java:S106Á"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+i	java:S100Ä"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê¬—Óøÿÿÿÿ
+F	java:S106Å"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+A	java:S106Æ"+Replace this use of System.out by a logger.(¥È„ì
+F	java:S106Ç"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+F	java:S106Ë"+Replace this use of System.out by a logger.(¾éá–ıÿÿÿÿ
+F	java:S106Ì"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+8	java:S131Ğ""Add a default case to this switch.(‘şñ
+A	java:S106Ò"+Replace this use of System.out by a logger.(Õ°ßÙ
+F	java:S106Õ"+Replace this use of System.out by a logger.(×¬Œ÷ûÿÿÿÿ
+F	java:S106Ù"+Replace this use of System.out by a logger.(®ÚİÓşÿÿÿÿ
+F	java:S106Ú"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ

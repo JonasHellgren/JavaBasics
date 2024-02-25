@@ -1,0 +1,26 @@
+
+P
+java:S1118
+":Add a private constructor to hide the implicit public one.(öÏå
+Y
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(á‡Ÿüşÿÿÿÿ
+H
+java:S1135$"2Complete the task associated to this TODO comment.(äæ®Ô
+Y
+java:S1155'">Use isEmpty() to check whether the collection is empty or not.(á‡Ÿüşÿÿÿÿ
+h
+java:S62044"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(œçÖß
+h
+java:S6204:"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+h
+java:S6204R"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+h
+java:S6204X"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+h
+java:S6204d"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+h
+java:S6204r"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+o
+java:S6204x"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8¾ÜšŞ1
+o
+java:S6204~"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8¿ÜšŞ1

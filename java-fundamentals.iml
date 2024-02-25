@@ -44,5 +44,9 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-math3:3.6.1" level="project" />
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="06847432-4d7f-4aea-a1b8-2afd72a92813" />
   </component>
 </module>

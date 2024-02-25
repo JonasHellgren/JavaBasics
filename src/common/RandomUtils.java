@@ -22,4 +22,8 @@ public class RandomUtils {
         return  doubleInInterval(0, 1);
     }
 
+    public static int getRandomIntNumber(int minInclusive, int maxExclusive) {
+        return (int) ((Math.random() * (maxExclusive - minInclusive)) + minInclusive);
+    }
+
 }

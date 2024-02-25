@@ -108,6 +108,18 @@ public class ListUtils {
         return new ArrayList<>(Collections.nCopies(len,value));
     }
 
+    public static List<Double> generateDoublesLinSpace(double start, double end, double step) {
+        return DoubleStream.iterate(start, d -> d <= end, d -> d + step)
+                .boxed()
+                .collect(Collectors.toList());
+    }
+
+    public static List<Integer> generateIntegersLinSpace(int start, int end, int step) {
+        return IntStream.iterate(start, d -> d <= end, d -> d + step)
+                .boxed()
+                .collect(Collectors.toList());
+    }
+
     public static List<Double> generateSequenceDoubleStream(double start, double end, double step) {
         return DoubleStream.iterate(start, d -> d <= end, d -> d + step)
                 .boxed()

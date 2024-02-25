@@ -1,0 +1,20 @@
+
+P
+java:S1854":Remove this useless assignment to local variable "gordon".(µŽ”´
+P
+java:S1854":Remove this useless assignment to local variable "dillon".(µŽ”´
+P
+java:S1854":Remove this useless assignment to local variable "dawson".(µŽ”´
+O
+java:S1854"9Remove this useless assignment to local variable "david".(µŽ”´
+Y
+java:S1659"CDeclare "dawson" and all following declarations on a separate line.(µŽ”´
+@
+java:S1481"*Remove this unused "david" local variable.(µŽ”´
+A
+java:S1481"+Remove this unused "dawson" local variable.(µŽ”´
+A
+java:S1481"+Remove this unused "dillon" local variable.(µŽ”´
+A
+java:S1481"+Remove this unused "gordon" local variable.(µŽ”´
+E	java:S106"+Replace this use of System.out by a logger.(³íã›ÿÿÿÿÿ

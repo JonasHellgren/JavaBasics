@@ -1,8 +1,4 @@
 @startuml
-interface Order {
-~ void execute()
-}
-
 
 class Car {
 CarState state
@@ -11,7 +7,6 @@ CarState state
 
 class CarState {
 double velocity;
-final CarStateUpdater updater;
 
 + void applyForce(double force)
 }
@@ -20,10 +15,12 @@ class CarStateUpdater {
 final CarParameters parameters;
 final SimulationSettings settings;
 
-double acceleration(double speed, double force)
 double newVelocity(CarState state, double force)
+double acceleration(CarState state, double force)
 
 }
 
+Car *-- CarState
+CarState *-- CarStateUpdater
 
 @enduml

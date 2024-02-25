@@ -1,0 +1,27 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(óô†Ğøÿÿÿÿ
+g	java:S116"RRename this field "DEC_NUM" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÌÎê
+7
+java:S1170"!Make this final field static too.(çÌÎê
+a	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïğ}
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÕªæÿÿÿÿÿ
+h	java:S100#"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óïó«ÿÿÿÿÿ
+c	java:S100*"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†‹°
+h	java:S1000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø÷şÃÿÿÿÿÿ
+h	java:S1006"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°™„‰úÿÿÿÿ
+S
+java:S1612;">Replace this lambda with method reference 'formatter::format'.(«à\
+[
+java:S1612>"@Replace this lambda with method reference 'Double::parseDouble'.(ƒâ€ûÿÿÿÿ
+@	java:S106A"+Replace this use of System.out by a logger.(³¥ 
+B
+java:S1128"-Remove this unused import 'org.junit.Assert'.(­ŞL
+K
+java:S1128
+"5Remove this unused import 'java.text.ParseException'.(ñ®ï•
+N
+java:S1128"8Remove this unused import 'java.util.function.Function'.(»³Í
+S
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ
+F
+java:S5960"+Remove this assertion from production code.(˜¦şûÿÿÿÿ

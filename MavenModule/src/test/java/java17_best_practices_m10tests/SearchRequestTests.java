@@ -1,7 +1,7 @@
 package java17_best_practices_m10tests;
 
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import pluralsight_new_in_java17.java17_best_practices.m10tests.src.main.java.com.cloudairlines.airport.AirportStore;

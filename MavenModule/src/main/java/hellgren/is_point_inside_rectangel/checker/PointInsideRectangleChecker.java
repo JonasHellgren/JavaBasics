@@ -1,4 +1,4 @@
-package is_point_inside_rectangel.checker;
+package hellgren.is_point_inside_rectangel.checker;
 
 
 import lombok.Builder;

@@ -1,6 +1,6 @@
 package test_is_point_inside_rectangel;
 
-import is_point_inside_rectangel.checker.PointInsideRectangleChecker;
+import hellgren.is_point_inside_rectangel.checker.PointInsideRectangleChecker;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

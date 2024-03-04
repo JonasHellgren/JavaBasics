@@ -1,0 +1,9 @@
+
+€
+java:S1319!"eThe type of "MARKS" should be an interface such as "List" rather than the implementation "ArrayList".(î‡’®ıÿÿÿÿ
+d
+java:S1845'"NRename field "marks" to prevent any misunderstanding/clash with field "MARKS".(˜Áª
+8
+java:S2386!"Make this member "protected".(î‡’®ıÿÿÿÿ
+9
+java:S21190"Save and re-use this "Random".(òæÚ‘ıÿÿÿÿ

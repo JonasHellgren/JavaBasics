@@ -1,0 +1,8 @@
+
+a
+java:S1192"FDefine a constant instead of duplicating this literal "Kisse" 5 times.(ù˜¤şÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(‘¦»Ô
+C
+java:S1128"(Remove this unused import 'lombok.Data'.(÷í«ÿÿÿÿÿ
+F
+java:S5960"+Remove this assertion from production code.(²÷¤’ùÿÿÿÿ

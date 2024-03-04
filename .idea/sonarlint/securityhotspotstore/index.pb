@@ -113,3 +113,19 @@ r
 BMavenModule/src/test/java/apache_collection_utils/TestPrecond.java,8\e\8e0d66812061d6b69b0a4d7d706ce2229d0233ac
 f
 6MavenModule/src/test/java/javax_measure/TestUnits.java,c\8\c87959017039e2bce26f176f7192e13e60c4ed8f
+T
+$src/hellgren/lombok/TestCatData.java,f\8\f8f0fcd1175aa10728e6748c3ce57314d4ff3747
+P
+ src/hellgren/lombok/CatData.java,8\1\8177dd8632a58d4ae22e0d228cc0efcf11a050ea
+Q
+!src/hellgren/lombok/CatValue.java,1\5\15f546205ce6b95cca1c7e2fbfa0c6bbb1743245
+Y
+)src/hellgren/lombok/PersonRecordWith.java,f\9\f9a8b6c2d03e4657b123005cccfd234a72b537cd
+\
+,src/hellgren/lombok/StudentFluentSetter.java,9\d\9d522e58e9b062e0b5a49fb01f99be1dfd3243e6
+X
+(src/hellgren/lombok/delegate/Person.java,e\d\ed3111a0b9ae1a9058b35124f9e95b821a0e1406
+^
+.src/hellgren/lombok/delegate/PersonHelper.java,0\6\06c9f8bf3c92eae924b1d387450f17ec9b2b912f
+e
+5src/hellgren/lombok/delegate/TestPersonDelegater.java,f\0\f08dc4bc8600efc5dea07119749b689e08b5ae1f

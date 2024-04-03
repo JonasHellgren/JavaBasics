@@ -10,7 +10,7 @@ public class TestPersonDelegater {
         Person person=new Person("Jonas",49);
         Assert.assertTrue(person.isAgeOk(person));
         Assert.assertTrue(person.isAdult(person));
-
+        Assert.assertTrue(person.isOk());
     }
 
 }

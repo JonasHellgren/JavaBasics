@@ -1,17 +1,10 @@
 package guava.preconditions;
 
 import com.google.common.base.Preconditions;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import tec.units.ri.unit.MetricPrefix;
-
-import javax.measure.UnitConverter;
-
 import java.util.Arrays;
 import java.util.List;
-
-import static tec.units.ri.unit.Units.METRE;
 
 
 public class TestPrecond {

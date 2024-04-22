@@ -1,0 +1,8 @@
+
+@	java:S106"+Replace this use of System.out by a logger.(‘¦»Ô
+Q	java:S125#"<This block of commented-out lines of code should be removed.(½¡¤ý
+Q	java:S125)"<This block of commented-out lines of code should be removed.(½¤øÙ
+B
+java:S1128",Remove this unused import 'lombok.ToString'.(¹ÂÄÓ
+F
+java:S5960"+Remove this assertion from production code.(²÷¤’ùÿÿÿÿ

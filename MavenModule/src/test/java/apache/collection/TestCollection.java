@@ -1,7 +1,5 @@
 package apache.collection;
 
-import apache_collection_utils.collection.Address;
-import apache_collection_utils.collection.Customer;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.collections4.Predicate;

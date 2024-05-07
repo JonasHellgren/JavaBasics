@@ -12,9 +12,12 @@ public class NumberUtilsDemo {
         int num = NumberUtils.toInt("100", 0);
         System.out.println("Number: " + num);
 
+        // Convert a String to an int, with a default value if the conversion fails
+        double doubleNum = NumberUtils.toDouble("100.001", 0);
+        System.out.println("doubleNum: " + doubleNum);
+
         // Finding the max of a series of numbers
         System.out.println("Max: " + NumberUtils.max(new int[]{1, 3, 2}));
-
 
         double value = 8.123456;
         BigDecimal scaledValue = NumberUtils.toScaledBigDecimal(value, 3, RoundingMode.HALF_UP);

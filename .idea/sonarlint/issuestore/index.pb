@@ -135,10 +135,6 @@ S
 #src/hellgren/lombok/BuilderCat.java,5\a\5af376de591e5e5f8d10b09a3d94a892fa303af6
 q
 AMavenModule/src/test/java/apache/systemutils/SystemUtilsTest.java,1\f\1fbde0dd6a354be585148013748f089e66d38f5c
-y
-IMavenModule/src/main/java/apache_collection_utils/collection/Address.java,2\d\2d04a345d13a13c68b076e376397b47f423bf584
-z
-JMavenModule/src/main/java/apache_collection_utils/collection/Customer.java,d\c\dc485f590f142739ef0da87d3758edff1d89108b
 m
 =MavenModule/src/test/java/apache/runners/RandomUtilsDemo.java,1\3\13246b51fc097bbbf81b8e46bd9adcf94ca7cc20
 m
@@ -161,8 +157,6 @@ i
 9MavenModule/src/main/java/apache/collection/Customer.java,c\9\c9a7ee0e2ef428fbe1ccc053cc4229fb1af47f5f
 h
 8MavenModule/src/main/java/apache/collection/Address.java,c\7\c7ca0d0dd6585b261f604b754fca6ae4f3fd57ee
-r
-BMavenModule/src/main/java/apache/classutils/ClassUtilsExample.java,1\7\17e440f511e7555d34ed11eb8b5ce6c137b68337
 k
 ;MavenModule/src/main/java/apache/ExceptionUtilsExample.java,3\0\3045f8787469fdfc6b8f6139b8da944dacc61d5a
 m
@@ -173,3 +167,15 @@ v
 FMavenModule/src/main/java/apache/utils/DurationFormatUtilsExample.java,f\b\fb05d19f1d2dce7667d2a3bce6b475ed916abdb3
 m
 =MavenModule/src/main/java/collections/CollectionExamples.java,9\1\91332ec061924918a44abb3e2b28caf23cdeb333
+X
+(MavenModule/src/main/java/sockets/d.java,d\c\dcfbb361c13fb5b51c38a9d8f045cf473e1dc64a
+u
+EMavenModule/src/main/java/sockets/serialized_socket/RunnerServer.java,d\b\dbd8ee6986266cfc604ec85c515600f16e2cfe42
+o
+?MavenModule/src/main/java/sockets/serialized_socket/Packet.java,5\e\5ec4790c9cbcb2ed40d8738d4f07f37c08b1bb4c
+o
+?MavenModule/src/main/java/sockets/serialized_socket/Server.java,d\5\d5e5adff706fc751e83750e7971f4bc0dc476596
+u
+EMavenModule/src/main/java/sockets/serialized_socket/RunnerClient.java,0\7\07422491d6c0b5dfbd16c70bf8652281197a6d9d
+o
+?MavenModule/src/main/java/sockets/serialized_socket/Client.java,0\3\03ff3cf5ff7eb994cf801375afb09cf603073d1c

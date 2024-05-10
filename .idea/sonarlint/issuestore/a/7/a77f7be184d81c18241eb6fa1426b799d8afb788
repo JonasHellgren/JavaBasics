@@ -1,0 +1,11 @@
+
+W
+java:S1141"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8è˜©—ö1
+
+java:S1130"qRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from constructor's body.(óÖİ8„£³—ö1
+{
+java:S2142,"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ƒÆæ8»™©—ö1
+€
+java:S21420"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(øôÔ×ûÿÿÿÿ8à¨—ö1
+R
+java:S1128"0Remove this unused import 'lombok.SneakyThrows'.(¨³üÖûÿÿÿÿ8Éı²—ö1

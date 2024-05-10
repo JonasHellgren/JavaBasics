@@ -179,3 +179,17 @@ u
 EMavenModule/src/main/java/sockets/serialized_socket/RunnerClient.java,0\7\07422491d6c0b5dfbd16c70bf8652281197a6d9d
 o
 ?MavenModule/src/main/java/sockets/serialized_socket/Client.java,0\3\03ff3cf5ff7eb994cf801375afb09cf603073d1c
+o
+?MavenModule/src/main/java/sockets/timer_socket/TimeMessage.java,f\0\f01f4ce2499b7787de8c087b00efd299c8e0bc96
+r
+BMavenModule/src/main/java/sockets/timer_socket/DTOTimeMessage.java,f\7\f7ced77116fb2f642729d59a4dc28a1345d29a7b
+n
+>MavenModule/src/main/java/sockets/timer_socket/TimeServer.java,2\9\296eee5a217abac4e0ff54a0604f9f1df6a76524
+t
+DMavenModule/src/main/java/sockets/timer_socket/RunnerTimeServer.java,8\9\893bc09a9e0c9edb566ea999778db434c67f9c32
+o
+?MavenModule/src/main/java/sockets/timer_socket/TimerServer.java,9\f\9f7080efaa1395f7c5306acd61a7aea8c1094e87
+o
+?MavenModule/src/main/java/sockets/timer_socket/TimerClient.java,a\7\a77f7be184d81c18241eb6fa1426b799d8afb788
+u
+EMavenModule/src/main/java/sockets/timer_socket/RunnerTimerClient.java,8\3\831785fac04c2741d606a5e8c119e008891bcde8

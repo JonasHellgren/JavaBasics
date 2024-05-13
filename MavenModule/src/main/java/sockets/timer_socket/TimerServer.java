@@ -33,28 +33,27 @@ public class TimerServer {
 
     public void listen() throws IOException {
         System.out.println("Server is listening...");
-        while (true) {
-            try (
-                    Socket socket = serverSocket.accept();
-                    ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream())
-            )
-            {
 
-                while (!socket.isClosed()) {
-                    DTOTimeMessage message = (DTOTimeMessage) in.readObject();
-                    if (message.isAskingForTime()) {
-                        log.info("Setting time");
-                        message.setTime(currentTime);
-                        out.writeObject(message);
-                    }
+        try (
+                Socket socket = serverSocket.accept();
+                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+                ObjectInputStream in = new ObjectInputStream(socket.getInputStream())
+        ) {
+
+            while (!socket.isClosed()) {
+                DTOTimeMessage message = (DTOTimeMessage) in.readObject();
+                if (message.isAskingForTime()) {
+                    log.info("Setting time");
+                    message.setTime(currentTime);
+                    out.writeObject(message);
                 }
-            } catch (IOException | ClassNotFoundException e) {
-                System.out.println("Error handling client: " + e.getMessage());
-                e.printStackTrace();
             }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error handling client: " + e.getMessage());
+            e.printStackTrace();
         }
     }
+
 
     public void stop() throws IOException {
         serverSocket.close();

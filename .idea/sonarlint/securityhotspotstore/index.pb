@@ -193,3 +193,15 @@ o
 ?MavenModule/src/main/java/sockets/timer_socket/TimerClient.java,a\7\a77f7be184d81c18241eb6fa1426b799d8afb788
 u
 EMavenModule/src/main/java/sockets/timer_socket/RunnerTimerClient.java,8\3\831785fac04c2741d606a5e8c119e008891bcde8
+W
+'MavenModule/src/main/java/medium/d.java,3\c\3c726f11374ee329c61993f48fa6e185c847190c
+{
+KMavenModule/src/main/java/medium/interface_signatures/ProductPortfolio.java,8\d\8de68121364c19f6aab206dbbd776f4f4dfc3061
+r
+BMavenModule/src/main/java/medium/interface_signatures/Company.java,c\9\c9f15ce71b7694acfb9c230201185a8c09644ea6
+r
+BMavenModule/src/main/java/medium/interface_signatures/Product.java,1\7\17702c0a60dce85c638b44135af86f2f379aff1d
+z
+JMavenModule/src/main/java/medium/interface_signatures/RunnerPortfolio.java,f\9\f95ecb0305bc7bc26fdc4f4114b16ac75b2746e3
+}
+MMavenModule/src/main/java/medium/interface_signatures/PortfolioExtractor.java,9\5\95d7b928d3fc2eef3ed4ec533396a9d6d9652ab6

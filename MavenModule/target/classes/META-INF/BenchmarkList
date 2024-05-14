@@ -1,8 +1,4 @@
-JMH S 24 benchmark.BenchmarkState S 59 benchmark.jmh_generated.BenchmarkState_testSumArray_jmhTest S 12 testSumArray S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E E E E 
-JMH S 24 benchmark.BenchmarkState S 58 benchmark.jmh_generated.BenchmarkState_testSumList_jmhTest S 11 testSumList S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E E E E 
-JMH S 24 benchmark.BenchmarkState S 70 benchmark.jmh_generated.BenchmarkState_testSumListNoConversion_jmhTest S 23 testSumListNoConversion S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E E E E 
 JMH S 25 benchmark.BenchmarkSummer S 60 benchmark.jmh_generated.BenchmarkSummer_testSumArray_jmhTest S 12 testSumArray S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E E E E 
 JMH S 25 benchmark.BenchmarkSummer S 59 benchmark.jmh_generated.BenchmarkSummer_testSumList_jmhTest S 11 testSumList S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E E E E 
 JMH S 25 benchmark.BenchmarkSummer S 71 benchmark.jmh_generated.BenchmarkSummer_testSumListNoConversion_jmhTest S 23 testSumListNoConversion S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E E E E 
 JMH S 27 benchmark.BenchmarkingSleep S 60 benchmark.jmh_generated.BenchmarkingSleep_doExection_jmhTest S 10 doExection S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E E E E 
-JMH S 25 benchmark.JvmBenchmarking S 58 benchmark.jmh_generated.JvmBenchmarking_doExection_jmhTest S 10 doExection S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E E E E 

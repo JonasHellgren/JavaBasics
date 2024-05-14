@@ -7,3 +7,4 @@ inline,benchmark/BenchmarkSummer.prepare
 inline,benchmark/BenchmarkSummer.testSumArray
 inline,benchmark/BenchmarkSummer.testSumList
 inline,benchmark/BenchmarkSummer.testSumListNoConversion
+inline,benchmark/BenchmarkingSleep.doExection

@@ -205,3 +205,7 @@ z
 JMavenModule/src/main/java/medium/interface_signatures/RunnerPortfolio.java,f\9\f95ecb0305bc7bc26fdc4f4114b16ac75b2746e3
 }
 MMavenModule/src/main/java/medium/interface_signatures/PortfolioExtractor.java,9\5\95d7b928d3fc2eef3ed4ec533396a9d6d9652ab6
+V
+&MavenModule/src/main/java/swing/d.java,b\d\bd53e15c2635bf023780e78d9b609efda0a41bee
+l
+<MavenModule/src/main/java/swing/panels/FrameWith5Panels.java,9\8\9887c92f0291577202b83fa0c1846289bf59f38c

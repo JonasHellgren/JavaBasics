@@ -227,3 +227,7 @@ o
 ?MavenModule/src/main/java/sockets/timer_swing/RunnerClient.java,0\b\0b5cc4992660b0a4296ad366aee5f3d6597990d4
 m
 =MavenModule/src/main/java/sockets/timer_swing/TimeClient.java,6\5\65860f1c505cf68b8333a37716f62d38d3d83be6
+f
+6MavenModule/src/main/java/sockets/timer_swing/DTO.java,6\9\691006ba95f663c24ca620cfbd2ff10ae28ffe69
+p
+@MavenModule/src/main/java/sockets/timer_swing/ClientReplier.java,6\7\678d56b7269369f89eb66e8f10eccaba36580270

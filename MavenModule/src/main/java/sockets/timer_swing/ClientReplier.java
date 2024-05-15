@@ -1,16 +1,20 @@
 package sockets.timer_swing;
 
 import lombok.SneakyThrows;
+import lombok.extern.java.Log;
+import org.apache.commons.lang3.RandomUtils;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-class ClientHandler implements Runnable {
+@Log
+class ClientReplier implements Runnable {
     private final Socket clientSocket;
     final long startTime;
 
-    public ClientHandler(Socket clientSocket) {
+    public ClientReplier(Socket clientSocket) {
+        log.info("Client connected, creating replier");
         this.clientSocket = clientSocket;
         this.startTime = System.currentTimeMillis();
     }
@@ -20,15 +24,19 @@ class ClientHandler implements Runnable {
     public void run() {
         try (ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream())) {
             while (!Thread.currentThread().isInterrupted()) {
-                long currentTime = (System.currentTimeMillis() - this.startTime) / 1000;
-                out.writeObject(currentTime);
+                out.writeObject( createDto());
                 out.flush();
                 Thread.sleep(1000); // Send the current time every second
             }
         } catch (IOException  e) {
-            System.err.println("Error handling client [" + clientSocket + "]: " + e.getMessage());
+            log.warning("Error handling client [" + clientSocket + "]: " + e.getMessage());
         } finally {
             clientSocket.close();
         }
+    }
+
+    private DTO createDto() {
+        long currentTime = (System.currentTimeMillis() - this.startTime) / 1000;
+        return new DTO(currentTime,RandomUtils.nextDouble(0,1));
     }
 }

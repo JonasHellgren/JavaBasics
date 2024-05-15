@@ -8,12 +8,12 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 @Log
-public class TimerClient {
+public class TimerClientPrintText {
     private final String host;
     private final int port;
     Socket socket;
 
-    public TimerClient(String host, int port) throws IOException {
+    public TimerClientPrintText(String host, int port) throws IOException {
         this.host = host;
         this.port = port;
         this.socket = new Socket(host, port);

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.IntStream;
 
-public class FrameWith5Panels {
+public class FrameWithManyPanels {
 
     public static final int WEIGHT0 = 120;
     public static final int HEIGHT_ONE_ROW = 12;
@@ -30,7 +30,7 @@ public class FrameWith5Panels {
 
     public static void main(String[] args) {
             // Create the frame on the event dispatching thread
-            SwingUtilities.invokeLater(FrameWith5Panels::createAndShowGUI);
+            SwingUtilities.invokeLater(FrameWithManyPanels::createAndShowGUI);
         }
 
         private static void createAndShowGUI() {

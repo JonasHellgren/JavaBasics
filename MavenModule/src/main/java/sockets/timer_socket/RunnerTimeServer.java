@@ -9,8 +9,6 @@ public class RunnerTimeServer {
     public static void main(String[] args) {
         try {
             TimerServer server = new TimerServer(2024);
-//            server.listen();
-
             // Start server listen in a new thread
             new Thread(() -> {
                 try {

@@ -6,22 +6,20 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 
 public class TimeClient implements Runnable {
-    private JFrame frame;
-    private JLabel timeLabel;
+    private final JLabel timeLabel;
 
     public TimeClient() {
-        frame = new JFrame("Time Viewer");
+        JFrame frame = new JFrame("Time Viewer");
         timeLabel = new JLabel("Time will be displayed here", SwingConstants.CENTER);
         frame.add(timeLabel);
         frame.setSize(300, 100);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
 
     public void run() {
-        try {
-            // Assume the server is running on localhost and port 1234
-            Socket socket = new Socket("localhost", 1234);
+            // Assume the server is running
+            try(Socket socket = new Socket("localhost", TimeServer.PORT)) {
             ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
 
             while (!Thread.currentThread().isInterrupted()) {

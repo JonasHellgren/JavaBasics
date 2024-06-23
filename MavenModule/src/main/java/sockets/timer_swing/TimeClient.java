@@ -21,6 +21,7 @@ public class TimeClient implements Runnable {
         frame.setVisible(true);
     }
 
+    @Override
     public void run() {
             try(Socket socket = new Socket("localhost", TimeServer.PORT)) {
             ObjectInputStream input = new ObjectInputStream(socket.getInputStream());

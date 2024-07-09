@@ -1,0 +1,119 @@
+@startuml
+
+
+together {
+  class Menu
+  entity Dish
+  enum DishType
+}
+
+Menu - Dish
+Dish - DishType
+
+together {
+  abstract BookingRecorder
+  entity Booking
+  class BookingDate
+}
+
+BookingRecorder - Booking
+Booking - BookingDate
+
+together {
+  abstract Bill
+  entity BillItem
+}
+
+Bill - BillItem
+
+together {
+  class Price
+  class Receipe
+  class ReceiptItem
+  entity Visitor
+}
+
+Receipe - ReceiptItem
+
+Menu -[hidden]-> BookingRecorder
+BookingRecorder -[hidden]-> Bill
+Bill -[hidden]-> Price
+
+entity Dish {
+  UUID id
+  String name
+  String description
+  Price price
+  DishType type
+}
+
+class  Price #grey {
+  Decimal amount
+  String currency
+}
+
+entity Visitor {
+  UUID id
+  String name
+  String contactDetails
+}
+
+entity Booking {
+  UUID id
+  Visitor visitor
+  BookingDate bookingDate
+  Integer numberOfGuests
+  UUID billId
+}
+
+class BookingDate #grey {
+  DateTime date
+}
+
+
+
+entity BillItem {
+  UUID id
+  UUID dishId
+  Integer quantity
+  Price price
+}
+
+class Receipe #grey {
+  UUID bookingId
+  UUID billId
+  Price totalAmount
+  List<ReceiptItem> items
+}
+
+class ReceiptItem #grey {
+  String dishName
+  Integer quantity
+  Price price
+}
+
+enum DishType {
+  APPETIZER,
+  MAIN_COURSE,
+  DESSERT,
+  BEVERAGE
+}
+
+abstract Menu {
+  List<UUID> dishIds
+}
+
+abstract Bill {
+  UUID id
+  Visitor visitor
+  List<UUID> billItems
+}
+
+abstract BookingRecorder{
+  List<UUID> bookingIds
+
+  void addBooking(UUID bookingId)
+}
+
+
+@enduml

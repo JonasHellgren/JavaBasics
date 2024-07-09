@@ -219,3 +219,21 @@ c
 3MavenModule/src/main/java/xls_create/CreateXls.java,5\d\5d2f11daa30cc7feca1a9a0f814460e60df82a5c
 r
 Bsrc/pluralsight_courses/pluralsight_java_basics/textfile/Main.java,7\d\7d3967eda7b0be1a1416277ccb4c88126c8e0829
+O
+src/domain_driven_design/d.java,a\5\a5ee31c4828648354c05a1fe97d905132df556ae
+b
+2src/domain_driven_design/restaurant_booking/d.java,b\3\b3bfc7d088b8a2aa25e6424c0e860081fe54c293
+i
+9src/domain_driven_design/restaurant_booking/domain/d.java,4\0\40bca76e9e0285fea91eb5e4a416fcd34033caa2
+w
+Gsrc/domain_driven_design/restaurant_booking/diagrams/domain_classes.uml,2\5\256f3249e84c454f9e5c7e4887460347b030c5cb
+p
+@src/java_design_patterns/A_adapter_pattern/ex_socket/socket.puml,1\8\18fbf1fb057aa023f76023e061b69748a549c0d4
+x
+Hsrc/domain_driven_design/restaurant_booking/diagrams/domain_classes.puml,0\d\0d67c793ee2edf94ba1f31c72f4db8d1171cb95f
+q
+Asrc/domain_driven_design/restaurant_booking/domain/booking/d.java,8\1\81226ea5bb181b3dd289e69d32bd17a56e9ae0b6
+x
+Hsrc/domain_driven_design/restaurant_booking/domain/booking/entities.java,0\9\09b694a61e1f34c038a189154fb1c964c41e79b9
+z
+Jsrc/domain_driven_design/restaurant_booking/domain/menu/entities/Dish.java,6\3\636bfe36d0e9b5a93c6ceeb7b3748712867e6185

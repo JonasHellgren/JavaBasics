@@ -7,37 +7,17 @@ together {
   enum DishType
 }
 
-Menu - Dish
-Dish - DishType
+
 
 together {
   abstract BookingRecorder
   entity Booking
   class BookingDate
-}
-
-BookingRecorder - Booking
-Booking - BookingDate
-
-together {
   abstract Bill
   entity BillItem
 }
 
-Bill - BillItem
 
-together {
-  class Price
-  class Receipe
-  class ReceiptItem
-  entity Visitor
-}
-
-Receipe - ReceiptItem
-
-Menu -[hidden]-> BookingRecorder
-BookingRecorder -[hidden]-> Bill
-Bill -[hidden]-> Price
 
 entity Dish {
   UUID id
@@ -47,49 +27,55 @@ entity Dish {
   DishType type
 }
 
+
+
 class  Price #grey {
   Decimal amount
   String currency
 }
 
-entity Visitor {
+entity PayingGuest {
   UUID id
   String name
-  String contactDetails
+  Phonenumber phoneNumber
 }
+
+Menu -> Dish
+Dish -> DishType
+Dish -> Price
+
+BookingRecorder -> Booking
+Booking -down-> Bill
+Booking -> BookingDate
+
+
+Bill -> BillItem
+Menu -[hidden]-> BookingRecorder
+BookingRecorder -[hidden]-> Bill
+
+Booking -> PayingGuest
 
 entity Booking {
   UUID id
-  Visitor visitor
+  PayingGuest guest
   BookingDate bookingDate
   Integer numberOfGuests
-  UUID billId
+  Optional<Bill> bill
+  + addBill(Bill bill)
+  + Bill getBill()
 }
+
+
 
 class BookingDate #grey {
-  DateTime date
+  LocalDate date
+  LocalTime time
 }
-
-
 
 entity BillItem {
   UUID id
   UUID dishId
   Integer quantity
-  Price price
-}
-
-class Receipe #grey {
-  UUID bookingId
-  UUID billId
-  Price totalAmount
-  List<ReceiptItem> items
-}
-
-class ReceiptItem #grey {
-  String dishName
-  Integer quantity
-  Price price
 }
 
 enum DishType {
@@ -100,19 +86,28 @@ enum DishType {
 }
 
 abstract Menu {
-  List<UUID> dishIds
+  Map<UUID,Dish> dishes
+  + void addDish(Dish dish)
+  + List<UUID> getDishIds()
+  + Dish getDish(UUID id)
 }
 
 abstract Bill {
   UUID id
-  Visitor visitor
-  List<UUID> billItems
+  Map<UUID,Bill> billItems
+  + addBillItem(BillItem billItem)
+  + List<UUID> getBillIds()
+  + Bill getBill(UUID id)
 }
 
-abstract BookingRecorder{
-  List<UUID> bookingIds
 
-  void addBooking(UUID bookingId)
+
+abstract BookingRecorder{
+  Map<UUID,Booking> bookings
+  + void addBooking(Booking booking)
+  + void addBillToBooking(UUID id, Bill bill)
+  + List<UUID> getBookingIds()
+  + Booking getBooking(UUID id)
 }
 
 

@@ -1,0 +1,26 @@
+@startuml
+
+class MenuAndBookingEditor #yellow {
+  Menu menu
+  BookingRecorder bookings
+
+  + createMenu(List<Dish> dishes)
+  + void addBooking(Booking booking)
+  + boolean removeBooking(UUID id)
+  + void addBillToBooking(UUID id, Bill bill)
+
+}
+
+class MenuAndBookingInformer #yellow {
+  Menu menu
+  BookingRecorder bookings
+
+    + List<UUID> getDishIds()
+    + Dish getDish(UUID id)
+    + List<UUID> getBookingIds()
+    + Booking getBooking(UUID id)
+    + Bill getBillFromBooking(UUID id)
+    + List<Booking> bookingFromGues(UUID id)
+}
+
+@enduml

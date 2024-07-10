@@ -15,4 +15,18 @@ public class Dish {
     @Builder.Default  String description="";
     Price price;
     @Builder.Default DishType type=DishType.MAIN_COURSE;
+
+    public static Dish mainOfIdNamePriceInEuros(Integer id, String name, double price ) {
+        return Dish.builder().id(id).name(name).price(Price.ofEuro(price)).build();
+    }
+
+    public static Dish beverageOfIdNamePriceInEuros(Integer id, String name, double price ) {
+        return Dish.builder().id(id).name(name).price(Price.ofEuro(price)).type(DishType.BEVERAGE).build();
+    }
+
+    public static Dish dessertOfIdNamePriceInEuros(Integer id, String name, double price ) {
+        return Dish.builder().id(id).name(name).price(Price.ofEuro(price)).type(DishType.DESSERT).build();
+    }
+
+
 }

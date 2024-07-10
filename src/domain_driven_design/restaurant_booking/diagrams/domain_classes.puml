@@ -12,7 +12,7 @@ together {
   entity Booking
   class BookingDate
   abstract Bill
-  entity BillItem
+  class BillItem
 }
 
 entity Dish {
@@ -28,37 +28,21 @@ class  Price #grey {
   String currency
 }
 
-entity PayingGuest {
-  Integer id
+class PayingGuest #grey {
   String name
-  Phonenumber phoneNumber
+  String phoneNumber
 }
 
-Menu -> Dish
-Dish -> DishType
-Dish -> Price
-
-BookingRecorder -> Booking
-Booking -down-> Bill
-Booking -> BookingDate
-
-
-Bill -> BillItem
-Menu -[hidden]-> BookingRecorder
-BookingRecorder -[hidden]-> Bill
-
-Booking -> PayingGuest
 
 entity Booking {
   Integer id
   PayingGuest guest
   BookingDate bookingDate
   Integer numberOfGuests
-  Optional<Bill> bill
-  + addBill(Bill bill)
-  + Bill getBill()
+  Bill bill
+  + setBill(Bill bill)
+  + Optional<Bill> getBill()
 }
-
 
 
 class BookingDate #grey {
@@ -66,11 +50,12 @@ class BookingDate #grey {
   LocalTime time
 }
 
-entity BillItem {
-  Integer id
+class BillItem #grey {
   Integer dishId
   Integer quantity
 }
+
+
 
 enum DishType {
   MAIN_COURSE,
@@ -88,10 +73,10 @@ abstract Menu {
 
 abstract Bill {
   Integer id
-  Map<Integer,Bill> billItems
+  List<BillItem> billItems
   + addBillItem(BillItem billItem)
-  + List<Integer> getBillIds()
-  + Bill getBill(Integer id)
+  + List<BillItem> getBillItems()
+
 }
 
 
@@ -100,10 +85,25 @@ abstract BookingRecorder{
   List<Integer> bookings
   BookingsDB bookingsDb
   + void addBooking(Booking booking)
-  + void addBillToBooking(Integer id, Bill bill)
+  + void setBillOfBooking(Integer id, Bill bill)
   + List<Integer> getBookingIds()
   + Booking getBooking(Integer id)
 }
+
+Menu -> Dish
+Dish -> DishType
+Dish -> Price
+
+BookingRecorder -> Booking
+Booking -down-> Bill
+Booking -> BookingDate
+
+Bill -> BillItem
+Menu -[hidden]-> BookingRecorder
+BookingRecorder -[hidden]-> Bill
+
+Booking -> PayingGuest
+
 
 
 @enduml

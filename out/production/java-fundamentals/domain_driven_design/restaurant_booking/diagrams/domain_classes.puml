@@ -12,11 +12,11 @@ together {
   entity Booking
   class BookingDate
   abstract Bill
-  entity BillItem
+  class BillItem
 }
 
 entity Dish {
-  UUID id
+  Integer id
   String name
   String description
   Price price
@@ -24,14 +24,70 @@ entity Dish {
 }
 
 class  Price #grey {
-  Decimal amount
+  Double amount
   String currency
 }
 
-entity PayingGuest {
-  UUID id
+class PayingGuest #grey {
   String name
-  Phonenumber phoneNumber
+  String phoneNumber
+}
+
+
+entity Booking {
+  Integer id
+  PayingGuest guest
+  BookingDate bookingDate
+  Integer numberOfGuests
+  Bill bill
+  + setBill(Bill bill)
+  + Optional<Bill> getBill()
+}
+
+
+class BookingDate #grey {
+  LocalDate date
+  LocalTime time
+}
+
+class BillItem #grey {
+  Integer dishId
+  Integer quantity
+}
+
+
+
+enum DishType {
+  MAIN_COURSE,
+  DESSERT,
+  BEVERAGE
+}
+
+abstract Menu {
+  List<Integer> dishes
+  DishDB dishDb
+  + void addDish(Dish dish)
+  + List<Integer> getDishIds()
+  + Dish getDish(Integer id)
+}
+
+abstract Bill {
+  Integer id
+  List<BillItem> billItems
+  + addBillItem(BillItem billItem)
+  + List<BillItem> getBillItems()
+
+}
+
+
+
+abstract BookingRecorder{
+  List<Integer> bookings
+  BookingsDB bookingsDb
+  + void addBooking(Booking booking)
+  + void setBillOfBooking(Integer id, Bill bill)
+  + List<Integer> getBookingIds()
+  + Booking getBooking(Integer id)
 }
 
 Menu -> Dish
@@ -42,69 +98,12 @@ BookingRecorder -> Booking
 Booking -down-> Bill
 Booking -> BookingDate
 
-
 Bill -> BillItem
 Menu -[hidden]-> BookingRecorder
 BookingRecorder -[hidden]-> Bill
 
 Booking -> PayingGuest
 
-entity Booking {
-  UUID id
-  PayingGuest guest
-  BookingDate bookingDate
-  Integer numberOfGuests
-  Optional<Bill> bill
-  + addBill(Bill bill)
-  + Bill getBill()
-}
-
-
-
-class BookingDate #grey {
-  LocalDate date
-  LocalTime time
-}
-
-entity BillItem {
-  UUID id
-  UUID dishId
-  Integer quantity
-}
-
-enum DishType {
-  APPETIZER,
-  MAIN_COURSE,
-  DESSERT,
-  BEVERAGE
-}
-
-abstract Menu {
-  List<UUID> dishes
-  DishDB dishDb
-  + void addDish(Dish dish)
-  + List<UUID> getDishIds()
-  + Dish getDish(UUID id)
-}
-
-abstract Bill {
-  UUID id
-  Map<UUID,Bill> billItems
-  + addBillItem(BillItem billItem)
-  + List<UUID> getBillIds()
-  + Bill getBill(UUID id)
-}
-
-
-
-abstract BookingRecorder{
-  List<UUID> bookings
-  BookingsDB bookingsDb
-  + void addBooking(Booking booking)
-  + void addBillToBooking(UUID id, Bill bill)
-  + List<UUID> getBookingIds()
-  + Booking getBooking(UUID id)
-}
 
 
 @enduml

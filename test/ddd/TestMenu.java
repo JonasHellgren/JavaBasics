@@ -1,4 +1,4 @@
-package ddd.restaurant;
+package ddd;
 
 import domain_driven_design.restaurant_booking.domain.menu.Menu;
 import domain_driven_design.restaurant_booking.persistence.factories.MenuDbFactory;

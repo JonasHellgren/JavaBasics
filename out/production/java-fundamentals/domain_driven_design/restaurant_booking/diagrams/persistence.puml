@@ -1,0 +1,14 @@
+@startuml
+
+class DataBase {
++ create(Record record)
++ read(UUID id)
++ delete(UUID id)
+}
+
+
+BookingsDB -up-|> DataBase
+MenuDB -up-|> DataBase
+
+
+@enduml

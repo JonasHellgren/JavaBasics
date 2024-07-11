@@ -1,6 +1,6 @@
 package ddd;
 
-import domain_driven_design.restaurant_booking.persistence.factories.BookingDbFactory;
+import domain_driven_design.persistence.factories.BookingDbFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

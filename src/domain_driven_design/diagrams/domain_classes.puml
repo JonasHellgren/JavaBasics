@@ -1,0 +1,107 @@
+@startuml
+
+
+together {
+  class Menu
+  entity Dish
+  enum DishType
+}
+
+together {
+  abstract BookingRecorder
+  entity Booking
+  class BookingDate
+  abstract Bill
+  class BillItem
+}
+
+entity Dish {
+  Integer id
+  String name
+  String description
+  Price price
+  DishType type
+}
+
+class  Price #grey {
+  Double amount
+  String currency
+}
+
+class PayingGuest #grey {
+  String name
+  String phoneNumber
+}
+
+
+entity Booking {
+  Integer id
+  PayingGuest guest
+  BookingDate bookingDate
+  Integer numberOfGuests
+  Bill bill
+  + setBill(Bill bill)
+  + Optional<Bill> getBill()
+}
+
+
+class BookingDate #grey {
+  LocalDate date
+  LocalTime time
+}
+
+class BillItem #grey {
+  Integer dishId
+  Integer quantity
+}
+
+
+
+enum DishType {
+  MAIN_COURSE,
+  DESSERT,
+  BEVERAGE
+}
+
+abstract Menu {
+  List<Integer> dishes
+  DishDB dishDb
+  + void addDish(Dish dish)
+  + List<Integer> getDishIds()
+  + Dish getDish(Integer id)
+}
+
+class Bill #grey {
+  List<BillItem> billItems
+  + Bill withItem(BillItem billItem)
+}
+
+
+
+abstract BookingRecorder{
+  List<Integer> bookings
+  BookingsDB bookingsDb
+  + void addBooking(Booking booking)
+  + void setBillOfBooking(Integer id, Bill bill)
+  + List<Integer> getBookingIds()
+  + boolean isPresent((Integer id)
+  + Booking getBooking(Integer id)
+}
+
+Menu -> Dish
+Dish -> DishType
+Dish -> Price
+
+BookingRecorder -> Booking
+Booking -down-> Bill
+Booking -> BookingDate
+
+Bill -> BillItem
+Menu -[hidden]-> BookingRecorder
+BookingRecorder -[hidden]-> Bill
+
+Booking -> PayingGuest
+
+
+
+@enduml

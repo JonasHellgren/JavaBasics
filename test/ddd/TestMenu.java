@@ -1,7 +1,7 @@
 package ddd;
 
-import domain_driven_design.restaurant_booking.domain.menu.Menu;
-import domain_driven_design.restaurant_booking.persistence.factories.MenuDbFactory;
+import domain_driven_design.domain.menu.Menu;
+import domain_driven_design.persistence.factories.MenuDbFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

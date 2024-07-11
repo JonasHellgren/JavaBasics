@@ -2,7 +2,6 @@ package domain_driven_design.restaurant_booking.domain.booking_recorder;
 
 import domain_driven_design.restaurant_booking.domain.bill.Bill;
 import domain_driven_design.restaurant_booking.domain.booking_recorder.entities.Booking;
-import domain_driven_design.restaurant_booking.domain.menu.entities.Dish;
 import domain_driven_design.restaurant_booking.persistence.BookingsDB;
 import lombok.AllArgsConstructor;
 
@@ -23,6 +22,10 @@ public class BookingRecorder {
     }
     public Booking getBooking(Integer id) {
         return bookingsDb.read(id);
+    }
+
+    public int nBookings() {
+        return getBookingIds().size();
     }
 
 }

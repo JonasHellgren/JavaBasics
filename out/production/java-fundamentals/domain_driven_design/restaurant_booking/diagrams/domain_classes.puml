@@ -71,12 +71,9 @@ abstract Menu {
   + Dish getDish(Integer id)
 }
 
-abstract Bill {
-  Integer id
+class Bill #grey {
   List<BillItem> billItems
-  + addBillItem(BillItem billItem)
-  + List<BillItem> getBillItems()
-
+  + Bill withItem(BillItem billItem)
 }
 
 

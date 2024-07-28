@@ -35,13 +35,11 @@ public class RestaurantInformer {
     }
 
     public List<Booking> bookingsFromGuest(String name) {
-
         return bookings.getBookingIds().stream()
                 .map(bookings::getBooking)
                 .filter(booking -> booking.getGuest().name().equals(name))
                 .toList();
     }
-
 
     public String recipeOfBooking(Integer id) {
         var booking=getBooking(id);
@@ -70,16 +68,15 @@ public class RestaurantInformer {
     }
 
     private String lineForBillItem(BillItem item) {
-        var dish = menu.getDish(item.dishId());
+        var dish = getDish(item.dishId());
         return "Dish=" + dish.getName() +
                 ", price=" + getPriceOfDish(dish).amount() +
                 ", quant.=" + item.quantity() + System.lineSeparator();
     }
 
-
     private double priceOfBillItem(BillItem item) {
-        var dish = menu.getDish(item.dishId());
-        return item.quantity() * getPriceOfDish(dish).amount();
+        return item.quantity() *
+                getPriceOfDish(getDish(item.dishId())).amount();
     }
 
     private static Price getPriceOfDish(Dish dish) {

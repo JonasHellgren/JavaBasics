@@ -4,7 +4,7 @@ import domain_driven_design.domain.booking_recorder.entities.Booking;
 
 import java.util.*;
 
-public class BookingsDB  implements DataBase<Booking> {
+public class BookingsDB  implements DataBaseI<Booking> {
 
     Map<Integer,Booking> map;
 

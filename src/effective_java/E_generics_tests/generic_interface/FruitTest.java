@@ -1,6 +1,6 @@
 package effective_java.E_generics_tests.generic_interface;
 
-import effective_java.E_generics.generic_interface.*;
+import effective_java.E_generics.example_fruit.*;
 import org.junit.Assert;
 import org.junit.Test;
 

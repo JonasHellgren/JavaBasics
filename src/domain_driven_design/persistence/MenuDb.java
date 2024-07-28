@@ -4,7 +4,7 @@ import domain_driven_design.domain.menu.entities.Dish;
 
 import java.util.*;
 
-public class MenuDb implements DataBase<Dish> {
+public class MenuDb implements DataBaseI<Dish> {
 
     Map<Integer,Dish> map;
 

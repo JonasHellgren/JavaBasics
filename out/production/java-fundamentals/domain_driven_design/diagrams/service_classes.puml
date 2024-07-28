@@ -22,7 +22,8 @@ class RestaurantInformer #yellow {
     + List<Integer> getBookingIds()
     + Booking getBooking(Integer id)
     + Bill getBillFromBooking(Integer id)
-    + List<Booking> bookingFromGues(Integer id)
+    + List<Booking> bookingFromGuest(Integer id)
+    + String recipeOfBooking(Integer id)
 }
 
 @enduml

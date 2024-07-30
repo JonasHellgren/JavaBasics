@@ -327,3 +327,9 @@ t
 Dsrc/effective_java/E_generics/example_fruit_basket/FruitTagName.java,2\2\22532e6d1b8ea0722242d135878fb99e4c708565
 t
 Dsrc/effective_java/E_generics/example_fruit_basket/RunnerBasket.java,c\d\cd45d6f3b34e09b87e58ad7521a291a73313e9a4
+\
+,MavenModule/src/main/java/xls/CreateXls.java,d\6\d686626abd7ac5331bf4bee1ef6025c08b3a78f0
+c
+3MavenModule/src/main/java/apache/xls/CreateXls.java,2\d\2d5ccc10bdf79012ef103099a93244c47ecb03d7
+a
+1MavenModule/src/main/java/apache/xls/ReadXls.java,6\e\6e55d95eb121f1dd341ef0096b5c0084a34498a6

@@ -15,5 +15,8 @@ public class TestRange {
         System.out.println("validSpeeds.contains(20d) = " + validSpeeds.contains(20d));
 
         System.out.println("validGrades.encloses(validGrades) = " + validGrades.encloses(validGrades));
+
+        System.out.println("validSpeeds.lowerEndpoint() = " + validSpeeds.lowerEndpoint());
+        System.out.println("validSpeeds.upperEndpoint() = " + validSpeeds.upperEndpoint());
     }
 }

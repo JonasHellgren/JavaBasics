@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class CreateXls {
 
-    public static final String DIR = "MavenModule/src/main/java/xls_create/";
+    public static final String DIR = "MavenModule/src/main/java/apache/xls";
 
     @SneakyThrows
     public static void main(String[] args) {

@@ -25,9 +25,11 @@ public class TestBuilderCat {
     @Test
     public void testDefaultAge() {
 
+        // no age given, default is 1
+        double weight = 0.2;
         cat= BuilderCat.builder()
                 .name("Donna")
-                .weight(0.2)
+                .weight(weight)
                 .build();
 
         System.out.println("cat = " + cat);

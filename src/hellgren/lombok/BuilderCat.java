@@ -20,5 +20,8 @@ public class BuilderCat {
     public List<String> childs;
 
 
+    public BuilderCat() {
+    }
+
 }
 

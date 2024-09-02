@@ -1,9 +1,8 @@
 package common_project;
 
-import org.example.utilities.list_arrays.MyListUtils;
+import org.hellgren.utilities.list_arrays.MyListUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
 
 /**

@@ -2,7 +2,7 @@ package sockets.timer_swing;
 
 import lombok.SneakyThrows;
 import lombok.extern.java.Log;
-import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.lang.math.RandomUtils;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -37,6 +37,6 @@ class ClientReplier implements Runnable {
 
     private DTO createDto() {
         long currentTime = (System.currentTimeMillis() - this.startTime) / 1000;
-        return new DTO(currentTime,RandomUtils.nextDouble(0,1));
+        return new DTO(currentTime, RandomUtils.nextDouble());
     }
 }

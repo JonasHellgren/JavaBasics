@@ -1,6 +1,7 @@
 package apache.utils;
 
-import org.apache.commons.lang3.time.DurationFormatUtils;
+
+import org.apache.commons.lang.time.DurationFormatUtils;
 
 public class DurationFormatUtilsExample {
     public static void main(String[] args) {

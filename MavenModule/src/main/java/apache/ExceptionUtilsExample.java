@@ -1,6 +1,7 @@
 package apache;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
+
+import org.apache.commons.lang.exception.ExceptionUtils;
 
 public class ExceptionUtilsExample {
     public static void main(String[] args) {

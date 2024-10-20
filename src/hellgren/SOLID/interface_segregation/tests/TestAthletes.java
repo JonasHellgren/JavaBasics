@@ -2,6 +2,7 @@ package hellgren.SOLID.interface_segregation.tests;
 
 import hellgren.SOLID.interface_segregation.classes.*;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class TestAthletes {
     @Test public void athleteIsSwimmmer() {
         AthleteInterface s=new Swimmer("Steve");
         printSwimmer(s);
+        Assertions.assertTrue(s instanceof SwimmerInterface);
     }
 
     @Test public void athleteIsRunner() {

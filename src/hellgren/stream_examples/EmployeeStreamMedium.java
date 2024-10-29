@@ -36,6 +36,7 @@ public class EmployeeStreamMedium {
                 Map.of(Gender.FEMALE, 2000 + 3500,
                         Gender.MALE, 2000 + 2750 + 3100));
         assert highestPaidEmployeeForGender(Gender.MALE, employees).orElseThrow().equals(employee5);
+        assert numberOfEmployeesWithSalaryOver(3000, employees) == 2;
 
         // ...
     }
@@ -72,7 +73,7 @@ public class EmployeeStreamMedium {
                         Collectors.summingInt(e -> e.salary())));
     }
 
-    static double  averageSalaryOfGender(List<Employee> employees, Gender gender) {
+    static double averageSalaryOfGender(List<Employee> employees, Gender gender) {
         return employees.stream()
                 .filter(e -> e.gender() == gender)
                 .mapToDouble(e -> e.salary())
@@ -80,7 +81,7 @@ public class EmployeeStreamMedium {
                 .orElse(0.0);
     }
 
-    static Map<Gender,Long> employeesPerGender(List<Employee> employees) {
+    static Map<Gender, Long> employeesPerGender(List<Employee> employees) {
         return employees.stream()
                 .collect(Collectors.groupingBy(e -> e.gender(),
                         Collectors.counting()));
@@ -96,6 +97,5 @@ public class EmployeeStreamMedium {
         return (int) employees.stream()
                 .filter(e -> e.salary() > threshold)
                 .count();
-
-
+    }
 }

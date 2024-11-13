@@ -9,9 +9,19 @@ import com.tngtech.archunit.lang.ArchCondition;
 import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
 import lombok.NonNull;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.*;
+
+
+/***
+ * skicka hjäölp methoder i JavaCommon
+ */
 
 class CleanCodeTest {
 
@@ -21,7 +31,6 @@ class CleanCodeTest {
     private static final int MAX_PRIVATE_METHODS = 5;
     private static final int MAX_LINES = 200;
     static final String PACKAGE = "mockito.book_repo";
-
 
     private static JavaClasses classes;
 
@@ -200,18 +209,19 @@ class CleanCodeTest {
 
     @Test
     void classesShouldNotExceedMaximumLines() {
-        int maxLines = 2;
+        int maxLines = 150;
         classes()
-                .that().areNotRecords()
-                .should(haveNumberOfLinesLessThanOrEqualTo(maxLines))
+                .should(haveNumberOfLinesLessThanOrEqualTo(maxLines, "src/main/java/"))
                 .check(classes);
     }
 
-    ArchCondition<JavaClass> haveNumberOfLinesLessThanOrEqualTo(int maxLines) {
+    ArchCondition<JavaClass> haveNumberOfLinesLessThanOrEqualTo(int maxLines, final String sourceCodePath) {
         return new ArchCondition<>("have no more than " + maxLines + " lines") {
             @Override
             public void check(JavaClass javaClass, ConditionEvents events) {
-                long count =  10;  //TODO FEL !!!!!!!!!!!!!!!!!
+                var path0= javaClass.getFullName();
+                var path= sourceCodePath +path0.replace(".","/")+".java";
+                long count =  countLines(path);
                 if (count > maxLines) {
                     String message = String.format(
                             "Class %s has %d lines, which exceeds the maximum of %d",
@@ -221,6 +231,14 @@ class CleanCodeTest {
                 }
             }
         };
+    }
+
+    @SneakyThrows
+    public int countLines(String path) {
+        BufferedReader reader = new BufferedReader(new FileReader(path));
+        long count=reader.lines().count();
+        reader.close();
+        return (int) count;
     }
 
 }

@@ -1,6 +1,6 @@
 package medium.properties_via_static_block;
 
-public class  {
+public class RunnerPropertyReader {
 
     public static void main(String[] args) {
 

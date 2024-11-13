@@ -1,7 +1,2 @@
-javax_measure\WaterTank.class
-apache_collection_utils\Address.class
-apache_collection_utils\Customer.class
-java_bean_validation\User$UserBuilder.class
-is_point_inside_rectangel\d.class
-is_point_inside_rectangel\checker\PointInsideRectangleChecker.class
-java_bean_validation\User.class
+META-INF\CompilerHints
+META-INF\BenchmarkList

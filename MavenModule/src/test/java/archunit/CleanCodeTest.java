@@ -25,11 +25,6 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.*;
 
 class CleanCodeTest {
 
-    // Define limits for maximum fields,  methods, private methods, and lines of code
-    private static final int MAX_FIELDS = 5;
-    private static final int MAX_PUBLIC_METHODS = 5;
-    private static final int MAX_PRIVATE_METHODS = 5;
-    private static final int MAX_LINES = 200;
     static final String PACKAGE = "mockito.book_repo";
 
     private static JavaClasses classes;
@@ -138,7 +133,7 @@ class CleanCodeTest {
     void maxParamsInConstructors() {
         final int maxParameters = 3;
         classes()
-                .that().areNotInterfaces()
+                .that().areNotRecords()
                 .should(maxNofParameterCondition(maxParameters)).check(classes);
     }
 
@@ -146,12 +141,35 @@ class CleanCodeTest {
         return new ArchCondition<>("have a constructor with maximum " + maxParameters + " parameters") {
             @Override
             public void check(JavaClass item, ConditionEvents events) {
-                boolean valid = item.getConstructors().stream()
-                        .anyMatch(constructor -> constructor.getParameters().size() <= maxParameters);
+                boolean notValid = item.getConstructors().stream()
+                        .anyMatch(constructor -> constructor.getParameters().size() > maxParameters);
                 String message = item.getDescription()
-                        + (valid ? " has" : " does not have")
+                        + (notValid ? " has" : " does not have")
                         + " a constructor with more than " + maxParameters + " parameters";
-                events.add(new SimpleConditionEvent(item, valid, message));
+                events.add(new SimpleConditionEvent(item, !notValid, message));
+            }
+        };
+    }
+
+    @Test
+    void maxParamsInMethods() {
+        final int maxParameters = 2;
+        classes()
+                .that().areNotRecords()
+                .should(maxNofParameterMethodsCondition(maxParameters)).check(classes);
+    }
+
+    private static @NonNull ArchCondition<JavaClass> maxNofParameterMethodsCondition(int maxParameters) {
+        return new ArchCondition<>("have a method with maximum " + maxParameters + " parameters") {
+            @Override
+            public void check(JavaClass item, ConditionEvents events) {
+                boolean notValid = item.getMethods().stream()
+                        .anyMatch(method -> method.getParameters().size() > maxParameters);
+                System.out.println("notValid = " + notValid);
+                String message = item.getDescription()
+                        + (notValid ? " has" : " does not have")
+                        + " a method with more than " + maxParameters + " parameters";
+                events.add(new SimpleConditionEvent(item, !notValid, message));
             }
         };
     }

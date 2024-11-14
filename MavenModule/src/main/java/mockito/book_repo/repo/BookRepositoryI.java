@@ -1,6 +1,6 @@
 package mockito.book_repo.repo;
 
-import mockito.book_repo.model.Book;
+import mockito.book_repo.domain.Book;
 
 import java.util.Optional;
 

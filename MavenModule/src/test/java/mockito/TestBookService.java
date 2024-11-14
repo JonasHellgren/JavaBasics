@@ -3,7 +3,7 @@ package mockito;
 
 
 import lombok.NonNull;
-import mockito.book_repo.model.Book;
+import mockito.book_repo.domain.Book;
 import mockito.book_repo.repo.BookRepositoryI;
 import mockito.book_repo.service.BookService;
 import org.junit.jupiter.api.Assertions;

@@ -2,14 +2,9 @@ package hellgren.lombok;
 
 import lombok.Cleanup;
 import lombok.SneakyThrows;
-import lombok.extern.flogger.Flogger;
 import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
-import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.FileReader;
 

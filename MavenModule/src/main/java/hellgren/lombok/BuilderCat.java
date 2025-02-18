@@ -1,7 +1,6 @@
 package hellgren.lombok;
 
 import lombok.Builder;
-import lombok.Setter;
 import lombok.Singular;
 import lombok.ToString;
 

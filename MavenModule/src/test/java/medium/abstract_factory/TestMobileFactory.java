@@ -9,7 +9,7 @@ public class TestMobileFactory {
 
      @SneakyThrows
      @Test
-      void givenTBD_whenTBD_thenTBDt() {
+      void testProduceAndroid() {
          String os = "android";
          Mobile mobile = getMobile(os);
          mobile.photo();

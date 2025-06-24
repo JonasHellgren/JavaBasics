@@ -21,8 +21,9 @@ public class TimeClient {
         ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 
         while (true) {
-            TimePacket packet = (TimePacket) in.readObject();
-            SwingUtilities.invokeLater(() -> timeLabel.setText("Time: " + packet.time));
+            var gfxDTO = (GfxDTO) in.readObject();
+            SwingUtilities.invokeLater(()
+                    -> timeLabel.setText("Time: " + gfxDTO.time()));
         }
     }
 
